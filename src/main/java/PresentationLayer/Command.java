@@ -23,7 +23,7 @@ abstract class Command {
         return commands.getOrDefault(targetName, new UnknownCommand() );   // unknowncommand er default.
     }
 
-    abstract String execute( HttpServletRequest request, HttpServletResponse response ) 
-            throws LoginSampleException;
+    abstract String execute( HttpServletRequest request, HttpServletResponse response )
+            throws LoginSampleException, ClassNotFoundException;
 
 }
