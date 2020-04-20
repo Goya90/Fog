@@ -1,7 +1,14 @@
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="FogUtil.Initializer" %><%--
+  Created by IntelliJ IDEA.
+  User: claes
+  Date: 16-03-2020
+  Time: 10:00
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="includes/header.inc"%>
-
+<%@page import="java.text.DecimalFormat" %>
 
 <!DOCTYPE html>
 <html>
@@ -17,6 +24,15 @@
 <div class="container-fluid">
     <div id="navbar-two">
         <div class="row">
+
+            <div class="form-group">
+                <label for="exampleFormControlSelect2">Vælg bredde:</label>
+                <select class="form-control" name="width" id="exampleFormControlSelect2" style="width: 350px">
+                    <c:forEach var="width" items="${applicationScope.widthList}">
+                        <option value="${width.getWidthList()}">MM: ${width.getWidthList()}</option>
+                    </c:forEach>
+                </select>
+            </div>
 
             <div class="col-lg-6 col-md-6">
                 <ul class="nav">
