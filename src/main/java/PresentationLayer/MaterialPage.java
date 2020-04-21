@@ -13,11 +13,11 @@ public class MaterialPage extends Command {
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, ClassNotFoundException {
         HttpSession session = request.getSession();
         ArrayList<Material> materialList = null;
-        try {
+        /*try {
             materialList = LogicFacade.showMaterials();
         } catch (LoginSampleException e) {
             e.printStackTrace();
-        }
+        }*/
         request.setAttribute("materialList", materialList);
         return "materialPage";
     }
