@@ -35,8 +35,8 @@ public class LogicFacade {
         return DimensionMapper.getHeightList();
     }
 
-    public static ArrayList<Material> showMaterials() throws LoginSampleException, ClassNotFoundException {
-        return MaterialMapper.getMaterials();
+    public static Material showMaterial(int materialId) throws LoginSampleException, ClassNotFoundException {
+        return MaterialMapper.getMaterial(materialId);
     }
 
 

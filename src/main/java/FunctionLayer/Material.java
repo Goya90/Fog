@@ -1,38 +1,80 @@
 package FunctionLayer;
 
 public class Material {
-    private int materialID;
-    private String materialName;
-    private String materialUnit;
-    private String materialDescription;
-    public Material(int materialID, String materialName, String materialUnit, String materialDescription) {
-        this.materialID = materialID;
-        this.materialName = materialName;
-        this.materialUnit = materialUnit;
-        this.materialDescription = materialDescription;
+    private int id;
+    private String category;
+    private String name;
+    private String description;
+    private int quantity;
+    private int length;
+    private Double price = 0.0;
+
+    public Material(int id, String category, String name, String description, int quantity, int length, Double price) {
+        this.id = id;
+        this.category = category;
+        this.name = name;
+        this.description = description;
+        this.quantity = quantity;
+        this.length = length;
+        this.price = price;
     }
-    public int getMaterialID() {
-        return materialID;
+
+    public Material() {
     }
-    public void setMaterialID(int materialID) {
-        this.materialID = materialID;
+
+    public int getId() {
+        return id;
     }
-    public String getMaterialName() {
-        return materialName;
+
+    public void setId(int id) {
+        this.id = id;
     }
-    public void setMaterialName(String materialName) {
-        this.materialName = materialName;
+
+    public String getCategory() {
+        return category;
     }
-    public String getMaterialUnit() {
-        return materialUnit;
+
+    public void setCategory(String category) {
+        this.category = category;
     }
-    public void setMaterialUnit(String materialUnit) {
-        this.materialUnit = materialUnit;
+
+    public String getName() {
+        return name;
     }
-    public String getMaterialDescription() {
-        return materialDescription;
+
+    public void setName(String name) {
+        this.name = name;
     }
-    public void setMaterialDescription(String materialDescription) {
-        this.materialDescription = materialDescription;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    public void setLength(int length) {
+        this.length = length;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
     }
 }
