@@ -16,7 +16,13 @@ public class Calculator {
 
     ArrayList<Material> bom = new ArrayList<>();
 
-public ArrayList<Material> bomCalculator (int width, int length, int height) throws LoginSampleException, ClassNotFoundException {
+    public Calculator(int width, int height, int length) {
+        width = this.width;
+        height = this.height;
+        length = this.length;
+    }
+
+    public ArrayList<Material> bomCalculator (int width, int length, int height) throws LoginSampleException, ClassNotFoundException {
 
     if (width == 0 || length == 0 || height == 0) {
         //TODO: returner fejlbesked

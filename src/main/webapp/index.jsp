@@ -30,6 +30,8 @@
 
 
             <div class="form-group">
+                <form name="AddDimensionsCommand" action="FrontController" method="POST">
+                    <input type="hidden" name="target" value="AddDimensionsCommand">
                 <label for="exampleFormControlSelect1">Vælg bredde:</label>
                 <select class="form-control" name="width" id="exampleFormControlSelect1" style="width: 350px">
                     <c:forEach var="width" items="${applicationScope.width}">
