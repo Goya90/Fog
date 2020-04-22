@@ -24,6 +24,20 @@ public ArrayList<Material> bomCalculator (int width, int length, int height) thr
 
     //Tilføjer materiale ID 1:
     addMaterial1();
+    addMaterial2();
+    addMaterial3();
+    addMaterial6();
+    addMaterial7();
+    addMaterial2();
+    addMaterial14();
+    addMaterial18();
+    addMaterial22();
+    addMaterial23();
+    addMaterial24();
+    addMaterial25();
+    addMaterial27();
+    addMaterial28();
+
 
     return bom;
 }
@@ -78,6 +92,15 @@ public void addMaterial1 () throws LoginSampleException, ClassNotFoundException 
         bom.add(mat);
     }
 
+    public void addMaterial6 () throws LoginSampleException, ClassNotFoundException {
+        int materialId = 6;
+        int fixedQuantity = 2;
+        Material mat = LogicFacade.showMaterial(materialId);
+        mat.setLength(carportLength);
+        mat.setQuantity(fixedQuantity);
+        bom.add(mat);
+    }
+
     //Materiale ID 7 bliver tilføjet:
     public void addMaterial7 () throws LoginSampleException, ClassNotFoundException {
         int materialId = 7;
@@ -91,6 +114,37 @@ public void addMaterial1 () throws LoginSampleException, ClassNotFoundException 
         bom.add(mat);
     }
 
+    public void addMaterial14 () throws LoginSampleException, ClassNotFoundException {
+        //Antal: ((carport længde + 600) x (bredde+600)) / 1000000)
+        int materialId = 14;
+        int fixedNumber = 600;
+        int divisor = 1000000;
+        Material mat = LogicFacade.showMaterial(materialId);
+        mat.setQuantity(((carportLength+fixedNumber) * (carportWidth+fixedNumber))/divider);
+        bom.add(mat);
+    }
+
+    public void addMaterial18 () throws LoginSampleException, ClassNotFoundException {
+        //Antal: (carport længde x bredde) / 1000000 / 15
+        int materialId = 18;
+        int fixedNumber = 1000000;
+        int divisor = 15;
+        Material mat = LogicFacade.showMaterial(materialId);
+        mat.setQuantity((carportLength*carportWidth)/fixedNumber/divider);
+        bom.add(mat);
+    }
+
+    public void addMaterial22 () throws LoginSampleException, ClassNotFoundException {
+        //Antal: (carport længde x bredde) / 1000000 / 25
+        int materialId = 22;
+        int fixedNumber = 1000000;
+        int divisor = 25;
+        Material mat = LogicFacade.showMaterial(materialId);
+        mat.setQuantity(((carportLength*carportWidth)/fixedNumber)/divisor);
+        bom.add(mat);
+    }
+
+
     //Materiale ID 23 bliver tilføjet:
     public void addMaterial23 () throws LoginSampleException, ClassNotFoundException {
         int materialId = 23;
@@ -101,6 +155,15 @@ public void addMaterial1 () throws LoginSampleException, ClassNotFoundException 
         mat.setLength(0); //TODO: skal length sættes?
         mat.setQuantity(carportLength / distance);
 
+        bom.add(mat);
+    }
+
+    public void addMaterial24 () throws LoginSampleException, ClassNotFoundException {
+        //Antal: carport længde / 500
+        int materialId = 24;
+        int divisor = 500;
+        Material mat = LogicFacade.showMaterial(materialId);
+        mat.setQuantity(carportLength/divisor);
         bom.add(mat);
     }
 
@@ -134,6 +197,16 @@ public void addMaterial1 () throws LoginSampleException, ClassNotFoundException 
         mat.setLength(0); //TODO: skal length sættes?
         mat.setQuantity(fixedQuantity);
 
+        bom.add(mat);
+    }
+
+    public void addMaterial28 () throws LoginSampleException, ClassNotFoundException {
+        //Antal: (carport længde x bredde) / 1000000 / 25
+        int materialId = 28;
+        int fixedNumber = 1000000;
+        int divisor = 25;
+        Material mat = LogicFacade.showMaterial(materialId);
+        mat.setQuantity(((carportLength*carportWidth)/fixedNumber)/divisor);
         bom.add(mat);
     }
 
