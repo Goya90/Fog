@@ -3,6 +3,11 @@ package FogUtil;
 import FunctionLayer.LogicFacade;
 
 import java.util.List;
+/**
+ * Initializer provides methods that provide data for populating dropdown lists(with carport elements) on .jsp pages,
+ * at system startup. The methods call methods in the FacadeLogic class as part of the facade pattern.
+ * @author claes
+ */
 
 public class Initializer {
 
