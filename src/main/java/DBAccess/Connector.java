@@ -21,6 +21,7 @@ public class Connector {
         singleton = con;
     }
 
+    //Singleton, the same connection is used across the application
     public static Connection connection() throws ClassNotFoundException, SQLException {
         if ((singleton == null) || singleton.isClosed()) {
             setDBCredentials();
@@ -30,6 +31,8 @@ public class Connector {
         return singleton;
     }
 
+
+    //For use when application deployed in the sky (using env file), or localhost
     public static void setDBCredentials() {
         String deployed = System.getenv("DEPLOYED");
         if (deployed != null){
@@ -41,7 +44,7 @@ public class Connector {
             // Localhost
             URL = "jdbc:mysql://localhost:3306/fog?serverTimezone=CET&useSSL=false";
             USERNAME = "root";
-            PASSWORD = "root";
+            PASSWORD = "Rufbtr11@";
         }
     }
 }
