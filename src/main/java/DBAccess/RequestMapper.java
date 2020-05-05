@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class RequestMapper {
 
-
+    //Enters a CustomerRequest object into DB
     public static void createRequest(CustomerRequest request) throws LoginSampleException {
         try {
             Connection con = Connector.connection();

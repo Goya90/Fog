@@ -25,10 +25,11 @@ public class Request extends Command {
         String mail = request.getParameter("mail");
         String comments = request.getParameter("comments");
 
+        //Creates a CustomerRequest object from the values chosen and ntered by the customer
         CustomerRequest custreq = new CustomerRequest(name,telno,mail,comments,width,length,height,flatRoof,roofMaterial,shedLength,shedWidth);
-
+        //Sends the new CustomerRequest object to DB via facade
         LogicFacade.createRequest(custreq);
-
+        //sets the atributes needed to show a confirmation of the chosen carport specifications on page "confirmation"
         request.getServletContext().setAttribute("width", width);
         request.getServletContext().setAttribute("height", height);
         request.getServletContext().setAttribute("length", length);
@@ -37,7 +38,7 @@ public class Request extends Command {
         request.getServletContext().setAttribute("shedWidth", shedWidth);
         request.getServletContext().setAttribute("shedLength", shedLength);
         request.getServletContext().setAttribute("comments", comments);
-
+        //Sends the customer to the page showing the the details of his chosen carport
         return "confirmation";
     }
 }

@@ -16,15 +16,16 @@ public class ShowRequests extends Command {
 
         HttpSession session = request.getSession();
 
-        ArrayList<CustomerRequest> reqList = null;
+        ArrayList<CustomerRequest> reqList = null; //creates a list of CustomerRequests to be shown on the jsp
         try {
-            reqList = LogicFacade.newRequests();
+            reqList = LogicFacade.newRequests(); //Enters the unhandled requests selected from db into the list
         } catch (LoginSampleException e) {
             e.printStackTrace();
         }
 
-        request.setAttribute("reqlist", reqList);
+        request.setAttribute("reqlist", reqList);//Sets the attribute "reqlist" on jsp to the list created above
 
+        //Sends the user to the jsp showing unhandled requests
         return "showRequests";
     }
 }

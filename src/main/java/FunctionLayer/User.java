@@ -8,17 +8,12 @@ public class User {
 
     private int id; // just used to demo retrieval of autogen keys in UserMapper
     private String email;
-    private String password; // Should be hashed and secured
+    private String password;
 
+    //Creates a user with 2 parameters
     public User( String email, String password) {
         this.email = email;
         this.password = password;
-    }
-
-    public User( String email, String password, int id) {
-        this.email = email;
-        this.password = password;
-        this.id = id;
     }
 
     public String getEmail() {
