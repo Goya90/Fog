@@ -15,7 +15,7 @@ public class CustomerRequest {
     int shedl;
     int shedw;
 
-    //Constructor, kreerer et request objekt ud fra valgte drop-down værdier+kunde indtastning, 3 forskellige sæt parametre
+    //Creates an object from the values chosen and entered by the customer in the .jsp pages
     public CustomerRequest(String name, int telno, String email, String comments, int width, int length, int height,
                            boolean flatRoof, String roofMat, int shedl, int shedw) {
         this.name = name;
@@ -30,7 +30,7 @@ public class CustomerRequest {
         this.shedl = shedl;
         this.shedw = shedw;
     }
-
+    //used to create an object on the showRequests jsp page
     public CustomerRequest(int reqId, String name, int telno, String email, String comments, int width, int length,
                            int height, boolean flatRoof, String roofMat, int shedl, int shedw) {
         this.reqId = reqId;
@@ -45,14 +45,6 @@ public class CustomerRequest {
         this.roofMat = roofMat;
         this.shedl = shedl;
         this.shedw = shedw;
-    }
-
-    public CustomerRequest(String name, String email, int width, int length, int height) {
-        this.name = name;
-        this.email = email;
-        this.width = width;
-        this.length = length;
-        this.height = height;
     }
 
     public void setReqId(int reqId) {
