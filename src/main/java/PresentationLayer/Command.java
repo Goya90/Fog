@@ -17,6 +17,9 @@ abstract class Command {
         commands.put( "redirect", new Redirect());
         commands.put( "AddDimensionsCommand", new AddDimensionsCommand() );
         commands.put("drawing", new Drawing());
+        commands.put("request", new Request());
+        commands.put("unknowncommand", new UnknownCommand());
+        commands.put("showRequests", new ShowRequests());
     }
 
     static Command from( HttpServletRequest request ) {
