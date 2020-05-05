@@ -113,4 +113,12 @@
     </div>
 </div>
 
+<form action="FrontController" method="POST">
+    <input type="hidden" name="target" value="drawing">
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary">Vis tegning</button>
+    </div>
+</form>
+
+
 <%@include file="includes/footer.inc"%>

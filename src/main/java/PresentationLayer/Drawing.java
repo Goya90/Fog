@@ -14,10 +14,8 @@ public class Drawing extends Command {
         int width = ((int) request.getServletContext().getAttribute("width")/10);
         int length = ((int) request.getServletContext().getAttribute("length")/10);
 
-        /*request.getServletContext().setAttribute("width", width);
-        request.getServletContext().setAttribute("length", length);
-*/
-        Svg svg = new Svg(width, length, "0,0,800,600",0,0);
+        String viewbox = "0,0,"+width+","+length;
+        Svg svg = new Svg(width, length, viewbox,0,0);
         svg.addRect(0,0,length,width);
 
         //Diverse variable:
