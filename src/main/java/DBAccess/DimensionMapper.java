@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 public class DimensionMapper {
+
+    //Returns the possible carport widths (in cm) from the database
     public static ArrayList<Integer> getWidthList() throws ClassNotFoundException, LoginSampleException {
         String sql = "SELECT width FROM fog.width;";
         ArrayList<Integer> widthList = new ArrayList<>();
@@ -27,6 +29,8 @@ public class DimensionMapper {
         System.out.println(widthList);
         return widthList;
     }
+
+    //Returns the possible carport lengths (in cm) from the database
     public static ArrayList<Integer> getLengthList() throws ClassNotFoundException, LoginSampleException {
         String sql = "SELECT * FROM fog.length;";
         ArrayList<Integer> lengthList = new ArrayList<>();
@@ -46,6 +50,8 @@ public class DimensionMapper {
         }
         return lengthList;
     }
+
+    //Returns the possible carport heights (in cm) from the database
     public static ArrayList<Integer> getHeightList() throws ClassNotFoundException, LoginSampleException {
         String sql = "SELECT * FROM fog.height;";
         ArrayList<Integer> heightList = new ArrayList<>();
@@ -66,6 +72,7 @@ public class DimensionMapper {
         return heightList;
     }
 
+    //Returns the possible shed lengths (in cm) from the database
     public static ArrayList<Integer> getShedLengthList() throws ClassNotFoundException, LoginSampleException {
         String sql = "SELECT * FROM fog.shedlength;";
         ArrayList<Integer> shedLengthList = new ArrayList<>();
@@ -86,6 +93,7 @@ public class DimensionMapper {
         return shedLengthList;
     }
 
+    //Returns the possible shed widths (in cm) from the database
     public static ArrayList<Integer> getShedWidthList() throws ClassNotFoundException, LoginSampleException {
         String sql = "SELECT * FROM fog.shedwidth;";
         ArrayList<Integer> shedWidthList = new ArrayList<>();
