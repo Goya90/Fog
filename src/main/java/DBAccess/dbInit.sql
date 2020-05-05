@@ -2,6 +2,14 @@ CREATE DATABASE  IF NOT EXISTS `fog`;
 
 use fog;
 
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+                         `userId` int NOT NULL AUTO_INCREMENT,
+                         `email` varchar(90) NOT NULL,
+                         `password` varchar(40) NOT NULL,
+                         PRIMARY KEY (`userId`)
+);
+
 DROP TABLE IF EXISTS `width`;
 CREATE TABLE `width` (
                          `widthId` int NOT NULL AUTO_INCREMENT,
@@ -39,6 +47,37 @@ CREATE TABLE `shedwidth` (
                              `shedWidth` int NOT NULL,
                              PRIMARY KEY (`shedWidthId`)
 );
+DROP TABLE IF EXISTS `materials`;
+
+CREATE TABLE `materials` (
+                             `materialId` int NOT NULL AUTO_INCREMENT, `category` varchar(255) NOT NULL, `name` varchar(255), `description`
+                                          varchar(255), `price` double, primary key (`materialId`));
+
+DROP TABLE IF EXISTS `cust_request`;
+
+CREATE TABLE `cust_request` (
+                                `reqId` int NOT NULL AUTO_INCREMENT, `name` varchar(255) NOT NULL, `tel_no` int, `email`
+                                        varchar(255), `comments` varchar(255), `width` int,  `length` int,  `height` int,
+                                `flatRoof` boolean, `roofMaterial` varchar(255), `shed_length` int, `shed_width` int,
+                                `processed` boolean, primary key (`reqId`));
+
+
+insert into cust_request (name, tel_no, email, comments, width, length, height, flatRoof, roofMaterial, shed_length, shed_width, processed)
+values ('Ole Olsen',11223344,'ole@gmail.com','',2400,2800,2000,true,'Plastmo sort',
+        null,null,false);
+insert into cust_request (name, tel_no, email, comments, width, length, height, flatRoof, roofMaterial, shed_length, shed_width, processed)
+values ('Per Jensen',99887766,'per@gmail.com','',4400,3800,2200,false,'Tagsten sort',
+        2800,2400,false);
+insert into cust_request (name, tel_no, email, comments, width, length, height, flatRoof, roofMaterial, shed_length, shed_width, processed)
+values ('Niels Hansen',66554433,'niels@gmail.com','Kan jeg få tagpap på taget?',4400,4800,2400,true,'Plastmo hvid',
+        null,null,true);
+insert into cust_request (name, tel_no, email, comments, width, length, height, flatRoof, roofMaterial, shed_length, shed_width, processed)
+values ('Thomas Brodersen',98765432,'thomas@gmail.com','',7800,6000,2200,false,'Tagpap sort',
+        3800,3400,true);
+
+insert into users (email, password) VALUES ('test', 'test');
+insert into users (email, password) VALUES ('admin', 'admin');
+
 insert into shedwidth (shedWidth) values (2400);
 insert into shedwidth (shedWidth) values (3400);
 insert into shedlength (shedLength) values (2800);
@@ -61,12 +100,6 @@ insert into roofMaterial (roofMaterial, flatRoof) values ('Plastmo hvid', 1);
 insert into roofMaterial (roofMaterial, flatRoof) values ('Tagsten sort', 0);
 insert into roofMaterial (roofMaterial, flatRoof) values ('Tagpap sort', 0);
 insert into roofMaterial (roofMaterial, flatRoof) values ('Trapez plast sort', 0);
-
-DROP TABLE IF EXISTS `materials`;
-
-CREATE TABLE `materials` (
-                             `materialId` int NOT NULL AUTO_INCREMENT, `category` varchar(255) NOT NULL, `name` varchar(255), `description`
-                                          varchar(255), `price` double, primary key (`materialId`));
 
 insert into materials (category, name, description, price) VALUES
 ('Træ','25x200 mm. trykimp.bræt','Stern vandbræt sider', 50);
