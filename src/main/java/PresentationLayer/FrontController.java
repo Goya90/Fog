@@ -26,14 +26,14 @@ public class FrontController extends HttpServlet {
         try {
             Command action = Command.from( request );
             String view = action.execute( request, response );
-            if (view.equals("index")) {
+            if (view.equals("index") || view.equals("confirmation") || view.equals("slantedRoof")) {
                 request.getRequestDispatcher(view + ".jsp").forward(request,response);
             } else {
-                //SKAL BRUGES NÅR VI TILFØJER LOGIN: request.getRequestDispatcher("/WEB-INF/" + view + ".jsp").forward(request, response);
-                request.getRequestDispatcher(view + ".jsp").forward(request,response);
+                request.getRequestDispatcher("/WEB-INF/" + view + ".jsp").forward(request, response);
+                //request.getRequestDispatcher(view + ".jsp").forward(request,response); //Bruges når WEB-INF ikke er i brug
 
             }
-            } catch (LoginSampleException | ClassNotFoundException ex ) {
+        } catch (LoginSampleException | ClassNotFoundException ex ) {
             request.setAttribute( "error", ex.getMessage() );
             request.getRequestDispatcher( "login.jsp" ).forward( request, response );
         }
@@ -79,4 +79,3 @@ public class FrontController extends HttpServlet {
     }// </editor-fold>
 
 }
-
