@@ -2,6 +2,7 @@ package FunctionLayer;
 
 import DBAccess.DimensionMapper;
 import DBAccess.MaterialMapper;
+import DBAccess.RequestMapper;
 import DBAccess.UserMapper;
 
 import java.util.ArrayList;
@@ -55,6 +56,12 @@ public class LogicFacade {
     }
     public static ArrayList<Integer> showShedWidths() throws LoginSampleException, ClassNotFoundException {
         return DimensionMapper.getShedWidthList();
+    }
+    public static void createRequest(CustomerRequest request) throws LoginSampleException {
+        RequestMapper.createRequest(request);
+    }
+    public static ArrayList<CustomerRequest> newRequests() throws LoginSampleException {
+        return RequestMapper.showNewRequests();
     }
 
 
