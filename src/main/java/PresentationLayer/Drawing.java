@@ -11,14 +11,20 @@ public class Drawing extends Command {
 
         String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException {
 
+        //Højde og bredde for den valgte carport hentes
         int width = ((int) request.getServletContext().getAttribute("width")/10);
         int length = ((int) request.getServletContext().getAttribute("length")/10);
 
+        //Viewbox størrelse bliver afhængig af carport størrelse, så tegningen får en passende størrelse
         String viewbox = "0,0,"+width+","+length;
+
+        //SVG klassen kaldes med carport dimensionerne
         Svg svg = new Svg(width, length, viewbox,0,0);
+
+        //Rammen på tegningen tilføjes
         svg.addRect(0,0,length,width);
 
-        //Diverse variable:
+        //Diverse variable instantieres
         int x = 0;
         int y;
         int thickness;
