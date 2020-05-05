@@ -21,7 +21,6 @@ public class AddDimensionsCommand extends Command {
         int length = Integer.parseInt(request.getParameter("length"));
         boolean flatRoof = Boolean.parseBoolean(request.getParameter("flatRoof"));
         String roofMaterial = request.getParameter("roofMaterial");
-
         int shedWidth = Integer.parseInt(request.getParameter("shedWidth"));
         int shedLength = Integer.parseInt(request.getParameter("shedLength"));
 
