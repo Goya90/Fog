@@ -38,28 +38,23 @@
 %>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Slanted roof</title>
+    <title>Flat roof</title>
 </head>
 <body>
-
-
 <br>
 <br>
-
-<h3>Design carport med rejsning</h3>
-
+<h3>Design carport med fladt tag</h3>
 <br>
 <a href="FrontController?target=redirect&destination=index">Eller gå til carport med fladt tag</a>
 <br>
 <br>
-
 <div class="container-fluid">
     <div id="navbar-two">
         <div class="row">
 
             <div class="form-group">
                 <form action="FrontController" method="POST">
-                    <input type="hidden" name="target" value="AddDimensionsCommand">
+                    <input type="hidden" name="target" value="request">
                     <label for="exampleFormControlSelect1">Vælg bredde:</label>
                     <select class="form-control" name="width" id="exampleFormControlSelect1" style="width: 350px">
                         <c:forEach var="width" items="${applicationScope.width}">
@@ -93,12 +88,10 @@
                             </c:forEach>
                         </select>
                     </div>
-                    <input type="hidden" name="flatRoof" value="false"/>
-
 
                     <br>
                     <div class="form-group">
-                        <label for="exampleFormControlSelect5">Vælg bredde til redskabsrum:</label>
+                        <label for="exampleFormControlSelect1">Vælg bredde til redskabsrum:</label>
                         <select class="form-control" name="shedWidth" id="exampleFormControlSelect5" style="width: 350px">
                             <option value="0" selected>Ønsker ikke redskabsrum </option>
                             <c:forEach var="shedWidth" items="${applicationScope.shedWidth}">
@@ -109,7 +102,7 @@
 
 
                     <div class="form-group">
-                        <label for="exampleFormControlSelect6">Vælg længde til redskabsrum:</label>
+                        <label for="exampleFormControlSelect1">Vælg længde til redskabsrum:</label>
                         <select class="form-control" name="shedLength" id="exampleFormControlSelect6" style="width: 350px">
                             <option value="0" selected>Ønsker ikke redskabsrum </option>
                             <c:forEach var="shedLength" items="${applicationScope.shedLength}">
@@ -123,8 +116,27 @@
                     <h7>NB: Længde og bredde til redskabsrum skal være mindst 30 cm kortere end længde og bredde til carporten</h7>
                     <br>
                     <br>
+                    <br>
+                    <h3>Indtast dine kontakt detaljer:</h3>
+                    <div class="form-group">
+                        <label for="name">Navn</label>
+                        <input type="text" class="form-control" name="name" id="name" placeholder="Dit navn">
+                    </div>
+                    <div class="form-group">
+                        <label for="mail">Email addresse</label>
+                        <input type="email" class="form-control" name="mail" id="mail" placeholder="Din E-mail">
+                    </div>
+                    <div class="form-group">
+                        <label for="telno">Telefonnummer</label>
+                        <input type="text" class="form-control" name="telno" id="telno" placeholder="Dit telefonnr">
+                    </div>
+                    <div class="form-group">
+                        <label for="comments">Kommentarer</label>
+                        <input type="text" class="form-control" name="comments" id="comments" style="height:100px">
+                    </div>
+                    <br>
                     <div class="text-center">
-                        <button type="submit" class="btn btn-primary">Beregn materialeliste</button>
+                        <button type="submit" class="btn btn-primary">Send forespørgsel</button>
                     </div>
 
                 </form>
@@ -132,32 +144,8 @@
         </div>
     </div>
 
-    <!--
-    <body>
-    <h3>Kontakt detaljer</h3>
-    <div class="container">
-        <form action="/action_page.php">
-            <label for="fornavn">Fornavn</label>
-            <input type="text" id="fornavn" name="firstname" placeholder="Dit fornavn">
-            <label for="efternavn">Efternavn</label>
-            <input type="text" id="efternavn" name="lastname" placeholder="Dit efternavn">
-            <label for="vej">Vejnavn</label>
-            <input type="text" id="vej" name="street" placeholder="Vejnavn">
-            <label for="husnummer">Husnummer</label>
-            <input type="text" id="husnummer" name="streetno" placeholder="Husnummer">
-            <label for="postnr">Postnummer</label>
-            <input type="text" id="postnr" name="postnr" placeholder="Postnr">
-            <label for="tlfnr">Telefon nr</label>
-            <input type="text" id="tlfnr" name="tlfnr" placeholder="Tlfnr">
-            <label for="mail">Email</label>
-            <input type="email" id="mail" name="mail" placeholder="Email">
-            </select>
-            <label for="Kommentar">Bemærkninger</label>
-            <textarea id="Kommentar" name="Kommentar" placeholder="Din kommentar" style="height:200px"></textarea>
-            <input type="submit" value="Send">
-        </form>
 
-        -->
+
 </div>
 </body>
 
