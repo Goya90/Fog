@@ -79,7 +79,7 @@
                     <div class="form-group">
                         <label for="exampleFormControlSelect4">Vælg materiale til tag:</label>
                         <select class="form-control" name="roofMaterial" id="exampleFormControlSelect4" style="width: 350px">
-                            <c:forEach var="roofMaterial" items="${roofMaterial}">
+                            <c:forEach var="roofMaterial" items="${applicationScope.roofMaterial}">
                                 <option value="${roofMaterial}">${roofMaterial}</option>
                             </c:forEach>
                         </select>
@@ -145,17 +145,13 @@
 </div>
 
 <form name="login" action="FrontController" method="POST">
-
     ${requestScope.error}
-
-
     <input type="hidden" name="target" value="login">
 
     <label for="email">Email:</label>
     <input id="email" type="text" name="email" value="" align="left">
     <label for="password">Password:</label>
     <input id="password" type="password" name="password" value="" align="left">
-
     <input type="submit" value="Log ind">
 
 </form>
