@@ -38,12 +38,12 @@
 %>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Flat roof</title>
+    <title>Slanted roof</title>
 </head>
 <body>
 <br>
 <br>
-<h3>Design carport med fladt tag</h3>
+<h3>Design carport med tag med rejsning</h3>
 <br>
 <a href="FrontController?target=redirect&destination=index">Eller gå til carport med fladt tag</a>
 <br>
@@ -83,7 +83,7 @@
                     <div class="form-group">
                         <label for="exampleFormControlSelect4">Vælg materiale til tag:</label>
                         <select class="form-control" name="roofMaterial" id="exampleFormControlSelect4" style="width: 350px">
-                            <c:forEach var="roofMaterial" items="${roofMaterial}">
+                            <c:forEach var="roofMaterial" items="${applicationScope.roofMaterial}">
                                 <option value="${roofMaterial}">${roofMaterial}</option>
                             </c:forEach>
                         </select>
