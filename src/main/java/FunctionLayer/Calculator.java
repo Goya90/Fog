@@ -439,10 +439,13 @@ public class Calculator {
 
         calculatedQuantity = ((carportLength / distanceBetweenEach) * 2 * 4) + (((carportLength * carportWidth) / convertMM2ToM2 / multiplier) * 100);
 
-        if (minimumQuantity > calculatedQuantity) {
+        //NB!!! Tilføjet da pakkestørrelse er 250 styk.
+        int calculatedQuantity2 = calculatedQuantity / 250;
+
+        if (minimumQuantity > calculatedQuantity2) {
             mat.setQuantity(minimumQuantity);
         } else {
-            mat.setQuantity(calculatedQuantity);
+            mat.setQuantity(calculatedQuantity2);
         }
 
         mat.setPrice(mat.getQuantity()*mat.getPrice());
