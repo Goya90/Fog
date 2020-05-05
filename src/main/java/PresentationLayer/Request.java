@@ -1,13 +1,13 @@
 package PresentationLayer;
 
+import FunctionLayer.CustomerRequest;
 import FunctionLayer.LogicFacade;
 import FunctionLayer.LoginSampleException;
-import FunctionLayer.CustomerRequest;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class Request extends Command{
+public class Request extends Command {
 
 
     @Override
