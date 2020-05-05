@@ -32,7 +32,7 @@ public class MaterialMapper {
         return materialList;
     }
     */
-
+    //returns a material object from db using the material id
     public static Material getMaterial(int materialId) throws ClassNotFoundException, LoginSampleException {
         String sql = "SELECT * FROM fog.materials WHERE materialId = ?;";
         //Der skal ændres i SQL-statementet
@@ -59,6 +59,7 @@ public class MaterialMapper {
         return material;
     }
 
+    //Returns material names only for carports with flat roof, from database
     public static ArrayList<String> getFlatRoofMaterialList() throws ClassNotFoundException, LoginSampleException {
         String sql = "SELECT * FROM fog.roofmaterial where flatRoof = true;";
         ArrayList<String> RoofMaterialList = new ArrayList<>();
@@ -79,6 +80,7 @@ public class MaterialMapper {
         return RoofMaterialList;
     }
 
+    //Returns material names only for carports with slanted roof, from database
     public static ArrayList<String> getSlantedRoofMaterialList() throws ClassNotFoundException, LoginSampleException {
         String sql = "SELECT * FROM fog.roofmaterial WHERE flatRoof = false;";
         ArrayList<String> RoofMaterialList = new ArrayList<>();
@@ -99,6 +101,7 @@ public class MaterialMapper {
         return RoofMaterialList;
     }
 
+    //Returns material names for either flat or slanted roof, depending on flat roof true or false
     public static ArrayList<String> getRoofMaterials(boolean roof) throws ClassNotFoundException, LoginSampleException {
         ArrayList<String> RoofMaterialList = new ArrayList<>();
 

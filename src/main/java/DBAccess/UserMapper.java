@@ -9,12 +9,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
- The purpose of UserMapper is to...
+ The purpose of UserMapper is to create users in DB and check credentials in DB when logging in
 
- @author kasper
+ @author claes
  */
 public class UserMapper {
 
+    //Creates a new user in DB from a User input and assigns the users id
     public static void createUser( User user ) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
@@ -34,6 +35,7 @@ public class UserMapper {
         }
     }
 
+    //Returns a user defined by the users credentials (email and password), if those are wrong, error message is returned
     public static User login( String email, String password ) throws LoginSampleException {
         try {
             Connection con = Connector.connection();

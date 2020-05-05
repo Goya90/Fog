@@ -5,8 +5,14 @@ import FunctionLayer.LoginSampleException;
 
 import java.sql.*;
 import java.util.ArrayList;
+/**
+ The purpose of Requestmapper is to create new requests from drop-down and customer data entry
+ as well as getting stored requests from DB.
+ @author claes
+ */
 
 public class RequestMapper {
+
 
     public static void createRequest(CustomerRequest request) throws LoginSampleException {
         try {
@@ -35,6 +41,8 @@ public class RequestMapper {
             throw new LoginSampleException( ex.getMessage() );
         }
     }
+
+    //Creates and returns a list of unprocessed customerRequests from the database
     public static ArrayList<CustomerRequest> showNewRequests() throws LoginSampleException {
         ArrayList<CustomerRequest> newRequestsList = new ArrayList<>();
         try {
@@ -66,31 +74,4 @@ public class RequestMapper {
 
         return newRequestsList;
     }
-
-    public static ArrayList<CustomerRequest> showNewRequests2() throws LoginSampleException {
-        ArrayList<CustomerRequest> newRequestsList = new ArrayList<>();
-        try {
-            Connection con = Connector.connection();
-            String SQL = "SELECT name,email,width,length,height FROM cust_request;";
-            PreparedStatement ps = con.prepareStatement(SQL);
-            ResultSet rs = ps.executeQuery();
-            CustomerRequest req = null;
-            while (rs.next()) {
-
-                String name = rs.getString("name");
-                String email = rs.getString("email");
-                int width = rs.getInt("width");
-                int length = rs.getInt("length");
-                int height = rs.getInt("height");
-                req = new CustomerRequest(name,email,width,length,height);
-                newRequestsList.add(req);
-            }
-
-        } catch (ClassNotFoundException | SQLException ex) {
-            throw new LoginSampleException(ex.getMessage());
-        }
-
-        return newRequestsList;
-    }
-
 }
