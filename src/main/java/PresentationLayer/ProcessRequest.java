@@ -12,13 +12,10 @@ public class ProcessRequest extends Command {
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, ClassNotFoundException {
 
         int id = (int) request.getServletContext().getAttribute("reqID");
-        //int id = Integer.parseInt(request.getParameter("reqID"));
 
         double price = (double) request.getServletContext().getAttribute("total");
 
         LogicFacade.updateRequest(price,id);
-
-
 
         return "adminpage";
     }

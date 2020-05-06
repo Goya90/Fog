@@ -17,21 +17,6 @@ public class BillOfMaterials extends Command {
 
         CustomerRequest custreq = LogicFacade.showRequest(reqID);
 
-        /*int width = Integer.parseInt(request.getParameter("width"));
-        int height = Integer.parseInt(request.getParameter("height"));
-        int length = Integer.parseInt(request.getParameter("length"));
-        boolean flatRoof = Boolean.parseBoolean(request.getParameter("flatRoof"));
-        String roofMaterial = request.getParameter("roofMaterial");
-        int shedWidth = Integer.parseInt(request.getParameter("shedWidth"));
-        int shedLength = Integer.parseInt(request.getParameter("shedLength"));
-
-
-        request.getServletContext().setAttribute("flatRoof", flatRoof);
-        request.getServletContext().setAttribute("roofMaterial", roofMaterial);
-        request.getServletContext().setAttribute("shedWidth", shedWidth);
-        request.getServletContext().setAttribute("shedLength", shedLength);
-        */
-
         Calculator cal = new Calculator();
 
         ArrayList<Material> bom = cal.bomCalculator(custreq.getWidth(), custreq.getLength(), custreq.getHeight(),
@@ -45,7 +30,7 @@ public class BillOfMaterials extends Command {
             total += mat.getPrice();
         }
 
-        String formattedTotal = df.format(total);
+        //String formattedTotal = df.format(total);
 
 
         request.getServletContext().setAttribute("width", custreq.getWidth());

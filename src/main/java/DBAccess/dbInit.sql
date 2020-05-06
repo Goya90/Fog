@@ -64,16 +64,16 @@ CREATE TABLE `cust_request` (
 
 insert into cust_request (name, tel_no, email, comments, width, length, height, flatRoof, roofMaterial, shed_length, shed_width, processed)
 values ('Ole Olsen',11223344,'ole@gmail.com','',2400,2800,2000,true,'Plastmo sort',
-        null,null,false,null);
+        null,null,false);
 insert into cust_request (name, tel_no, email, comments, width, length, height, flatRoof, roofMaterial, shed_length, shed_width, processed)
 values ('Per Jensen',99887766,'per@gmail.com','',4400,3800,2200,false,'Tagsten sort',
-        2800,2400,false,null);
+        2800,2400,false);
 insert into cust_request (name, tel_no, email, comments, width, length, height, flatRoof, roofMaterial, shed_length, shed_width, processed)
 values ('Niels Hansen',66554433,'niels@gmail.com','Kan jeg få tagpap på taget?',4400,4800,2400,true,'Plastmo hvid',
-        null,null,true,null);
+        null,null,true);
 insert into cust_request (name, tel_no, email, comments, width, length, height, flatRoof, roofMaterial, shed_length, shed_width, processed)
 values ('Thomas Brodersen',98765432,'thomas@gmail.com','',7800,6000,2200,false,'Tagpap sort',
-        3800,3400,true,null);
+        3800,3400,true);
 
 insert into users (email, password) VALUES ('test', 'test');
 insert into users (email, password) VALUES ('admin', 'admin');
