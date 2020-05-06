@@ -15,11 +15,12 @@ abstract class Command {
         commands.put( "login", new Login() );
         commands.put( "register", new Register() );
         commands.put( "redirect", new Redirect());
-        commands.put( "AddDimensionsCommand", new AddDimensionsCommand() );
+        commands.put( "billofmaterials", new BillOfMaterials() );
         commands.put("drawing", new Drawing());
         commands.put("request", new Request());
         commands.put("unknowncommand", new UnknownCommand());
         commands.put("showRequests", new ShowRequests());
+        commands.put("processrequest", new ProcessRequest());
     }
 
     static Command from( HttpServletRequest request ) {
