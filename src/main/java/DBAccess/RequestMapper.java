@@ -74,4 +74,45 @@ public class RequestMapper {
 
         return newRequestsList;
     }
+    public static CustomerRequest getRequestFromID(int id) throws LoginSampleException {
+        CustomerRequest req = null;
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT width,length,height,flatRoof,roofMaterial,shed_length,shed_width FROM cust_request where reqId = ?;";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setString(1, "" + id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int width = rs.getInt("width");
+                int length = rs.getInt("length");
+                int height = rs.getInt("height");
+                boolean flatRoof = rs.getBoolean("flatRoof");
+                String material = rs.getString("roofMaterial");
+                int shedlength = rs.getInt("shed_length");
+                int shedwidth = rs.getInt("shed_width");
+                req = new CustomerRequest(width,length,height,flatRoof,material,shedlength,shedwidth);
+
+            }
+
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new LoginSampleException(ex.getMessage());
+        }
+
+        return req;
+    }
+
+    public static void processRequest(double price, int id) throws LoginSampleException {
+        try {
+            Connection con = Connector.connection();
+            String SQL = "UPDATE cust_request SET processed = true, price = ? where reqId = ?;";
+            PreparedStatement ps = con.prepareStatement( SQL );
+            //ps.setInt(1,id);
+            ps.setDouble(1,price);
+            ps.setInt(2,id);
+            ps.executeUpdate();
+
+        } catch ( SQLException | ClassNotFoundException ex ) {
+            throw new LoginSampleException( ex.getMessage() );
+        }
+    }
 }
