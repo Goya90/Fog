@@ -8,15 +8,13 @@
 <h3 class="text-left">Vælg funktion nedenfor:</h3>
 <br>
 
-
 <h3>Velkommen ${sessionScope.email} </h3>
 <br>
 <form name="showRequests" method="post" action="FrontController">
     <input type="hidden" name="target" value="showRequests">
     <input id="showRequests" type="submit" name="showRequests" value="Vis kundeforespørgsler">
 </form>
-
-
+<br>
 
 </body>
 <%@include file="../includes/footer.inc"%>

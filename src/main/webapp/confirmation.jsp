@@ -17,8 +17,8 @@
 <br>
 <h2 style="text-align:center">Tak for din bestilling</h2>
 <br>
-<br>
 <h4>Du har valgt en carport med følgende mål:</h4>
+<br>
 <br>
 <h5>Højde: ${applicationScope.height} cm</h5>
 <br>
@@ -36,6 +36,9 @@
 <br>
 <br>
 <h4 style="text-align:center">Tak for din forespørgsel, vi vender tilbage til dig hurtigst muligt.</h4>
+<br>
+
 
 </body>
+
 <%@include file="includes/footer.inc"%>

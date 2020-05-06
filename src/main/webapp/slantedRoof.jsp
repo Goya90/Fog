@@ -1,10 +1,11 @@
+<%@ page import="FunctionLayer.LogicFacade" %>
 <%@ page import="FogUtil.Initializer" %>
+<%@ page import="FunctionLayer.LoginSampleException" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="includes/header.inc"%>
-
 <%
-    boolean roof2 = false;
+    boolean roof = false;
 
     if (request.getServletContext().getAttribute("width") == null) {
         request.getServletContext().setAttribute("width", Initializer.getWidthsList());
@@ -21,25 +22,13 @@
     if (request.getServletContext().getAttribute("shedWidth") == null) {
         request.getServletContext().setAttribute("shedWidth", Initializer.getShedWidthsList());
     }
-    //request.setAttribute("flatRoof", false);
     request.getServletContext().setAttribute("flatRoof", false);
-    //if (request.getServletContext().getAttribute("roofMaterial") != null) {
-    //request.setAttribute("roofMaterial", Initializer.getRoofMaterialType(roof2));
-    //request.getServletContext().setAttribute("roofMaterial", Initializer.getRoofMaterialType((boolean)request.getServletContext().getAttribute("flatRoof")));
-    //request.getServletContext().setAttribute("roofMaterial", Initializer.getRoofMaterialType(roof2));
-    request.getServletContext().setAttribute("roofMaterial", Initializer.getSlantedRoofMaterialType());
-
-
-
-    //}
-    /*session.removeAttribute("flatRoof");*/
-    //request.getServletContext().setAttribute("flatRoof", false);
-
+    try {
+        request.getServletContext().setAttribute("roofMaterial", LogicFacade.showRoofMaterialList(roof));
+    } catch (LoginSampleException | ClassNotFoundException e) {
+        e.printStackTrace();
+    }
 %>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Slanted roof</title>
-</head>
 <body>
 <br>
 <br>
@@ -55,16 +44,16 @@
             <div class="form-group">
                 <form action="FrontController" method="POST">
                     <input type="hidden" name="target" value="request">
-                    <label for="exampleFormControlSelect1">Vælg bredde:</label>
-                    <select class="form-control" name="width" id="exampleFormControlSelect1" style="width: 350px">
+                    <label for="width">Vælg bredde:</label>
+                    <select class="form-control" name="width" id="width" style="width: 350px">
                         <c:forEach var="width" items="${applicationScope.width}">
                             <option value="${width}">${width} mm.</option>
                         </c:forEach>
                     </select>
 
                     <div class="form-group">
-                        <label for="exampleFormControlSelect2">Vælg længde:</label>
-                        <select class="form-control" name="length" id="exampleFormControlSelect2" style="width: 350px">
+                        <label for="length">Vælg længde:</label>
+                        <select class="form-control" name="length" id="length" style="width: 350px">
                             <c:forEach var="length" items="${applicationScope.length}">
                                 <option value="${length}">${length} mm.</option>
                             </c:forEach>
@@ -72,8 +61,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleFormControlSelect3">Vælg højde:</label>
-                        <select class="form-control" name="height" id="exampleFormControlSelect3" style="width: 350px">
+                        <label for="height">Vælg højde:</label>
+                        <select class="form-control" name="height" id="height" style="width: 350px">
                             <c:forEach var="height" items="${applicationScope.height}">
                                 <option value="${height}">${height} mm.</option>
                             </c:forEach>
@@ -81,18 +70,17 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleFormControlSelect4">Vælg materiale til tag:</label>
-                        <select class="form-control" name="roofMaterial" id="exampleFormControlSelect4" style="width: 350px">
+                        <label for="roofMaterial">Vælg materiale til tag:</label>
+                        <select class="form-control" name="roofMaterial" id="roofMaterial" style="width: 350px">
                             <c:forEach var="roofMaterial" items="${applicationScope.roofMaterial}">
                                 <option value="${roofMaterial}">${roofMaterial}</option>
                             </c:forEach>
                         </select>
                     </div>
 
-                    <br>
                     <div class="form-group">
-                        <label for="exampleFormControlSelect1">Vælg bredde til redskabsrum:</label>
-                        <select class="form-control" name="shedWidth" id="exampleFormControlSelect5" style="width: 350px">
+                        <label for="shedWidth">Vælg bredde til redskabsrum:</label>
+                        <select class="form-control" name="shedWidth" id="shedWidth" style="width: 350px">
                             <option value="0" selected>Ønsker ikke redskabsrum </option>
                             <c:forEach var="shedWidth" items="${applicationScope.shedWidth}">
                                 <option value="${shedWidth}">${shedWidth} mm.</option>
@@ -100,10 +88,9 @@
                         </select>
                     </div>
 
-
                     <div class="form-group">
-                        <label for="exampleFormControlSelect1">Vælg længde til redskabsrum:</label>
-                        <select class="form-control" name="shedLength" id="exampleFormControlSelect6" style="width: 350px">
+                        <label for="shedLength">Vælg længde til redskabsrum:</label>
+                        <select class="form-control" name="shedLength" id="shedLength" style="width: 350px">
                             <option value="0" selected>Ønsker ikke redskabsrum </option>
                             <c:forEach var="shedLength" items="${applicationScope.shedLength}">
                                 <option value="${shedLength}">${shedLength} mm.</option>
@@ -113,7 +100,7 @@
 
 
                     <br>
-                    <h7>NB: Længde og bredde til redskabsrum skal være mindst 30 cm kortere end længde og bredde til carporten</h7>
+                    <h6>NB: Længde og bredde til redskabsrum skal være mindst 30 cm kortere end længde og bredde til carporten</h6>
                     <br>
                     <br>
                     <br>
@@ -144,9 +131,6 @@
         </div>
     </div>
 
-
-
 </div>
 </body>
-
 <%@include file="includes/footer.inc"%>

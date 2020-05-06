@@ -36,24 +36,32 @@
             </thead>
             <tbody>
 
-                <c:forEach var="request" items="${requestScope.reqlist}">
-                    <tr>
-                        <td>${request.reqId}</td>
-                        <td>${request.name}</td>
-                        <td>${request.telno}</td>
-                        <td>${request.email}</td>
-                        <td>${request.comments}</td>
-                        <td>${request.width}</td>
-                        <td>${request.length}</td>
-                        <td>${request.height}</td>
-                        <td>${request.flatRoof}</td>
-                        <td>${request.roofMat}</td>
-                        <td>${request.shedl}</td>
-                        <td>${request.shedw}</td>
-            </tr>
+            <c:forEach var="request" items="${requestScope.reqlist}">
+                <tr>
+                    <td>${request.reqId}</td>
+                    <td>${request.name}</td>
+                    <td>${request.telno}</td>
+                    <td>${request.email}</td>
+                    <td>${request.comments}</td>
+                    <td>${request.width}</td>
+                    <td>${request.length}</td>
+                    <td>${request.height}</td>
+                    <td>${request.flatRoof}</td>
+                    <td>${request.roofMat}</td>
+                    <td>${request.shedl}</td>
+                    <td>${request.shedw}</td>
+                </tr>
             </c:forEach>
             </tbody>
         </table>
+        <br>
+        <h3>Vis materialeliste for ordre:</h3>
+        <form name="billofmaterials" action="FrontController" method="POST">
+            <label for="reqID">Ordre nr:</label>
+            <input type="hidden" name="target" value="billofmaterials">
+            <input id="reqID" type="text" name="reqID" value="" align="left">
+            <input type="submit" value="Vis materialeliste">
+        </form>
 
 
         <div class="text-center">

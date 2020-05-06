@@ -1,7 +1,8 @@
+
 <%@ page import="FogUtil.Initializer" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@include file="includes/header.inc"%>
+<%@include file="../includes/header.inc"%>
 <head>
     <title>Tegning</title>
 </head>
@@ -15,6 +16,8 @@
 ${requestScope.svgdrawing}
 <br>
 
+<a href="FrontController?target=redirect&destination=index">Til forsiden</a>
+
 </body>
-<%@include file="includes/footer.inc"%>
+<%@include file="../includes/footer.inc"%>
 
