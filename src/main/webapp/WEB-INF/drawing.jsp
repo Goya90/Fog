@@ -9,13 +9,9 @@
 <body>
 <h1>Tegning af carport</h1>
 <br>
-<h3>Ydre mål:</h3>
-<br>
-<h5>Højde: ${applicationScope.height} cm, bredde: ${applicationScope.width} cm, længde: ${applicationScope.length} cm</h5>
-<br>
 ${requestScope.svgdrawing}
 <br>
-
+<br>
 <a href="FrontController?target=redirect&destination=index">Til forsiden</a>
 
 </body>

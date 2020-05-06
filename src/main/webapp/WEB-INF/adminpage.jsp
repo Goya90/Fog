@@ -3,18 +3,21 @@
 <%@include file="../includes/header.inc"%>
 <body>
 
-<h1 class="mt-4 text-center">Medarbejderside, Fogs carporte</h1>
+<h1 class="mt-4 text-center">Medarbejderside</h1>
+<h3>Velkommen ${sessionScope.email}! </h3>
 <br>
-<h3 class="text-left">Vælg funktion nedenfor:</h3>
 <br>
-
-<h3>Velkommen ${sessionScope.email} </h3>
+<h5 class="text-left">Vælg funktion nedenfor:</h5>
 <br>
 <form name="showRequests" method="post" action="FrontController">
     <input type="hidden" name="target" value="showRequests">
     <input id="showRequests" type="submit" name="showRequests" value="Vis kundeforespørgsler">
 </form>
 <br>
+
+<div class="text-center">
+    <a href="FrontController?target=redirect&destination=index">Tilbage</a>
+</div>
 
 </body>
 <%@include file="../includes/footer.inc"%>

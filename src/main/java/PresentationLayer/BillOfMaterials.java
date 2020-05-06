@@ -36,6 +36,8 @@ public class BillOfMaterials extends Command {
         request.getServletContext().setAttribute("width", custreq.getWidth());
         request.getServletContext().setAttribute("height", custreq.getHeight());
         request.getServletContext().setAttribute("length", custreq.getLength());
+        request.getServletContext().setAttribute("shedWidth", custreq.getShedw());
+        request.getServletContext().setAttribute("shedLength", custreq.getShedl());
         request.getServletContext().setAttribute("reqID", reqID);
         request.getServletContext().setAttribute("total", total);
 

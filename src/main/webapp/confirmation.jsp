@@ -38,6 +38,9 @@
 <h4 style="text-align:center">Tak for din forespørgsel, vi vender tilbage til dig hurtigst muligt.</h4>
 <br>
 
+<div class="text-center">
+    <a href="FrontController?target=redirect&destination=index">Til forsiden</a>
+</div>
 
 </body>
 

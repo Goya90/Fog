@@ -78,10 +78,10 @@ values ('Thomas Brodersen',98765432,'thomas@gmail.com','',7800,6000,2200,false,'
 insert into users (email, password) VALUES ('test', 'test');
 insert into users (email, password) VALUES ('admin', 'admin');
 
+insert into shedwidth (shedWidth) values (1400);
 insert into shedwidth (shedWidth) values (2400);
-insert into shedwidth (shedWidth) values (3400);
-insert into shedlength (shedLength) values (2800);
-insert into shedlength (shedLength) values (3800);
+insert into shedlength (shedLength) values (1500);
+insert into shedlength (shedLength) values (1800);
 
 insert into height (height) values (2000);
 insert into height (height) values (2200);

@@ -65,10 +65,7 @@
 
 
         <div class="text-center">
-            <a href="FrontController?target=redirect&destination=employeepage">Til medarbejdersiden</a>
-        </div>
-        <div class="text-center">
-            <a href="FrontController?target=redirect&destination=adminpage">Til adminsiden</a>
+            <a href="FrontController?target=redirect&destination=employeepage">Tilbage</a>
         </div>
     </div>
 </div>

@@ -33,7 +33,6 @@
 <br>
 <br>
 <h3>Design carport med fladt tag</h3>
-<br>
 <a href="FrontController?target=redirect&destination=slantedRoof">Eller gå til carport med rejsning</a>
 <br>
 <br>
@@ -97,11 +96,6 @@
                             </c:forEach>
                         </select>
                     </div>
-
-
-                    <br>
-                    <h6>NB: Længde og bredde til redskabsrum skal være mindst 30 cm kortere end længde og bredde til carporten</h6>
-                    <br>
                     <br>
                     <br>
                     <h3>Indtast dine kontakt detaljer:</h3>
@@ -130,18 +124,21 @@
             </div>
         </div>
     </div>
+    <br>
+    <br>
+    <br>
+    <h4>Log ind som medarbejder:</h4>
+    <br>
+    <form name="login" action="FrontController" method="POST">
+        ${requestScope.error}
+        <input type="hidden" name="target" value="login">
 
+        <label for="email">Email:</label>
+        <input id="email" type="text" name="email" value="" align="left">
+        <label for="password">Password:</label>
+        <input id="password" type="password" name="password" value="" align="left">
+        <input type="submit" value="Log ind">
 </div>
-<form name="login" action="FrontController" method="POST">
-    ${requestScope.error}
-    <input type="hidden" name="target" value="login">
-
-    <label for="email">Email:</label>
-    <input id="email" type="text" name="email" value="" align="left">
-    <label for="password">Password:</label>
-    <input id="password" type="password" name="password" value="" align="left">
-    <input type="submit" value="Log ind">
-
 </form>
 </body>
 <%@include file="includes/footer.inc"%>
