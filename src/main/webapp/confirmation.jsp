@@ -37,7 +37,15 @@
 <br>
 <h4 style="text-align:center">Tak for din forespørgsel, vi vender tilbage til dig hurtigst muligt.</h4>
 <br>
-
+<br>
+<%request.getServletContext().setAttribute("width", null);
+    request.getServletContext().setAttribute("length", null);
+    request.getServletContext().setAttribute("height", null);
+    request.getServletContext().setAttribute("roofMaterial", null);
+    request.getServletContext().setAttribute("shedWidth", null);
+    request.getServletContext().setAttribute("shedLength", null);
+    %>
+<a href="FrontController?target=redirect&destination=index">Tilbage til forsiden</a>
 
 </body>
 
