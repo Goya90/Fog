@@ -4,6 +4,7 @@ import DBAccess.DimensionMapper;
 import DBAccess.MaterialMapper;
 import DBAccess.RequestMapper;
 import DBAccess.UserMapper;
+import PresentationLayer.Request;
 
 import java.util.ArrayList;
 
@@ -63,6 +64,10 @@ public class LogicFacade {
     public static ArrayList<CustomerRequest> newRequests() throws LoginSampleException {
         return RequestMapper.showNewRequests();
     }
-
-
+    public static CustomerRequest showRequest(int id) throws LoginSampleException {
+        return RequestMapper.getRequestFromID(id);
+    }
+    public static void updateRequest(double price, int id) throws LoginSampleException {
+        RequestMapper.processRequest(price,id);
+    }
 }

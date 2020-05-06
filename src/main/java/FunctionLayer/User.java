@@ -15,6 +15,11 @@ public class User {
         this.email = email;
         this.password = password;
     }
+    public User( String email, String password, int id) {
+        this.email = email;
+        this.password = password;
+        this.id = id;
+    }
 
     public String getEmail() {
         return email;
