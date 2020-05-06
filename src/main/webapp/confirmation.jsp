@@ -45,7 +45,9 @@
     request.getServletContext().setAttribute("shedWidth", null);
     request.getServletContext().setAttribute("shedLength", null);
     %>
-<a href="FrontController?target=redirect&destination=index">Tilbage til forsiden</a>
+<div class="text-center">
+    <a href="FrontController?target=redirect&destination=index">Tilbage til forsiden</a>
+</div>
 
 </body>
 

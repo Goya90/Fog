@@ -16,7 +16,9 @@
 ${requestScope.svgdrawing}
 <br>
 
-<a href="FrontController?target=redirect&destination=index">Til forsiden</a>
+<div class="text-center">
+    <a href="FrontController?target=redirect&destination=adminpage">Til adminsiden</a>
+</div>
 
 </body>
 <%@include file="../includes/footer.inc"%>
