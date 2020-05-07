@@ -101,7 +101,7 @@
         </table>
     </div>
 </div>
-<!--
+
 <h5 class="text-right">Samlet pris: ${applicationScope.total} kr inklusiv moms
     <br>
 
@@ -112,7 +112,7 @@
         <div class="text-left">
             <button type="submit" class="btn btn-primary">Opdater kundeforespørgsel</button>
         </div>
-    </form> -->
+    </form>
     <br>
     <br>
 <form action="FrontController" method="POST">
