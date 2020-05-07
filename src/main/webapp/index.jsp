@@ -138,8 +138,9 @@
         <label for="password">Password:</label>
         <input id="password" type="password" name="password" value="" align="left">
         <input type="submit" value="Log ind">
+    </form>
 </div>
-</form>
+
 </body>
 <%@include file="includes/footer.inc"%>
 
