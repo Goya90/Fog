@@ -107,15 +107,15 @@
                     <h3>Indtast dine kontakt detaljer:</h3>
                     <div class="form-group">
                         <label for="name">Navn</label>
-                        <input type="text" class="form-control" name="name" id="name" placeholder="Dit navn">
+                        <input type="text" class="form-control" name="name" id="name" placeholder="Dit navn" required>
                     </div>
                     <div class="form-group">
                         <label for="mail">Email addresse</label>
-                        <input type="email" class="form-control" name="mail" id="mail" placeholder="Din E-mail">
+                        <input type="email" class="form-control" name="mail" id="mail" placeholder="Din E-mail" required>
                     </div>
                     <div class="form-group">
                         <label for="telno">Telefonnummer</label>
-                        <input type="text" class="form-control" name="telno" id="telno" placeholder="Dit telefonnr">
+                        <input type="tel" class="form-control" name="telno" id="telno" placeholder="Dit telefonnr" pattern="[0-9]{8}" required>
                     </div>
                     <div class="form-group">
                         <label for="comments">Kommentarer</label>
@@ -131,6 +131,15 @@
         </div>
     </div>
 
+<<<<<<< HEAD
+=======
+        <label for="email">Email:</label>
+        <input id="email" type="text" name="email" value="" align="left" required>
+        <label for="password">Password:</label>
+        <input id="password" type="password" name="password" value="" align="left" required>
+        <input type="submit" value="Log ind">
+    </form>
+>>>>>>> db0376548923ac042891d86d7c2191975c174123
 </div>
 <br>
 <a href="FrontController?target=redirect&destination=login">Til medarbejderlogin</a>
