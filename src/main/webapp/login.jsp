@@ -1,4 +1,3 @@
-<%@ page import="FunctionLayer.LogicFacade" %>
 <%@ page import="FunctionLayer.LoginSampleException" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -49,6 +48,8 @@
             </div>
     </form>
     <h2>   ${requestScope.error} </h2>
+    <br>
+    <a href="FrontController?target=redirect&destination=index">Til forsiden</a>
 </div>
 </body>
 <%@include file="includes/footer.inc"%>

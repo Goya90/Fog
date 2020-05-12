@@ -29,7 +29,7 @@
             </thead>
             <tbody>
             <tr>
-            <c:forEach var="material" items="${requestScope.materialList}">
+            <c:forEach var="material" items="${sessionScope.materialList}">
                 <c:if test="${material.category=='Træ'}">
                     <td>${material.category}</td>
                     <td>${material.name}</td>
@@ -58,7 +58,7 @@
             </thead>
             <tbody>
             <tr>
-            <c:forEach var="material" items="${requestScope.materialList}">
+            <c:forEach var="material" items="${sessionScope.materialList}">
                 <c:if test="${material.category=='Beslag & skruer'}">
                     <td>${material.category}</td>
                     <td>${material.name}</td>
@@ -87,7 +87,7 @@
             </thead>
             <tbody>
             <tr>
-            <c:forEach var="material" items="${requestScope.materialList}">
+            <c:forEach var="material" items="${sessionScope.materialList}">
                 <c:if test="${material.category=='Tagpakken'}">
                     <td>${material.category}</td>
                     <td>${material.name}</td>
