@@ -130,16 +130,6 @@
             </div>
         </div>
     </div>
-
-<<<<<<< HEAD
-=======
-        <label for="email">Email:</label>
-        <input id="email" type="text" name="email" value="" align="left" required>
-        <label for="password">Password:</label>
-        <input id="password" type="password" name="password" value="" align="left" required>
-        <input type="submit" value="Log ind">
-    </form>
->>>>>>> db0376548923ac042891d86d7c2191975c174123
 </div>
 <br>
 <a href="FrontController?target=redirect&destination=login">Til medarbejderlogin</a>
