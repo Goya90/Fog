@@ -113,6 +113,8 @@
     <form action="FrontController" method="POST">
         <input type="hidden" name="target" value="processrequest">
         <div class="text-left">
+            <label for="newprice">Ny pris:</label>
+            <input id="newprice" type="text" name="newprice" value="">
             <button type="submit" class="btn btn-primary">Opdater kundeforespørgsel</button>
         </div>
     </form>
