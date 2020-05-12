@@ -22,6 +22,7 @@ abstract class Command {
         commands.put("unknowncommand", new UnknownCommand());
         commands.put("showRequests", new ShowRequests());
         commands.put("processrequest", new ProcessRequest());
+        commands.put("logout", new Logout());
     }
 
     static Command from( HttpServletRequest request ) {
