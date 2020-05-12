@@ -92,26 +92,26 @@ public class DimensionMapperTest {
     @Test
     public void testLengthList() throws LoginSampleException, ClassNotFoundException {
         ArrayList<Integer> lengthList = DimensionMapper.getLengthList();
-        assertThat(lengthList, hasSize(3));
-        assertThat(lengthList, contains(2800, 3800, 4800));
+        assertThat(lengthList, hasSize(4));
+        assertThat(lengthList, contains(2800, 3800, 4800, 6000));
     }
         @Test
         public void testWidthList() throws LoginSampleException, ClassNotFoundException {
             ArrayList<Integer> widthList = DimensionMapper.getWidthList();
-            assertThat(widthList, hasSize(3));
-            assertThat(widthList, contains(2400, 3400, 4400));
+            assertThat(widthList, hasSize(4));
+            assertThat(widthList, contains(2400, 3400, 4400, 7800));
         }
     @Test
     public void testShedWidthList() throws LoginSampleException, ClassNotFoundException {
         ArrayList<Integer> shedWidthList = DimensionMapper.getShedWidthList();
         assertThat(shedWidthList, hasSize(2));
-        assertThat(shedWidthList, contains(2400, 3400));
+        assertThat(shedWidthList, contains(1400, 2400));
     }
     @Test
     public void testShedLengthList() throws LoginSampleException, ClassNotFoundException {
         ArrayList<Integer> shedLengthList = DimensionMapper.getShedLengthList();
         assertThat(shedLengthList, hasSize(2));
-        assertThat(shedLengthList, contains(2800, 3800));
+        assertThat(shedLengthList, contains(1500, 1800));
     }
 
         }
