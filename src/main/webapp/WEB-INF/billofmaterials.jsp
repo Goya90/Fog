@@ -106,6 +106,9 @@
     <br>
 
    <h3>Behandl kundeforespørgsel:</h3>
+    <h2>   ${requestScope.error} </h2>
+    <br>
+    <h2>Hvis du vil ændre prisen på kundetilbuddet, indtast den nye pris. Hvis ikke, så lad feltet være tomt.</h2>
     <br>
     <form action="FrontController" method="POST">
         <input type="hidden" name="target" value="processrequest">

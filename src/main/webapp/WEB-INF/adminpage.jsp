@@ -14,10 +14,13 @@
     <input id="showRequests" type="submit" name="showRequests" value="Vis kundeforespørgsler">
 </form>
 <br>
-
 <div class="text-center">
-    <a href="FrontController?target=redirect&destination=index">Tilbage</a>
+    <form name="logout" method="post" action="FrontController">
+        <input type="hidden" name="target" value="logout">
+        <button type="submit" class="btn btn-primary">Log af</button>
+    </form>
 </div>
+
 
 </body>
 <%@include file="../includes/footer.inc"%>

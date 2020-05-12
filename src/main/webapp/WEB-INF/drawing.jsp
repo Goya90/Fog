@@ -16,6 +16,14 @@ ${requestScope.svgdrawing}
 <br>
 <br>
 <a href="FrontController?target=redirect&destination=adminpage">Til admin.siden</a>
+<%
+    request.getServletContext().setAttribute("width", null);
+    request.getServletContext().setAttribute("length", null);
+    request.getServletContext().setAttribute("height", null);
+    request.getServletContext().setAttribute("roofMaterial", null);
+    request.getServletContext().setAttribute("shedWidth", null);
+    request.getServletContext().setAttribute("shedLength", null);
+%>
 
 </body>
 <%@include file="../includes/footer.inc"%>
