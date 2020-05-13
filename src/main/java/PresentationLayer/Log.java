@@ -6,8 +6,8 @@ import java.util.logging.*;
 
 public class Log {
 
-    private static final String FILENAME = "demo.log";
-    private static final String FILEPATH = "C:\\Users\\claes\\Desktop\\Temp\\log";
+    private static final String FILENAME = "log.log";
+    private static final String FILEPATH = "C:/Datamatiker/2.semester/Fog/src/main/java/DBAccess/";
 
     //private static final String FILEPATH = "/var/log/tomcat8/";
     private static final String PATH = FILEPATH + FILENAME;
