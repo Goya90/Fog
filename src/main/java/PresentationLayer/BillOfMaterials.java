@@ -20,9 +20,10 @@ public class BillOfMaterials extends Command {
 
         Calculator cal = new Calculator();
 
-        ArrayList<Material> bom = cal.bomCalculator(custreq.getWidth(), custreq.getLength(), custreq.getHeight(),
-                custreq.isFlatRoof(), custreq.getRoofMat(), custreq.getShedw(), custreq.getShedl());
+        ArrayList<Material> bom;
 
+        bom = cal.bomCalculator(custreq.getWidth(), custreq.getLength(), custreq.getHeight(),
+                custreq.isFlatRoof(), custreq.getRoofMat(), custreq.getShedw(), custreq.getShedl());
 
         Double total = 0.0;
 
@@ -35,6 +36,8 @@ public class BillOfMaterials extends Command {
         request.getServletContext().setAttribute("length", custreq.getLength());
         request.getServletContext().setAttribute("reqID", reqID);
         request.getServletContext().setAttribute("total", total);
+        request.getServletContext().setAttribute("shedLength", custreq.getShedl());
+        request.getServletContext().setAttribute("shedWidth", custreq.getShedw());
 
         session.setAttribute("materialList", bom);
 

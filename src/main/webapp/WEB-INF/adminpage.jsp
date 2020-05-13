@@ -20,6 +20,17 @@
         <button type="submit" class="btn btn-primary">Log af</button>
     </form>
 </div>
+<%
+    request.getServletContext().setAttribute("width", null);
+    request.getServletContext().setAttribute("length", null);
+    request.getServletContext().setAttribute("height", null);
+    request.getServletContext().setAttribute("roofMaterial", null);
+    request.getServletContext().setAttribute("shedWidth", null);
+    request.getServletContext().setAttribute("shedLength", null);
+    request.getServletContext().setAttribute("reqId", null);
+    request.getServletContext().setAttribute("total", null);
+    //((ArrayList<Material>) session.getAttribute("materialList")).clear();
+%>
 
 
 </body>

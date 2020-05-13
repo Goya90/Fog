@@ -2,6 +2,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../includes/header.inc"%>
 <%@page import="java.text.DecimalFormat" %>
+<%@ page import="FunctionLayer.Material" %>
+<%@ page import="java.util.ArrayList" %>
 
 <head>
     <title>Materialeliste</title>
@@ -125,5 +127,8 @@
     <div class="text-center">
         <button type="submit" class="btn btn-primary">Vis tegning</button>
     </div>
+<%
+    ((ArrayList<Material>) session.getAttribute("materialList")).clear();
+    %>
 </form>
 <%@include file="../includes/footer.inc"%>

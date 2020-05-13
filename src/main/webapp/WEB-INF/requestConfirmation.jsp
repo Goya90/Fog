@@ -15,10 +15,6 @@
 <br>
 <a href="FrontController?target=redirect&destination=adminpage">Til adminsiden</a>
 
-<%
-    request.getServletContext().setAttribute("reqId", null);
-    request.getServletContext().setAttribute("total", null);
-    ((ArrayList<Material>) session.getAttribute("materialList")).clear();
-%>
+
 </body>
 <%@include file="../includes/footer.inc"%>

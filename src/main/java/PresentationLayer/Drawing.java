@@ -173,13 +173,6 @@ public class Drawing extends Command {
 
             request.setAttribute("svgdrawing", svg.toString());
 
-            request.getServletContext().setAttribute("width", null);
-            request.getServletContext().setAttribute("length", null);
-            request.getServletContext().setAttribute("height", null);
-            request.getServletContext().setAttribute("roofMaterial", null);
-            request.getServletContext().setAttribute("shedWidth", null);
-            request.getServletContext().setAttribute("shedLength", null);
-
         return "drawing";
     }
 }
