@@ -2,6 +2,8 @@ package DBAccess;
 
 import FunctionLayer.LoginSampleException;
 import FunctionLayer.User;
+import PresentationLayer.Log;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -51,9 +53,15 @@ public class UserMapper {
                 user.setId( id );
                 return user;
             } else {
+                Log.info("Login "+"Could not validate user");
                 throw new LoginSampleException( "Could not validate user" );
             }
         } catch ( ClassNotFoundException | SQLException ex ) {
+            if (ex.getMessage().contains("Communications link failure")) {
+                Log.severe("Login "+ ex.getMessage());
+                throw new LoginSampleException("Databasen er nede, prøv igen senere");
+            }
+            Log.severe("Login"+ex.getMessage());
             throw new LoginSampleException(ex.getMessage());
         }
     }
