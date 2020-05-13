@@ -49,7 +49,7 @@ public class Calculator {
         //Grundlæggende materialer til simpel carport tilføjes:
         //TODO: Lav metode der kan kalde alle disse metoder i et loop
         addMaterial1();
-        addMaterial3();
+        addMaterial3(shedLength, shedWidth);
         addMaterial6();
         addMaterial23();
         addMaterial24();
@@ -98,7 +98,8 @@ public class Calculator {
         //Hvis kunden har valgt redskabsskur
         if (shedLength != 0 && shedWidth != 0) {
             ShedCalculator shedCalc = new ShedCalculator();
-            shedCalc.shedBomCalculator(shedLength, shedWidth);
+            shedCalc.shedBomCalculator(height, shedLength, shedWidth);
+
         }
 
         return bom;
@@ -160,13 +161,15 @@ public class Calculator {
     }
 
     //Materiale med ID nr. 3 bliver tilføjet:
-    public void addMaterial3 () throws LoginSampleException, ClassNotFoundException {
+    public void addMaterial3 (int shedLength, int shedWidth) throws LoginSampleException, ClassNotFoundException {
         materialId = 3;
         fixedLength = 900;
 
         mat = LogicFacade.showMaterial(materialId);
 
-        if (carportLength < 4800) {
+        if (shedLength != 0 && shedWidth != 0) {
+            fixedQuantity = 10;
+        } else if (carportLength < 4800) {
             fixedQuantity = 4;
         } else {
             fixedQuantity = 6;
