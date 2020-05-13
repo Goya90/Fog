@@ -26,7 +26,7 @@ public class ProcessRequest extends Command {
         try {
             finalPrice = Double.parseDouble(price);
         } catch (NumberFormatException e) {
-            request.setAttribute( "error", "Du har ikke indtastet en pris!" );
+            request.setAttribute( "error", "Fejl: Den nye pris skal være et positivt tal, prøv igen." );
             return "billofmaterials";
         }
         //Opdaterer requesttabel i db med nye værdier

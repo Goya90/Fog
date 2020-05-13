@@ -56,12 +56,13 @@
         </table>
         <br>
         <h3>Vis materialeliste for ordre:</h3>
+
         <form name="billofmaterials" action="FrontController" method="POST">
             <label for="reqID">Ordre nr:</label>
             <input type="hidden" name="target" value="billofmaterials">
             <input id="reqID" type="text" name="reqID" value="" align="left">
-            <input type="submit" value="Vis materialeliste">
-        </form>
+            <input type="submit" value="Vis materialeliste"> <h2>   ${requestScope.error} </h2>
+            </form>
 
 
         <div class="text-center">

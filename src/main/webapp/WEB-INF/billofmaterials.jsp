@@ -106,11 +106,8 @@
 
 <h5 class="text-right">Samlet pris: ${applicationScope.total} kr inklusiv moms
     <br>
-
-   <h3>Behandl kundeforespørgsel:</h3>
-    <h2>   ${requestScope.error} </h2>
     <br>
-    <h2>Hvis du vil ændre prisen på kundetilbuddet, indtast den nye pris. Hvis ikke, så lad feltet være tomt.</h2>
+    <h3>Hvis du vil ændre prisen på kundetilbuddet, indtast den nye pris. Hvis ikke, så lad feltet være tomt.</h3>
     <br>
     <form action="FrontController" method="POST">
         <input type="hidden" name="target" value="processrequest">
@@ -118,6 +115,7 @@
             <label for="newprice">Ny pris:</label>
             <input id="newprice" type="text" name="newprice" value="">
             <button type="submit" class="btn btn-primary">Opdater kundeforespørgsel</button>
+            <h3>   ${requestScope.error} </h3>
         </div>
     </form>
     <br>

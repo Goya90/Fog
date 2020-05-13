@@ -14,7 +14,14 @@ public class BillOfMaterials extends Command {
 
         HttpSession session = request.getSession();
 
-        int reqID = Integer.parseInt(request.getParameter("reqID"));
+        int reqID;// = Integer.parseInt(request.getParameter("reqID"));
+
+        try {
+            reqID = Integer.parseInt(request.getParameter("reqID"));
+        } catch (NumberFormatException e) {
+            request.setAttribute( "error", "Fejl: Du har ikke indtastet et heltal, ret din indtastning." );
+            return "showRequests";
+        }
 
         CustomerRequest custreq = LogicFacade.showRequest(reqID);
 
