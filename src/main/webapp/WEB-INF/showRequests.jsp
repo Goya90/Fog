@@ -9,7 +9,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="../includes/header.inc"%>
 
-
 <br>
 
 <h1>Oversigt over kundeforespørgsler hvor tilbud skal beregnes </h1>

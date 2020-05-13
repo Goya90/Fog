@@ -29,7 +29,7 @@ public class Calculator {
     int calculatedQuantity;
 
     //Instantiering af ArrayList som addMaterial() metoderne tilføjer til:
-    static ArrayList<Material> bom = new ArrayList<>();
+    public static ArrayList<Material> bom = new ArrayList<>();
 
     //Instantiering af et Material objekt som addMaterialer() metoderne bruger:
     Material mat = null;

@@ -4,16 +4,16 @@
 <%@page import="java.text.DecimalFormat" %>
 <%@ page import="FunctionLayer.Material" %>
 <%@ page import="java.util.ArrayList" %>
-
 <head>
     <title>Materialeliste</title>
 </head>
-
-<h2>Tak for din bestilling</h2>
 <br>
-<h4>Du har valgt en carport med følgende mål:</h4>
+<br>
+<h3>Carport nr: ${applicationScope.reqID} har følgende mål:</h3>
 <br>
 <h5>Højde: ${applicationScope.height} cm, bredde: ${applicationScope.width} cm, længde: ${applicationScope.length} cm</h5>
+<h5>Skur længde: ${applicationScope.shedLength} cm, bredde: ${applicationScope.shedWidth}</h5>
+<h5>Tagmateriale: ${applicationScope.roofMaterial}</h5>
 <br>
 <h4>Materialeliste</h4>
 <div class="row">
@@ -107,7 +107,7 @@
 <h5 class="text-right">Samlet pris: ${applicationScope.total} kr inklusiv moms
     <br>
     <br>
-    <h3>Hvis du vil ændre prisen på kundetilbuddet, indtast den nye pris. Hvis ikke, så lad feltet være tomt.</h3>
+    <h4>Hvis du vil ændre prisen på kundetilbuddet, indtast den nye pris. Hvis ikke, så lad feltet være tomt.</h4>
     <br>
     <form action="FrontController" method="POST">
         <input type="hidden" name="target" value="processrequest">
@@ -125,8 +125,6 @@
     <div class="text-center">
         <button type="submit" class="btn btn-primary">Vis tegning</button>
     </div>
-<%
-    ((ArrayList<Material>) session.getAttribute("materialList")).clear();
-    %>
+
 </form>
 <%@include file="../includes/footer.inc"%>
