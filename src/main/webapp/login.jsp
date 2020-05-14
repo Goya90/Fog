@@ -43,10 +43,7 @@
         <div class="form-group">
             <button type="submit" class="btn btn-primary btn-block">Log in</button>
         </div>
-        <div class="clearfix">
-            <label class="pull-left checkbox-inline"><input type="checkbox"> Remember me</label>
-            </div>
-    </form>
+            </form>
     <h2>   ${requestScope.error} </h2>
     <br>
     <a href="FrontController?target=redirect&destination=index">Til forsiden</a>
