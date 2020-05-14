@@ -14,24 +14,14 @@
     <input id="showRequests" type="submit" name="showRequests" value="Vis kundeforespørgsler">
 </form>
 <br>
+<h2>   ${requestScope.error} </h2>
+<br>
 <div class="text-center">
     <form name="logout" method="post" action="FrontController">
         <input type="hidden" name="target" value="logout">
         <button type="submit" class="btn btn-primary">Log af</button>
     </form>
 </div>
-<%
-    request.getServletContext().setAttribute("width", null);
-    request.getServletContext().setAttribute("length", null);
-    request.getServletContext().setAttribute("height", null);
-    request.getServletContext().setAttribute("roofMaterial", null);
-    request.getServletContext().setAttribute("shedWidth", null);
-    request.getServletContext().setAttribute("shedLength", null);
-    request.getServletContext().setAttribute("reqId", null);
-    request.getServletContext().setAttribute("total", null);
-    //((ArrayList<Material>) session.getAttribute("materialList")).clear();
-%>
-
 
 </body>
 <%@include file="../includes/footer.inc"%>

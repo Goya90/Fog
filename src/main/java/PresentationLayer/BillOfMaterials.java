@@ -27,12 +27,16 @@ public class BillOfMaterials extends Command {
 
         Calculator cal = new Calculator();
 
-        cal.bom.clear();
+        Calculator.bom.clear();
 
         ArrayList<Material> bom;
-
-        bom = cal.bomCalculator(custreq.getWidth(), custreq.getLength(), custreq.getHeight(),
-                custreq.isFlatRoof(), custreq.getRoofMat(), custreq.getShedw(), custreq.getShedl());
+        try {
+            bom = cal.bomCalculator(custreq.getWidth(), custreq.getLength(), custreq.getHeight(),
+                    custreq.isFlatRoof(), custreq.getRoofMat(), custreq.getShedw(), custreq.getShedl());
+        } catch (NullPointerException e) {
+            request.setAttribute( "error", "FEJL: Der findes ikke en kundeforespørgsel med det indtastede nr." );
+            return "adminpage";
+        }
 
         Double total = 0.0;
 
