@@ -2,6 +2,7 @@ package DBAccess;
 
 import FunctionLayer.CustomerRequest;
 import FunctionLayer.LoginSampleException;
+import FunctionLayer.Material;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -13,8 +14,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import static org.hamcrest.Matchers.*;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class RequestMapperTest {
 
@@ -30,7 +31,6 @@ public class RequestMapperTest {
             if (testConnection == null) {
                 String url = String.format("jdbc:mysql://%s:3306/%s", HOST, DBNAME);
                 Class.forName("com.mysql.cj.jdbc.Driver");
-
                 testConnection = DriverManager.getConnection(url, USER, USERPW);
                 Connector.setConnection(testConnection);
             }
@@ -45,27 +45,35 @@ public class RequestMapperTest {
     public void beforeEachTest() {
         try (Statement stmt = testConnection.createStatement()) {
             stmt.execute("drop table if exists cust_request");
-            stmt.execute("CREATE TABLE cust_request LIKE fog.cust_request;");
-            stmt.execute("insert into cust_request VALUES" +
-                    "(1, 'Ole Olsen', 11223344, 'ole@gmail.com','', 2400,2800,2000, true, 'Plastmo sort', null, null, false)," +
-                    "(2, 'Per Jensen', 99887766, 'per@gmail.com','', 4400, 3800, 2200, false, 'Tagsten sort', 2800, 2400, false)");
+            stmt.execute("CREATE TABLE `cust_request` LIKE fog.cust_request;");
+            stmt.execute("INSERT INTO cust_request (name, tel_no, email, comments, width, length, height, flatRoof, roofMaterial,shed_length, shed_width) VALUES " +
+                    "('Ole Olsen', 11223344, 'ole@gmail.com','Intet tag, tak', 2400, 2800, 2000, true, 'Plastmo sort', 2800, 2400)," +
+                    "('Per Jensen', 99887766, 'per@gmail.com','Kan man få tagterrasse?', 4400, 3800, 2200, false, 'Tagsten sort', 2800, 2400)");
 
         } catch (SQLException ex) {
             System.out.println("Could not open connection to database: " + ex.getMessage());
         }
+
     }
-    @Test
+    @Test //Checker forbindelsen
     public void testSetUpOK() {
-        //Checker forbindelsen
         assertNotNull(testConnection);
     }
 
-    @Test //Tester, at der kan oprettes en ny customer request, og at antallet af customer requests på arraylisten stemmer overens
+    @Test //Tester, at der kan oprettes en ny customer request, som tilføjes til arraylisten, og at antallet af customer requests på arraylisten stemmer overens
     public void createReqTest() throws LoginSampleException {
         CustomerRequest cr = new CustomerRequest("Bente Hansen", 11223344, "bente@bentemail.com", "Kan taget være rødt?",2400, 3000, 2200, false, "Tagsten sort", 0, 0);
         RequestMapper.createRequest(cr);
         ArrayList<CustomerRequest> reqList = RequestMapper.showNewRequests();
-        assertThat(reqList, hasSize(3));
+        assertEquals("Bente Hansen", cr.getName());
+        assertThat(reqList, hasSize(1));
+
+    }
+    @Test //Tester, at der kan hentes et request ud fra ID
+    public void getReqFromIdTest() throws LoginSampleException, ClassNotFoundException {
+        CustomerRequest req = RequestMapper.getRequestFromID(1);
+        assertEquals(2000, req.getHeight());
+        assertEquals(2800, req.getShedl());
     }
 
 }
