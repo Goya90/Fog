@@ -29,8 +29,6 @@ public class ProcessRequest extends Command {
             request.setAttribute( "error", "Fejl: Den nye pris skal være et positivt tal, prøv igen." );
             return "billofmaterials";
         }
-        //Opdaterer requesttabel i db med nye værdier
-        LogicFacade.updateRequest(finalPrice,id);
         //Sætter den nye totalpris så den kan vises på requestConfirmation.jsp
         request.getServletContext().setAttribute("total", finalPrice);
         //Sender videre til bekræftelse af opdatering

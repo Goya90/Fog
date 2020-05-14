@@ -104,24 +104,21 @@
     </div>
 </div>
 
-<h5 class="text-right">Samlet pris: ${applicationScope.total} kr inklusiv moms
+<h5 class="text-right">Samlet pris: ${applicationScope.total} kr inkl. moms
     <br>
-    <br>
-    <h4>Hvis du vil ændre prisen på kundetilbuddet, indtast den nye pris. Hvis ikke, så lad feltet være tomt.</h4>
     <br>
     <form action="FrontController" method="POST">
         <input type="hidden" name="target" value="processrequest">
         <div class="text-left">
             <label for="newprice">Ny pris:</label>
             <input id="newprice" type="text" name="newprice" value="">
-            <button type="submit" class="btn btn-primary">Opdater kundeforespørgsel</button>
+            <button type="submit" class="btn btn-primary">Opdater pris</button>
             <h3>   ${requestScope.error} </h3>
         </div>
     </form>
     <br>
     <br>
 
-    <br>
     <form action="FrontController" method="POST">
         <input type="hidden" name="target" value="markasdone">
         <div class="text-left">
