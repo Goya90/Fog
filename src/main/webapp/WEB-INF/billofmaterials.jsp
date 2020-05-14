@@ -120,7 +120,19 @@
     </form>
     <br>
     <br>
-<form action="FrontController" method="POST">
+
+    <br>
+    <form action="FrontController" method="POST">
+        <input type="hidden" name="target" value="markasdone">
+        <div class="text-left">
+            <button type="submit" class="btn btn-primary">Marker ordre som færdigbehandlet</button>
+        </div>
+    </form>
+    <br>
+    <br>
+
+
+    <form action="FrontController" method="POST">
     <input type="hidden" name="target" value="drawing">
     <div class="text-center">
         <button type="submit" class="btn btn-primary">Vis tegning</button>

@@ -70,4 +70,7 @@ public class LogicFacade {
     public static void updateRequest(double price, int id) throws LoginSampleException {
         RequestMapper.processRequest(price,id);
     }
+    public static ArrayList<CustomerRequest> doneRequests() throws LoginSampleException {
+        return RequestMapper.showDoneRequests();
+    }
 }

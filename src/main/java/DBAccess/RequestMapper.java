@@ -114,5 +114,41 @@ public class RequestMapper {
         } catch ( SQLException | ClassNotFoundException ex ) {
             throw new LoginSampleException( ex.getMessage() );
         }
+
+
     }
+    //Does the same as new requests, exept that it gets done requests
+    public static ArrayList<CustomerRequest> showDoneRequests() throws LoginSampleException {
+        ArrayList<CustomerRequest> newDoneRequestsList = new ArrayList<>();
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM cust_request where processed = true;";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ResultSet rs = ps.executeQuery();
+            CustomerRequest req = null;
+            while (rs.next()) {
+                int id = rs.getInt("reqId");
+                String name = rs.getString("name");
+                int tel = rs.getInt("tel_no");
+                String email = rs.getString("email");
+                String comments = rs.getString("comments");
+                int width = rs.getInt("width");
+                int length = rs.getInt("length");
+                int height = rs.getInt("height");
+                boolean rooftype = rs.getBoolean("flatRoof");
+                String material = rs.getString("roofMaterial");
+                int shedl = rs.getInt("shed_length");
+                int shedw = rs.getInt("shed_width");
+                req = new CustomerRequest(id, name, tel, email, comments, width, length, height, rooftype, material, shedl, shedw);
+                newDoneRequestsList.add(req);
+            }
+
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new LoginSampleException(ex.getMessage());
+        }
+
+        return newDoneRequestsList;
+    }
+
+
 }

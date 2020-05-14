@@ -23,6 +23,9 @@ abstract class Command {
         commands.put("showRequests", new ShowRequests());
         commands.put("processrequest", new ProcessRequest());
         commands.put("logout", new Logout());
+        commands.put("doneRequests", new DoneRequests());
+        commands.put("markasdone", new MarkAsDone());
+
     }
 
     static Command from( HttpServletRequest request ) {
