@@ -62,13 +62,8 @@
             <input id="reqID" type="text" name="reqID" value="" align="left">
             <input type="submit" value="Vis materialeliste"> <h2>   ${requestScope.error} </h2>
             </form>
-        </br>
-        <form name="billofmaterials" action="FrontController" method="POST">
-            <label for="reqID"></label>
-            <input type="hidden" name="target" value="doneRequests">
 
-            <input type="submit" value="Vis behandlede ordrer">
-        </form>
+
 
 
         <div class="text-center">

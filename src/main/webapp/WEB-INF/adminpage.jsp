@@ -11,7 +11,12 @@
 <br>
 <form name="showRequests" method="post" action="FrontController">
     <input type="hidden" name="target" value="showRequests">
-    <input id="showRequests" type="submit" name="showRequests" value="Vis kundeforespørgsler">
+    <input id="showRequests" type="submit" name="showRequests" value="Vis nye kundeforespørgsler">
+</form>
+<br>
+<form name="billofmaterials" action="FrontController" method="POST">
+    <input type="hidden" name="target" value="doneRequests">
+    <input type="submit" value="Vis behandlede kundeforespørgsler">
 </form>
 <br>
 <h2>   ${requestScope.error} </h2>
@@ -22,6 +27,8 @@
         <button type="submit" class="btn btn-primary">Log af</button>
     </form>
 </div>
+<br>
+
 
 </body>
 <%@include file="../includes/footer.inc"%>
