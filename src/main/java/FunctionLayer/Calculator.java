@@ -328,10 +328,11 @@ public class Calculator {
         materialId = 18;
         multiplier = 15;
         minimumQuantity = 1;
+        int pcsPerPack = 200;
 
         mat = LogicFacade.showMaterial(materialId);
 
-        calculatedQuantity = (carportLength*carportWidth)/convertMM2ToM2*multiplier;
+        calculatedQuantity = (carportLength*carportWidth)/convertMM2ToM2*multiplier/pcsPerPack;
 
         if (minimumQuantity > calculatedQuantity) {
             mat.setQuantity(minimumQuantity);
@@ -386,12 +387,13 @@ public class Calculator {
     //Materiale med ID nr. 22 bliver tilføjet:
     public void addMaterial22 () throws LoginSampleException, ClassNotFoundException {
         materialId = 22;
-        multiplier = 25;
+        divider = 25;
         minimumQuantity = 1;
+        int metersPerPack = 10;
 
         mat = LogicFacade.showMaterial(materialId);
 
-        calculatedQuantity = (carportLength*carportWidth)/convertMM2ToM2*multiplier;
+        calculatedQuantity = (carportLength*carportWidth)/convertMM2ToM2/divider/metersPerPack;
 
         if (minimumQuantity > calculatedQuantity) {
             mat.setQuantity(minimumQuantity);
@@ -480,10 +482,11 @@ public class Calculator {
         materialId = 28;
         multiplier = 25;
         minimumQuantity = 1;
+        int pcsPerPack = 200;
 
         mat = LogicFacade.showMaterial(materialId);
 
-        calculatedQuantity = (carportLength*carportWidth)/convertMM2ToM2*multiplier;
+        calculatedQuantity = (carportLength*carportWidth)/convertMM2ToM2*multiplier/pcsPerPack;
 
         if (minimumQuantity > calculatedQuantity) {
             mat.setQuantity(minimumQuantity);

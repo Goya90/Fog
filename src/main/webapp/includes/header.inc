@@ -14,9 +14,9 @@
     <title>Fog carporte</title>
 </head>
 <body>
-<body style="background-color:lightblue;">
+<body style="background-color:whitesmoke;">
 
 <div class="container">
 
-    <img src="images/Fog.png" style="width:100%; height:180px"/>
+    <img src="images/FogBanner.png" style="width:100%; height:180px"/>
 
