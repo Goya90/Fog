@@ -19,12 +19,20 @@ import static org.junit.Assert.assertEquals;
 
 public class RequestMapperTest {
 
+    /**
+    Tester RequestMapper, som bruges til at hente og lagre customer requests i databasen
+     */
+
     public static Connection testConnection;
     private static String USER = "root";
     private static String USERPW = "root";
     private static String DBNAME = "fogtest?serverTimezone=CET&useSSL=false";
     private static String HOST = "localhost";
 
+
+    /**
+    Opretter forbindelse til testdatabasen i MySql
+     */
     @BeforeClass
     public static void setUp() {
         try {
@@ -41,6 +49,10 @@ public class RequestMapperTest {
         }
     }
 
+
+    /**
+    Skaber tabeller magen til dem, der bruges i RequestMapper
+     */
     @Before
     public void beforeEachTest() {
         try (Statement stmt = testConnection.createStatement()) {
@@ -55,12 +67,23 @@ public class RequestMapperTest {
         }
 
     }
-    @Test //Checker forbindelsen
+
+
+    /**
+    Tester forbindelsen til MySql
+     */
+    @Test
     public void testSetUpOK() {
         assertNotNull(testConnection);
     }
 
-    @Test //Tester, at der kan oprettes en ny customer request, som tilføjes til arraylisten, og at antallet af customer requests på arraylisten stemmer overens
+
+    /**
+     Tester, at der kan oprettes en ny customer request, som tilføjes til arraylisten,
+     og at antallet af customer requests på arraylisten stemmer overens
+     @throws LoginSampleException
+     */
+    @Test
     public void createReqTest() throws LoginSampleException {
         CustomerRequest cr = new CustomerRequest("Bente Hansen", 11223344, "bente@bentemail.com", "Kan taget være rødt?",2400, 3000, 2200, false, "Tagsten sort", 0, 0);
         RequestMapper.createRequest(cr);
@@ -69,7 +92,13 @@ public class RequestMapperTest {
         assertThat(reqList, hasSize(1));
 
     }
-    @Test //Tester, at der kan hentes et request ud fra ID
+
+    /**
+     * Tester, at der kan hentes et request ud fra ID
+     * @throws LoginSampleException
+     * @throws ClassNotFoundException
+     */
+    @Test
     public void getReqFromIdTest() throws LoginSampleException, ClassNotFoundException {
         CustomerRequest req = RequestMapper.getRequestFromID(1);
         assertEquals(2000, req.getHeight());

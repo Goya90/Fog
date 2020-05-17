@@ -13,6 +13,9 @@ import java.sql.Statement;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
+/**
+Test af klassen UserMapper, som bruges, når der oprettes et brugerlogin til en medarbejder
+ */
 
 public class UserMapperTest {
     public static Connection testConnection;
@@ -21,6 +24,9 @@ public class UserMapperTest {
     private static String DBNAME = "fogtest?serverTimezone=CET&useSSL=false";
     private static String HOST = "localhost";
 
+    /**
+    Der oprettes forbindelse til testdatabasen
+     */
     @BeforeClass
     public static void setUp() {
         try {
@@ -37,6 +43,10 @@ public class UserMapperTest {
             System.out.println("Could not open connection to database: " + ex.getMessage());
         }
     }
+
+    /**
+    Der oprettes en tabel magen til Users
+     */
     @Before
     public void beforeEachTest() {
         try (Statement stmt = testConnection.createStatement()) {
@@ -52,22 +62,30 @@ public class UserMapperTest {
 
     }
 
+    /**
+     Tester, at der er forbindelse til MySql
+     */
     @Test
     public void testSetUpOK() {
-        //checker, at forbindelsen er ok
         assertNotNull( testConnection );
     }
+
+    /**
+    Tester, om vi kan logge ind med kodeord og password
+     */
     @Test
     public void loginTest() throws LoginSampleException {
-        //Tester, om vi kan logge ind
         User user = UserMapper.login( "test", "test" );
         assertTrue( user != null );
     }
+
+    /**
+    Tester, om der smides en exception, hvis kodeordet er forkert
+     */
     @Test( expected = LoginSampleException.class )
     public void loginTest2() throws LoginSampleException {
-        //Tester, om der smides en exception, hvis kodeordet er forkert
+
         User user = UserMapper.login( "test", "forkertkode" );
     }
-
 
 }

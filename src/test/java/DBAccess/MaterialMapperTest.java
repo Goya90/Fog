@@ -18,6 +18,9 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
 
 public class MaterialMapperTest {
+    /**
+     * Tester klassen MaterialMapper, som lagrer og henter materialer i databasen
+     */
 
     public static Connection testConnection;
     private static String USER = "root";
@@ -25,6 +28,9 @@ public class MaterialMapperTest {
     private static String DBNAME = "fogtest?serverTimezone=CET&useSSL=false";
     private static String HOST = "localhost";
 
+    /**
+     * Skaber forbindelse til testdatabasen
+     */
     @BeforeClass
     public static void setUp() {
         try {
@@ -42,6 +48,9 @@ public class MaterialMapperTest {
         }
     }
 
+    /**
+     * Opretter testtabeller med materialer
+     */
     @Before
     public void beforeEachTest() {
         try (Statement stmt = testConnection.createStatement()) {
@@ -73,17 +82,30 @@ public class MaterialMapperTest {
 
     }
 
+    /**
+     * Tester, at der er forbindelse til testdatabasen
+     */
     @Test
     public void testSetUpOK() {
-        //Checker forbindelsen
         assertNotNull(testConnection);
     }
 
+    /**
+     * Tester, at der hentes et materiale med den rigtige beskrivelse
+     * @throws LoginSampleException
+     * @throws ClassNotFoundException
+     */
     @Test
     public void getMaterial1() throws LoginSampleException, ClassNotFoundException {
         Material mat = MaterialMapper.getMaterial(1);
         assertEquals("Stern vandbræt sider", mat.getDescription());
     }
+
+    /**
+     * Tester, at navnet på materiale nr. 6 er korrekt
+     * @throws LoginSampleException
+     * @throws ClassNotFoundException
+     */
     @Test
     public void getMaterial6() throws LoginSampleException, ClassNotFoundException {
         Material mat = MaterialMapper.getMaterial(6);
@@ -91,6 +113,11 @@ public class MaterialMapperTest {
         assertEquals("45x195 mm. spærtræ ubeh.", mat.getName());
     }
 
+    /**
+     * Tester antal og indhold af listen med flade tagtyper
+     * @throws LoginSampleException
+     * @throws ClassNotFoundException
+     */
     @Test
     public void flatRoofMaterialTest() throws LoginSampleException, ClassNotFoundException {
         ArrayList<String> flatRoofMaterialList = MaterialMapper.getFlatRoofMaterialList();
@@ -98,12 +125,23 @@ public class MaterialMapperTest {
         assertThat(flatRoofMaterialList, contains("Plastmo sort", "Plastmo gennemsigtig", "Plastmo hvid"));
         }
 
+    /**
+     * Tester antal og indhold af listen med tagtyper til tag med resjning
+     * @throws LoginSampleException
+     * @throws ClassNotFoundException
+     */
     @Test
     public void slantedRoofMaterialTest() throws LoginSampleException, ClassNotFoundException {
         ArrayList<String> slantedRoofMaterialList = MaterialMapper.getSlantedRoofMaterialList();
         assertThat(slantedRoofMaterialList, hasSize(3));
         assertThat(slantedRoofMaterialList, contains("Tagsten sort", "Tagpap sort", "Trapez plast sort"));
     }
+
+    /**
+     * Tester antal og indhold til listen med tagmaterialer
+     * @throws LoginSampleException
+     * @throws ClassNotFoundException
+     */
     @Test
     public void roofMaterialTest() throws LoginSampleException, ClassNotFoundException {
         ArrayList<String> roofMaterialList = MaterialMapper.getRoofMaterials(true);
