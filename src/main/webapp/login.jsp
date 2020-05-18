@@ -28,8 +28,10 @@
         font-weight: bold;
     }
 </style>
-</head>
+
 <body>
+<br>
+<br>
 <div class="login-form">
     <form action="FrontController" method="POST">
         <input type="hidden" name="target" value="login">

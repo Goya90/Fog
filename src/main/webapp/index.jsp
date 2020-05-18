@@ -97,11 +97,8 @@
                             </c:forEach>
                         </select>
                     </div>
-
-
                     <br>
-                    <h6>NB: Længde og bredde til redskabsrum skal være mindst 30 cm kortere end længde og bredde til carporten</h6>
-                    <br>
+                    <h6>NB: Længde og bredde til redskabsrum skal være mindst 30 cm kortere end længde og bredde af carporten</h6>
                     <br>
                     <br>
                     <h3>Indtast dine kontakt detaljer:</h3>

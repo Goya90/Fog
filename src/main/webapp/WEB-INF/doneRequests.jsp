@@ -63,7 +63,7 @@
 
 
         <div class="text-center">
-            <a href="FrontController?target=redirect&destination=employeepage">Tilbage</a>
+            <a href="FrontController?target=redirect&destination=adminpage">Tilbage</a>
         </div>
     </div>
 </div>

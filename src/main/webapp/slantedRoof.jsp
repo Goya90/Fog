@@ -97,6 +97,8 @@
                         </select>
                     </div>
                     <br>
+                    <h6>NB: Længde og bredde til redskabsrum skal være mindst 30 cm kortere end længde og bredde af carporten</h6>
+                    <br>
                     <br>
                     <h3>Indtast dine kontakt detaljer:</h3>
                     <div class="form-group">
@@ -126,21 +128,6 @@
     </div>
 </div>
 <br>
-<br>
-<br>
-<h4>Log ind som medarbejder:</h4>
-<br>
-<form name="login" action="FrontController" method="POST">
-    ${requestScope.error}
-    <input type="hidden" name="target" value="login">
-
-    <label for="email">Email:</label>
-    <input id="email" type="text" name="email" value="" align="left">
-    <label for="password">Password:</label>
-    <input id="password" type="password" name="password" value="" align="left">
-    <input type="submit" value="Log ind">
-
-</form>
+<a href="FrontController?target=redirect&destination=login">Til medarbejderlogin</a>
 </body>
-</div>
 <%@include file="includes/footer.inc"%>
