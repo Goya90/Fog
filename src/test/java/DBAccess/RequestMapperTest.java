@@ -87,7 +87,7 @@ public class RequestMapperTest {
     public void createReqTest() throws LoginSampleException {
         CustomerRequest cr = new CustomerRequest("Bente Hansen", 11223344, "bente@bentemail.com", "Kan taget være rødt?",2400, 3000, 2200, false, "Tagsten sort", 0, 0);
         RequestMapper.createRequest(cr);
-        ArrayList<CustomerRequest> reqList = RequestMapper.showNewRequests();
+        ArrayList<CustomerRequest> reqList = RequestMapper.showNewRequests(false);
         assertEquals("Bente Hansen", cr.getName());
         assertThat(reqList, hasSize(1));
 
