@@ -13,7 +13,7 @@ Formålet med denne klasse er: 1.Oprette en ny kundeforespørgsel i db, 2. Hente
 
 public class RequestMapper {
 
-    //Indsætter et request objekt i db tabellen cust_request
+    //Indsætter attributterne fra et nyt request objekt i db tabellen cust_request
     public static void createRequest(CustomerRequest request) throws LoginSampleException {
         try {
             Connection con = Connector.connection();

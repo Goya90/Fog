@@ -33,7 +33,6 @@
 <br>
 <br>
 <h3>Design carport med fladt tag</h3>
-<br>
 <a href="FrontController?target=redirect&destination=slantedRoof">Eller gå til carport med rejsning</a>
 <br>
 <br>
