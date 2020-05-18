@@ -4,8 +4,8 @@ import FunctionLayer.LogicFacade;
 
 import java.util.List;
 /**
- * Initializer provides methods that provide data for populating dropdown lists(with carport elements) on .jsp pages,
- * at system startup. The methods call methods in the FacadeLogic class as part of the facade pattern.
+ * Denne klasse indeholder metoder der befolker drop-down menuer på .jsp sider ved system start.
+ * Metoderne kalder metoder i FacadeLogic klassen som en del af facade mønstret.
  * @author claes
  */
 
@@ -14,13 +14,10 @@ public class Initializer {
     private static List<Integer> widthsList = null;
     private static List<Integer> lengthsList = null;
     private static List<Integer> heightsList = null;
-    private static List<String> flatRoofMaterialList = null;
-    private static List<String> slantedRoofMaterialList = null;
-    private static List<String> roofMaterialList = null;
     private static List <Integer> shedWidthsList = null;
     private static List <Integer> shedLengthsList = null;
 
-
+    //Returnerer liste med værdier for carport bredde fra db via LogicFacade og DimensionMapper
     public static List<Integer> getWidthsList() {
         if (widthsList == null) {
             try {
@@ -31,7 +28,7 @@ public class Initializer {
         }
         return widthsList;
     }
-
+    //Returnerer liste med værdier for carport længde fra db via LogicFacade og DimensionMapper
     public static List<Integer> getLengthsList() {
         if (lengthsList == null) {
             try {
@@ -42,7 +39,7 @@ public class Initializer {
         }
         return lengthsList;
     }
-
+    //Returnerer liste med værdier for carport højde fra db via LogicFacade og DimensionMapper
     public static List<Integer> getHeightsList() {
         if (heightsList == null) {
             try {
@@ -53,39 +50,7 @@ public class Initializer {
         }
         return heightsList;
     }
-
-    /*public static List<String> getFlatroofMaterialList() {
-        if (flatRoofMaterialList == null) {
-            try {
-                slantedRoofMaterialList = LogicFacade.showFlatRoofMaterialList();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return flatRoofMaterialList;
-    }
-
-    public static List<String> getSlantedRoofMaterialType() {
-        if (slantedRoofMaterialList == null) {
-            try {
-                slantedRoofMaterialList = LogicFacade.showSlantedRoofMaterialList();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return slantedRoofMaterialList;
-    }*/
-
-    public static List<String> getRoofMaterialType(boolean rooftype) {
-        if (roofMaterialList == null) {
-            try {
-                roofMaterialList = LogicFacade.showRoofMaterialList(rooftype);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return roofMaterialList;
-    }
+    //Returnerer liste med værdier for skur bredde fra db via LogicFacade og DimensionMapper
     public static List<Integer> getShedWidthsList() {
         if (shedWidthsList == null) {
             try {
@@ -96,7 +61,7 @@ public class Initializer {
         }
         return shedWidthsList;
     }
-
+    //Returnerer liste med værdier for skur længde fra db via LogicFacade og DimensionMapper
     public static List<Integer> getShedLengthsList() {
         if (shedLengthsList == null) {
             try {

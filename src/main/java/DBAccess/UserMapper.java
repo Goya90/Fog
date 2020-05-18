@@ -19,6 +19,7 @@ import java.sql.Statement;
 public class UserMapper {
 
     //Opretter et user objekt med parametrene email og password, derefter tilføjes parametren id som sql har tilføjet ved oprettelsen
+    //af brugeren (auto-increment)
     public static void createUser( User user ) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
@@ -57,7 +58,7 @@ public class UserMapper {
                 return user;
             } else {
                 Log.info("Login "+"Could not validate user");
-                throw new LoginSampleException( "Could not validate user" );
+                throw new LoginSampleException( "Could not validate user, please try again." );
             }
         } catch ( ClassNotFoundException | SQLException ex ) {
             if (ex.getMessage().contains("Communications link failure")) {
