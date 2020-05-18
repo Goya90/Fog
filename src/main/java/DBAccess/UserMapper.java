@@ -11,13 +11,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
- The purpose of UserMapper is to create users in DB and check credentials in DB when logging in
-
+ Formålet med denne klasse er at oprette nye brugere i db tabellen users samt validere eksisterende brugere
+ ved login i samme tabel. Ved fejl i userid/password eller forbindelse til database, returneres en fejlmeddelelse og
+ fejlen logges.
  @author claes
  */
 public class UserMapper {
 
-    //Creates a new user in DB from a User input and assigns the users id
+    //Opretter et user objekt med parametrene email og password, derefter tilføjes parametren id som sql har tilføjet ved oprettelsen
     public static void createUser( User user ) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
@@ -37,7 +38,9 @@ public class UserMapper {
         }
     }
 
-    //Returns a user defined by the users credentials (email and password), if those are wrong, error message is returned
+    //Returnerer et user objekt ud fra parametrene email og password, hvis disse findes i tabellen users.
+    //Hvis brugeren med de givne credentials ikke findes, returneres en fejlmeddelelse. Hvis forbindelse
+    //til db ikke findes, returneres en fejlmeddelelse. I begge tilfælde logges fejlen.
     public static User login( String email, String password ) throws LoginSampleException {
         try {
             Connection con = Connector.connection();

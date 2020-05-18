@@ -6,14 +6,14 @@ import FunctionLayer.LoginSampleException;
 import java.sql.*;
 import java.util.ArrayList;
 /**
- The purpose of Requestmapper is to create new requests from drop-down and customer data entry
- as well as getting stored requests from DB.
+Formålet med denne klasse er: 1.Oprette en ny kundeforespørgsel i db, 2. Hente kundeforespørgsler i db og returnere dem
+ i en arrayliste 3.Opdatere/ændre data i db på en tidligere oprettet forespørgsel.
  @author claes
  */
 
 public class RequestMapper {
 
-    //Enters a CustomerRequest object into DB
+    //Indsætter et request objekt i db tabellen cust_request
     public static void createRequest(CustomerRequest request) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
@@ -42,7 +42,7 @@ public class RequestMapper {
         }
     }
 
-    //Creates and returns a list of unprocessed customerRequests from the database
+    //Henter attributter på requests der endnu ikke er behandlet af medarbejder og returnerer dem i en arrayliste af requestobjekter
     public static ArrayList<CustomerRequest> showNewRequests() throws LoginSampleException {
         ArrayList<CustomerRequest> newRequestsList = new ArrayList<>();
         try {
@@ -74,6 +74,7 @@ public class RequestMapper {
 
         return newRequestsList;
     }
+    //Henter requestattributter med et givet id i tabellen cust_request og skaber et request objekt som returneres
     public static CustomerRequest getRequestFromID(int id) throws LoginSampleException {
         CustomerRequest req = null;
         try {
@@ -101,6 +102,7 @@ public class RequestMapper {
         return req;
     }
 
+    //Opdaterer et givet request id med en ny pris i tabellen cust_request
     public static void processRequest(double price, int id) throws LoginSampleException {
         try {
             Connection con = Connector.connection();

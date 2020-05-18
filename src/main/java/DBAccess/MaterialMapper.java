@@ -7,32 +7,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+/**
+ Formålet med denne klasse er at hente materialer fra db tabellen materials.
+ @author claes
+ */
 
 public class MaterialMapper {
 
-    /*public static ArrayList<Material> getMaterials() throws ClassNotFoundException, LoginSampleException {
-        String sql = "SELECT * FROM fog.materials;";
-        //Der skal ændres i SQL-statementet
-        ArrayList<Material> materialList = new ArrayList<>();
-        try {
-            Connection con = Connector.connection();
-            PreparedStatement pstmt = con.prepareStatement(sql);
-            ResultSet res = pstmt.executeQuery();
-            if (res == null) {
-                return null;
-            } else {
-                while (res.next()) {
-                    materialList.add(new Material(res.getInt("materialID"), res.getString("materialName"),
-                            res.getString("materialUnit"), res.getString("materialDescription")));
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return materialList;
-    }
-    */
-    //returns a material object from db using the material id
+    //Returnerer et materiale objekt fra "materials" tabellen ud fra et givet materiale id
     public static Material getMaterial(int materialId) throws ClassNotFoundException, LoginSampleException {
         String sql = "SELECT * FROM fog.materials WHERE materialId = ?;";
         //Der skal ændres i SQL-statementet
@@ -59,49 +41,7 @@ public class MaterialMapper {
         return material;
     }
 
-    //Returns material names only for carports with flat roof, from database
-    public static ArrayList<String> getFlatRoofMaterialList() throws ClassNotFoundException, LoginSampleException {
-        String sql = "SELECT * FROM fog.roofmaterial where flatRoof = true;";
-        ArrayList<String> RoofMaterialList = new ArrayList<>();
-        try {
-            Connection con = Connector.connection();
-            PreparedStatement pstmt = con.prepareStatement(sql);
-            ResultSet res = pstmt.executeQuery();
-            if (res == null) {
-                return null;
-            } else {
-                while (res.next()) {
-                    RoofMaterialList.add(res.getString("roofmaterial"));
-                }
-            }
-        } catch (SQLException ex) {
-            throw new LoginSampleException( ex.getMessage() );
-        }
-        return RoofMaterialList;
-    }
-
-    //Returns material names only for carports with slanted roof, from database
-    public static ArrayList<String> getSlantedRoofMaterialList() throws ClassNotFoundException, LoginSampleException {
-        String sql = "SELECT * FROM fog.roofmaterial WHERE flatRoof = false;";
-        ArrayList<String> RoofMaterialList = new ArrayList<>();
-        try {
-            Connection con = Connector.connection();
-            PreparedStatement pstmt = con.prepareStatement(sql);
-            ResultSet res = pstmt.executeQuery();
-            if (res == null) {
-                return null;
-            } else {
-                while (res.next()) {
-                    RoofMaterialList.add(res.getString("roofmaterial"));
-                }
-            }
-        } catch (SQLException ex) {
-            throw new LoginSampleException( ex.getMessage() );
-        }
-        return RoofMaterialList;
-    }
-
-    //Returns material names for either flat or slanted roof, depending on flat roof true or false
+    //Henter tagmateriale navne fra tabellen roofmaterial afhængigt af om taget er fladt eller med rejsning (true/false9
     public static ArrayList<String> getRoofMaterials(boolean roof) throws ClassNotFoundException, LoginSampleException {
         ArrayList<String> RoofMaterialList = new ArrayList<>();
 

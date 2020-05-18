@@ -54,7 +54,7 @@ public class Initializer {
         return heightsList;
     }
 
-    public static List<String> getFlatroofMaterialList() {
+    /*public static List<String> getFlatroofMaterialList() {
         if (flatRoofMaterialList == null) {
             try {
                 slantedRoofMaterialList = LogicFacade.showFlatRoofMaterialList();
@@ -74,7 +74,7 @@ public class Initializer {
             }
         }
         return slantedRoofMaterialList;
-    }
+    }*/
 
     public static List<String> getRoofMaterialType(boolean rooftype) {
         if (roofMaterialList == null) {

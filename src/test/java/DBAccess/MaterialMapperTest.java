@@ -113,29 +113,6 @@ public class MaterialMapperTest {
         assertEquals("45x195 mm. spærtræ ubeh.", mat.getName());
     }
 
-    /**
-     * Tester antal og indhold af listen med flade tagtyper
-     * @throws LoginSampleException
-     * @throws ClassNotFoundException
-     */
-    @Test
-    public void flatRoofMaterialTest() throws LoginSampleException, ClassNotFoundException {
-        ArrayList<String> flatRoofMaterialList = MaterialMapper.getFlatRoofMaterialList();
-        assertThat(flatRoofMaterialList, hasSize(3));
-        assertThat(flatRoofMaterialList, contains("Plastmo sort", "Plastmo gennemsigtig", "Plastmo hvid"));
-        }
-
-    /**
-     * Tester antal og indhold af listen med tagtyper til tag med resjning
-     * @throws LoginSampleException
-     * @throws ClassNotFoundException
-     */
-    @Test
-    public void slantedRoofMaterialTest() throws LoginSampleException, ClassNotFoundException {
-        ArrayList<String> slantedRoofMaterialList = MaterialMapper.getSlantedRoofMaterialList();
-        assertThat(slantedRoofMaterialList, hasSize(3));
-        assertThat(slantedRoofMaterialList, contains("Tagsten sort", "Tagpap sort", "Trapez plast sort"));
-    }
 
     /**
      * Tester antal og indhold til listen med tagmaterialer

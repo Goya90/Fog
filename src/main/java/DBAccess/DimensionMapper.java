@@ -6,9 +6,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+/**
+ Formålet med denne klasse er at hente værdier fra dimensionstabeller
+ i databasen og returnere dem som arraylister. Listerne bruges til at befolke
+ dropdownmenuer på JSP siderne.
+ @author Claes
+ */
 public class DimensionMapper {
 
-    //Returns the possible carport widths (in cm) from the database
+    //Henter og returnerer en arrayliste med de mulige bredder fra tabellen "width" i db
     public static ArrayList<Integer> getWidthList() throws ClassNotFoundException, LoginSampleException {
         String sql = "SELECT width FROM fog.width;";
         ArrayList<Integer> widthList = new ArrayList<>();
@@ -30,7 +36,7 @@ public class DimensionMapper {
         return widthList;
     }
 
-    //Returns the possible carport lengths (in cm) from the database
+    //Henter og returnerer en arrayliste med de mulige carport bredder fra tabellen "length" i db
     public static ArrayList<Integer> getLengthList() throws ClassNotFoundException, LoginSampleException {
         String sql = "SELECT * FROM fog.length;";
         ArrayList<Integer> lengthList = new ArrayList<>();
@@ -51,7 +57,7 @@ public class DimensionMapper {
         return lengthList;
     }
 
-    //Returns the possible carport heights (in cm) from the database
+    //Henter og returnerer en arrayliste med de mulige carport højder fra tabellen "height" i db
     public static ArrayList<Integer> getHeightList() throws ClassNotFoundException, LoginSampleException {
         String sql = "SELECT * FROM fog.height;";
         ArrayList<Integer> heightList = new ArrayList<>();
@@ -72,7 +78,7 @@ public class DimensionMapper {
         return heightList;
     }
 
-    //Returns the possible shed lengths (in cm) from the database
+    //Henter og returnerer en arrayliste med de mulige skur længder fra tabellen "shedlength" i db
     public static ArrayList<Integer> getShedLengthList() throws ClassNotFoundException, LoginSampleException {
         String sql = "SELECT * FROM fog.shedlength;";
         ArrayList<Integer> shedLengthList = new ArrayList<>();
@@ -93,7 +99,7 @@ public class DimensionMapper {
         return shedLengthList;
     }
 
-    //Returns the possible shed widths (in cm) from the database
+    //Henter og returnerer en arrayliste med de mulige carport bredder fra tabellen "shedwidth" i db
     public static ArrayList<Integer> getShedWidthList() throws ClassNotFoundException, LoginSampleException {
         String sql = "SELECT * FROM fog.shedwidth;";
         ArrayList<Integer> shedWidthList = new ArrayList<>();

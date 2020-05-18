@@ -36,14 +36,6 @@ public class LogicFacade {
         return DimensionMapper.getHeightList();
     }
 
-    public static ArrayList<String> showFlatRoofMaterialList() throws LoginSampleException, ClassNotFoundException {
-        return MaterialMapper.getFlatRoofMaterialList();
-    }
-
-    public static ArrayList<String> showSlantedRoofMaterialList() throws LoginSampleException, ClassNotFoundException {
-        return MaterialMapper.getSlantedRoofMaterialList();
-    }
-
     public static Material showMaterial(int materialId) throws LoginSampleException, ClassNotFoundException {
         return MaterialMapper.getMaterial(materialId);
     }
