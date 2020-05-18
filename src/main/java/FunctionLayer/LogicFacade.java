@@ -54,7 +54,7 @@ public class LogicFacade {
         RequestMapper.createRequest(request);
     }
     public static ArrayList<CustomerRequest> newRequests() throws LoginSampleException {
-        return RequestMapper.showNewRequests();
+        return RequestMapper.showNewRequests(false);
     }
     public static CustomerRequest showRequest(int id) throws LoginSampleException {
         return RequestMapper.getRequestFromID(id);
@@ -63,6 +63,6 @@ public class LogicFacade {
         RequestMapper.processRequest(price,id);
     }
     public static ArrayList<CustomerRequest> doneRequests() throws LoginSampleException {
-        return RequestMapper.showDoneRequests();
+        return RequestMapper.showNewRequests(true);
     }
 }
