@@ -1,5 +1,10 @@
 package FunctionLayer;
 
+/**
+Denne klasse indeholder constructors samt instansvariable til et kundeforespørgsels objekt
+ @author claes
+ */
+
 public class CustomerRequest {
 
     int reqId;
@@ -15,7 +20,7 @@ public class CustomerRequest {
     int shedl;
     int shedw;
 
-
+    //constructor
     public CustomerRequest(String name, int telno, String email, String comments, int width, int length, int height,
                            boolean flatRoof, String roofMat, int shedl, int shedw) {
         this.name = name;
@@ -30,7 +35,7 @@ public class CustomerRequest {
         this.shedl = shedl;
         this.shedw = shedw;
     }
-
+    //constructor
     public CustomerRequest(int reqId, String name, int telno, String email, String comments, int width, int length,
                            int height, boolean flatRoof, String roofMat, int shedl, int shedw) {
         this.reqId = reqId;
@@ -46,15 +51,7 @@ public class CustomerRequest {
         this.shedl = shedl;
         this.shedw = shedw;
     }
-
-    public CustomerRequest(String name, String email, int width, int length, int height) {
-        this.name = name;
-        this.email = email;
-        this.width = width;
-        this.length = length;
-        this.height = height;
-    }
-
+    //constructor
     public CustomerRequest(int width, int length, int height, boolean flatRoof, String roofMat, int shedl, int shedw) {
         this.width = width;
         this.length = length;
@@ -64,7 +61,7 @@ public class CustomerRequest {
         this.shedl = shedl;
         this.shedw = shedw;
     }
-
+    //settere og gettere
     public void setReqId(int reqId) {
         this.reqId = reqId;
     }

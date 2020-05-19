@@ -5,7 +5,6 @@ import FunctionLayer.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class BillOfMaterials extends Command {
@@ -14,7 +13,7 @@ public class BillOfMaterials extends Command {
 
         HttpSession session = request.getSession();
 
-        int reqID;// = Integer.parseInt(request.getParameter("reqID"));
+        int reqID;
 
         try {
             reqID = Integer.parseInt(request.getParameter("reqID"));

@@ -4,13 +4,12 @@ import DBAccess.DimensionMapper;
 import DBAccess.MaterialMapper;
 import DBAccess.RequestMapper;
 import DBAccess.UserMapper;
-import PresentationLayer.Request;
 
 import java.util.ArrayList;
 
 /**
- * The purpose of LogicFacade is to...
- * @author kasper
+ Denne klasse indeholder constructors samt instansvariable til et kundeforespørgsels objekt
+ @author claes
  */
 public class LogicFacade {
 
