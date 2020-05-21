@@ -14,7 +14,13 @@ import java.util.ArrayList;
  */
 public class DimensionMapper {
 
-    //Henter og returnerer en arrayliste med de mulige bredder fra tabellen "width" i db
+    /**Henter og returnerer en arrayliste med de mulige bredder fra tabellen "width" i db
+     *
+     * @return Liste med værdier for carport bredde
+     * @throws ClassNotFoundException
+     * @throws LoginSampleException
+     */
+
     public static ArrayList<Integer> getWidthList() throws ClassNotFoundException, LoginSampleException {
         String sql = "SELECT width FROM fog.width;";
         ArrayList<Integer> widthList = new ArrayList<>();
@@ -36,7 +42,12 @@ public class DimensionMapper {
         return widthList;
     }
 
-    //Henter og returnerer en arrayliste med de mulige carport bredder fra tabellen "length" i db
+    /**Henter og returnerer en arrayliste med de mulige carport bredder fra tabellen "length" i db
+     *
+     * @return Liste med værdier for carport bredde
+     * @throws ClassNotFoundException
+     * @throws LoginSampleException
+     */
     public static ArrayList<Integer> getLengthList() throws ClassNotFoundException, LoginSampleException {
         String sql = "SELECT * FROM fog.length;";
         ArrayList<Integer> lengthList = new ArrayList<>();
@@ -57,7 +68,12 @@ public class DimensionMapper {
         return lengthList;
     }
 
-    //Henter og returnerer en arrayliste med de mulige carport højder fra tabellen "height" i db
+    /**Henter og returnerer en arrayliste med de mulige carport højder fra tabellen "height" i db
+     *
+     * @return Liste med værdier for højde af carport
+     * @throws ClassNotFoundException
+     * @throws LoginSampleException
+     */
     public static ArrayList<Integer> getHeightList() throws ClassNotFoundException, LoginSampleException {
         String sql = "SELECT * FROM fog.height;";
         ArrayList<Integer> heightList = new ArrayList<>();
@@ -78,7 +94,12 @@ public class DimensionMapper {
         return heightList;
     }
 
-    //Henter og returnerer en arrayliste med de mulige skur længder fra tabellen "shedlength" i db
+    /**Henter og returnerer en arrayliste med de mulige skur længder fra tabellen "shedlength" i db
+     *
+     * @return ArralyListe med skur længde værdier
+     * @throws ClassNotFoundException
+     * @throws LoginSampleException
+     */
     public static ArrayList<Integer> getShedLengthList() throws ClassNotFoundException, LoginSampleException {
         String sql = "SELECT * FROM fog.shedlength;";
         ArrayList<Integer> shedLengthList = new ArrayList<>();
@@ -99,7 +120,12 @@ public class DimensionMapper {
         return shedLengthList;
     }
 
-    //Henter og returnerer en arrayliste med de mulige carport bredder fra tabellen "shedwidth" i db
+    /**Henter og returnerer en arrayliste med de mulige skur bredder fra tabellen "shedwidth" i db
+     *
+     * @return ArrayListe med værdier for skur bredde
+     * @throws ClassNotFoundException
+     * @throws LoginSampleException
+     */
     public static ArrayList<Integer> getShedWidthList() throws ClassNotFoundException, LoginSampleException {
         String sql = "SELECT * FROM fog.shedwidth;";
         ArrayList<Integer> shedWidthList = new ArrayList<>();

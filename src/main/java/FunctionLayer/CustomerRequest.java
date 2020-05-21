@@ -20,7 +20,20 @@ public class CustomerRequest {
     int shedl;
     int shedw;
 
-    //constructor
+    /**
+     * Constructor, CustomerRequest objekt
+     * @param name
+     * @param telno
+     * @param email
+     * @param comments
+     * @param width
+     * @param length
+     * @param height
+     * @param flatRoof
+     * @param roofMat
+     * @param shedl
+     * @param shedw
+     */
     public CustomerRequest(String name, int telno, String email, String comments, int width, int length, int height,
                            boolean flatRoof, String roofMat, int shedl, int shedw) {
         this.name = name;
@@ -35,7 +48,22 @@ public class CustomerRequest {
         this.shedl = shedl;
         this.shedw = shedw;
     }
-    //constructor
+
+    /**
+     * Constructor, CustomerRequest objekt uden reqId.
+     * @param reqId
+     * @param name
+     * @param telno
+     * @param email
+     * @param comments
+     * @param width
+     * @param length
+     * @param height
+     * @param flatRoof
+     * @param roofMat
+     * @param shedl
+     * @param shedw
+     */
     public CustomerRequest(int reqId, String name, int telno, String email, String comments, int width, int length,
                            int height, boolean flatRoof, String roofMat, int shedl, int shedw) {
         this.reqId = reqId;
@@ -51,7 +79,17 @@ public class CustomerRequest {
         this.shedl = shedl;
         this.shedw = shedw;
     }
-    //constructor
+
+    /**
+     * Constructor, CustomerRequest objekt
+     * @param width
+     * @param length
+     * @param height
+     * @param flatRoof
+     * @param roofMat
+     * @param shedl
+     * @param shedw
+     */
     public CustomerRequest(int width, int length, int height, boolean flatRoof, String roofMat, int shedl, int shedw) {
         this.width = width;
         this.length = length;

@@ -18,7 +18,7 @@ public class DoneRequests extends Command {
 
         ArrayList<CustomerRequest> reqList = null; //creates a list of CustomerRequests to be shown on the jsp
         try {
-            reqList = LogicFacade.doneRequests(); //Enters the handled (doneRequest-method) requests selected from db into the list.
+            reqList = LogicFacade.showRequests(true); //Enters the handled (doneRequest-method) requests selected from db into the list.
         } catch (LoginSampleException e) {
             e.printStackTrace();
         }

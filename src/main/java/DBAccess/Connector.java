@@ -21,7 +21,13 @@ public class Connector {
         singleton = con;
     }
 
-    //Singleton, den samme databaseforbindelse bruges alle steder i applikationen
+    /**Opretter en forbindelse til MySQL databasen hvis ikke denne er oprettet.
+     * Singleton, den samme databaseforbindelse bruges alle steder i applikationen
+     *
+     * @return Connection
+     * @throws ClassNotFoundException
+     * @throws SQLException
+     */
     public static Connection connection() throws ClassNotFoundException, SQLException {
         if ((singleton == null) || singleton.isClosed()) {
             setDBCredentials();
@@ -32,7 +38,10 @@ public class Connector {
     }
 
 
-    //Credentials til brug når applikationen køres fra droplet
+    /**Hvis ENV fil ikke er tom, hentes credentials til denne og der oprettes forbindelse.
+     * Hvis deployed = null, oprettes forbindelse via localhost.
+     *
+     */
     public static void setDBCredentials() {
         String deployed = System.getenv("DEPLOYED");
         if (deployed != null){
@@ -44,7 +53,7 @@ public class Connector {
             // Localhost
             URL = "jdbc:mysql://localhost:3306/fog?serverTimezone=CET&useSSL=false";
             USERNAME = "root";
-            PASSWORD = "Sirena123";
+            PASSWORD = "Rufbtr11@";
         }
     }
 }

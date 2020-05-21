@@ -8,16 +8,21 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 /**
- Formålet med denne klasse er at hente materialer fra db tabellen materials.
+ Formålet med denne klasse er at hente materialer fra db tabellerne materials og roofmaterial.
  @author claes
  */
 
 public class MaterialMapper {
 
-    //Returnerer et materiale objekt fra "materials" tabellen ud fra et givet materiale id
+    /**Returnerer et materiale objekt fra "materials" tabellen ud fra et givet materiale id
+     *
+     * @param materialId
+     * @return Material objekt
+     * @throws ClassNotFoundException
+     * @throws LoginSampleException
+     */
     public static Material getMaterial(int materialId) throws ClassNotFoundException, LoginSampleException {
         String sql = "SELECT * FROM fog.materials WHERE materialId = ?;";
-        //Der skal ændres i SQL-statementet
         Material material = new Material();
         try {
             Connection con = Connector.connection();
@@ -41,7 +46,13 @@ public class MaterialMapper {
         return material;
     }
 
-    //Henter tagmateriale navne fra tabellen roofmaterial afhængigt af om taget er fladt eller med rejsning (true/false9
+    /**Henter tagmateriale navne fra tabellen roofmaterial afhængigt af om taget er fladt eller med rejsning (true/false)
+     *
+     * @param roof
+     * @return ArrayListe med tagmaterialer til enten fladt eller tag med rejsning
+     * @throws ClassNotFoundException
+     * @throws LoginSampleException
+     */
     public static ArrayList<String> getRoofMaterials(boolean roof) throws ClassNotFoundException, LoginSampleException {
         ArrayList<String> RoofMaterialList = new ArrayList<>();
 

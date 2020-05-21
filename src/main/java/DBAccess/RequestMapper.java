@@ -13,7 +13,11 @@ Formålet med denne klasse er: 1.Oprette en ny kundeforespørgsel i db, 2. Hente
 
 public class RequestMapper {
 
-    //Indsætter attributterne fra et nyt request objekt i db tabellen cust_request
+    /**Indsætter attributterne fra et nyt request objekt i db tabellen cust_request
+     *
+     * @param request
+     * @throws LoginSampleException
+     */
     public static void createRequest(CustomerRequest request) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
@@ -42,7 +46,12 @@ public class RequestMapper {
         }
     }
 
-    //Henter attributter på requests der endnu ikke er behandlet af medarbejder og returnerer dem i en arrayliste af requestobjekter
+    /**Henter attributter på requests der endnu ikke er behandlet af medarbejder og returnerer dem i en arrayliste af requestobjekter
+     *
+     * @param processed
+     * @return ArrayListe med ubehandlede forspørgsler
+     * @throws LoginSampleException
+     */
     public static ArrayList<CustomerRequest> showNewRequests(boolean processed) throws LoginSampleException {
         ArrayList<CustomerRequest> newRequestsList = new ArrayList<>();
         try {
@@ -74,7 +83,13 @@ public class RequestMapper {
 
         return newRequestsList;
     }
-    //Henter requestattributter med et givet id i tabellen cust_request og skaber et request objekt som returneres
+
+    /**Henter requestattributter med et givet id i tabellen cust_request og skaber et request objekt som returneres
+     *
+     * @param id
+     * @return Customerrequest objekt
+     * @throws LoginSampleException
+     */
     public static CustomerRequest getRequestFromID(int id) throws LoginSampleException {
         CustomerRequest req = null;
         try {
@@ -102,7 +117,12 @@ public class RequestMapper {
         return req;
     }
 
-    //Opdaterer et givet request id med en ny pris i tabellen cust_request
+    /**Opdaterer et givet request id med en ny pris i tabellen cust_request
+     *
+     * @param price
+     * @param id
+     * @throws LoginSampleException
+     */
     public static void processRequest(double price, int id) throws LoginSampleException {
         try {
             Connection con = Connector.connection();

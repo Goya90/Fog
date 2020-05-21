@@ -18,8 +18,13 @@ import java.sql.Statement;
  */
 public class UserMapper {
 
-    //Opretter et user objekt med parametrene email og password, derefter tilføjes parametren id som sql har tilføjet ved oprettelsen
-    //af brugeren (auto-increment)
+    /**Indsætter en nyoprettet bruger (user objekt) i tabellen users, attributten id hentes i MySQL via getGeneratedKeys
+     * af brugeren (auto-increment)
+     * @param user
+     * @throws LoginSampleException
+     */
+
+
     public static void createUser( User user ) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
@@ -39,9 +44,15 @@ public class UserMapper {
         }
     }
 
-    //Returnerer et user objekt ud fra parametrene email og password, hvis disse findes i tabellen users.
-    //Hvis brugeren med de givne credentials ikke findes, returneres en fejlmeddelelse. Hvis forbindelse
-    //til db ikke findes, returneres en fejlmeddelelse. I begge tilfælde logges fejlen.
+    /**Returnerer et user objekt ud fra parametrene email og password, hvis disse findes i tabellen users.
+     * Hvis brugeren med de givne credentials ikke findes, returneres en fejlmeddelelse. Hvis forbindelse
+     * til db ikke findes, returneres en fejlmeddelelse. I begge tilfælde logges fejlen.
+     * @param email
+     * @param password
+     * @return User objekt
+     * @throws LoginSampleException
+     */
+
     public static User login( String email, String password ) throws LoginSampleException {
         try {
             Connection con = Connector.connection();

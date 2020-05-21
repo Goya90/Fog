@@ -1,26 +1,24 @@
 package FunctionLayer;
 
 /**
- * The purpose of User is to...
+ * Formålet med denne klasse er at skabe et user objekt og sætte attributter på dette. Enten ved login eller
+ * oprettelse af en ny bruger. Metoder til oprettelse/log in ligger i UserMapper klassen. Attributten id
+ * sættes auto genereret i databasen.
  * @author kasper
  */
 public class User {
 
-    private int id; // just used to demo retrieval of autogen keys in UserMapper
+    private int id;
     private String email;
     private String password;
 
-    //Creates a user with 2 parameters
+    //Constructor, skaber et user objekt med 2 parametre
     public User( String email, String password) {
         this.email = email;
         this.password = password;
     }
-    public User( String email, String password, int id) {
-        this.email = email;
-        this.password = password;
-        this.id = id;
-    }
 
+    //Gettere og settere
     public String getEmail() {
         return email;
     }

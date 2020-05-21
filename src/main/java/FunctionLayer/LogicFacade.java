@@ -8,60 +8,143 @@ import DBAccess.UserMapper;
 import java.util.ArrayList;
 
 /**
- Denne klasse indeholder constructors samt instansvariable til et kundeforespørgsels objekt
- @author claes
+ Denne klasse er en del af facade design mønsteret. Metoderne henter data fra databasen via metoder i
+ mapper-klasserne til brug på websiderne. Enten som lister eller objekter. Desuden er der
+ metoder der opdaterer tabeller i databasen, baseret på bruger input på websiderne.
  */
 public class LogicFacade {
-
+    /**Returnerer et user objekt via UserMapper klassen (såfremt credentials er korrekte)
+     *
+     * @param email
+     * @param password
+     * @return User objekt
+     * @throws LoginSampleException
+     */
     public static User login( String email, String password ) throws LoginSampleException {
         return UserMapper.login( email, password );
     }
 
+    /**Opretter en ny bruger via UserMapper med credentials fra webside
+     *
+     * @param email
+     * @param password
+     * @return User objekt
+     * @throws LoginSampleException
+     */
     public static User createUser( String email, String password ) throws LoginSampleException {
         User user = new User(email, password);
         UserMapper.createUser( user );
         return user;
     }
 
+    /**Læser indholdet af tabellen widths i db og returnerer disse i en liste via MaterialMapper
+     *
+     * @return ArrayListe med carport bredder
+     * @throws LoginSampleException
+     * @throws ClassNotFoundException
+     */
     public static ArrayList<Integer> showWidths() throws LoginSampleException, ClassNotFoundException {
         return DimensionMapper.getWidthList();
     }
 
+    /**Læser indholdet af tabellen lengths i db og returnerer disse i en liste via MaterialMapper
+     *
+     * @return ArrayListe med carport længder
+     * @throws LoginSampleException
+     * @throws ClassNotFoundException
+     */
     public static ArrayList<Integer> showLengths() throws LoginSampleException, ClassNotFoundException {
         return DimensionMapper.getLengthList();
     }
 
+    /**Læser indholdet af tabellen heights i db og returnerer disse i en liste via MaterialMapper
+     *
+     * @return ArrayListe med carport højder
+     * @throws LoginSampleException
+     * @throws ClassNotFoundException
+     */
     public static ArrayList<Integer> showHeights() throws LoginSampleException, ClassNotFoundException {
         return DimensionMapper.getHeightList();
     }
 
+    /**Returnerer et Material objekt fra db via MaterialMapper klassen ud fra parametren ID
+     *
+     * @param materialId
+     * @return Material objekt
+     * @throws LoginSampleException
+     * @throws ClassNotFoundException
+     */
     public static Material showMaterial(int materialId) throws LoginSampleException, ClassNotFoundException {
         return MaterialMapper.getMaterial(materialId);
     }
 
+    /**Læser indholdet af tabellen roofmaterial i db og returnerer disse i en liste via MaterialMapper klassen
+     *
+     * @param flat
+     * @return ArrayListe med navne på tagmaterialer til tag m/u rejsning
+     * @throws LoginSampleException
+     * @throws ClassNotFoundException
+     */
     public static ArrayList<String> showRoofMaterialList(boolean flat) throws LoginSampleException, ClassNotFoundException {
         return MaterialMapper.getRoofMaterials(flat);
     }
 
+    /**Læser indholdet af tabellen shedlength i db og returnerer disse i en liste via MaterialMapper klassen
+     *
+     * @return Liste med skur længder
+     * @throws LoginSampleException
+     * @throws ClassNotFoundException
+     */
     public static ArrayList<Integer> showShedLengths() throws LoginSampleException, ClassNotFoundException {
         return DimensionMapper.getShedLengthList();
     }
+
+    /**Læser indholdet af tabellen shedwidth i db og returnerer disse i en liste via MaterialMapper klassen
+     *
+     * @return Liste med skur bredder
+     * @throws LoginSampleException
+     * @throws ClassNotFoundException
+     */
     public static ArrayList<Integer> showShedWidths() throws LoginSampleException, ClassNotFoundException {
         return DimensionMapper.getShedWidthList();
     }
+
+    /**Tager et customerrequest objekt som parameter og indsætter dette i tabellen cust_request i db via RequestMapper klassen
+     *
+     * @param request
+     * @throws LoginSampleException
+     */
     public static void createRequest(CustomerRequest request) throws LoginSampleException {
         RequestMapper.createRequest(request);
     }
-    public static ArrayList<CustomerRequest> newRequests() throws LoginSampleException {
-        return RequestMapper.showNewRequests(false);
+
+    /**Henter CustomerRequest objekter i db cust_request via RequestMapper hvor processed er = false og
+     *
+     * @return Liste med CustomerRequest objekter
+     * @throws LoginSampleException
+     */
+    public static ArrayList<CustomerRequest> showRequests(boolean done) throws LoginSampleException {
+        return RequestMapper.showNewRequests(done);
     }
+
+    /**Henter og returnerer et CustomerRequest objekt fra db via Requestmapper ud fra parametren ID
+     *
+     * @param id
+     * @return CustomerRequest objekt
+     * @throws LoginSampleException
+     */
     public static CustomerRequest showRequest(int id) throws LoginSampleException {
         return RequestMapper.getRequestFromID(id);
     }
+
+    /**Opdaterer prisen på en kundeforespørgsel i tabellen cust_request med et ID som parameter, via RequestMapper
+     *
+     * @param price
+     * @param id
+     * @throws LoginSampleException
+     */
     public static void updateRequest(double price, int id) throws LoginSampleException {
         RequestMapper.processRequest(price,id);
     }
-    public static ArrayList<CustomerRequest> doneRequests() throws LoginSampleException {
-        return RequestMapper.showNewRequests(true);
-    }
+
 }

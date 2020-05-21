@@ -18,7 +18,7 @@ public class ShowRequests extends Command {
 
         ArrayList<CustomerRequest> reqList = null; //creates a list of CustomerRequests to be shown on the jsp
         try {
-            reqList = LogicFacade.newRequests(); //Enters the unhandled requests selected from db into the list
+            reqList = LogicFacade.showRequests(false); //Enters the unhandled requests selected from db into the list
         } catch (LoginSampleException e) {
             e.printStackTrace();
         }
