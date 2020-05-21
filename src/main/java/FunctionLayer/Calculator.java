@@ -7,24 +7,15 @@ package FunctionLayer;
 
 import java.util.ArrayList;
 
-/**
- * Denne klasse indeholder metoder der kan udregne materialelisten til en carport
- * ud fra de valgte værdier på index samt slantedRoof siderne.
- */
-
 
 public class Calculator {
 
-    /**Instantiering af variable for carport dimensioner:
-     *
-     */
+    //Instantiering af variable for carport dimensioner:
     int carportWidth;
     int carportLength;
     int carportHeight;
 
-    /**Instantiering af variable der skal bruges i alle eller flere addMaterial() metoder:
-     *
-     */
+    //Instantiering af variable der skal bruges i addMaterial() metoder:
     int materialId;
     int minimumQuantity = 1;
     int minimumLength;
@@ -32,19 +23,15 @@ public class Calculator {
     int fixedLength;
     int multiplier;
     int divider;
-    int convertMM2ToM2 = 10000000;
-    int convertMMToM = 1000;
+    int unitsPerPack;
+    int convertMM2ToM2 = 1000000;
     int distanceBetweenEach;
     int calculatedQuantity;
 
-    /**Instantiering af ArrayList som addMaterial() metoderne tilføjer til (materialelisten).
-     *
-     */
+    //Instantiering af ArrayList som addMaterial() metoderne tilføjer til:
     public static ArrayList<Material> bom = new ArrayList<>();
 
-    /**Instantiering af et Material objekt som addMaterialer() metoderne bruger:
-     *
-     */
+    //Instantiering af et Material objekt som addMaterialer() metoderne bruger:
     Material mat = null;
 
     public ArrayList<Material> bomCalculator (int width, int length, int height, boolean flatRoof, String roofMaterial, int shedLength, int shedWidth) throws LoginSampleException, ClassNotFoundException {
@@ -60,7 +47,6 @@ public class Calculator {
         carportHeight = height;
 
         //Grundlæggende materialer til simpel carport tilføjes:
-        //TODO: Lav metode der kan kalde alle disse metoder i et loop
         addMaterial1();
         addMaterial3(shedLength, shedWidth);
         addMaterial6();
@@ -92,46 +78,37 @@ public class Calculator {
         }
 
         //Tilføjer tag materiale:
-        if (roofMaterial.equals("Plastmo sort")){
-            addMaterial34();
-        } else if (roofMaterial.equals("Plastmo gennemsigtig")) {
-            addMaterial35();
-        } else if (roofMaterial.equals("Plastmo hvid")) {
-            addMaterial36();
-        } else if (roofMaterial.equals("Tagsten sort")) {
-            addMaterial15();
-        } else if (roofMaterial.equals("Tagpap sort")) {
-            addMaterial37();
-        } else if (roofMaterial.equals("Trapez plast sort")) {
-            addMaterial38();
-        } else {
-            addDummyMaterial();
+        switch (roofMaterial) {
+            case "Plastmo sort":
+                addMaterial34();
+                break;
+            case "Plastmo gennemsigtig":
+                addMaterial35();
+                break;
+            case "Plastmo hvid":
+                addMaterial36();
+                break;
+            case "Tagsten sort":
+                addMaterial15();
+                break;
+            case "Tagpap sort":
+                addMaterial37();
+                break;
+            case "Trapez plast sort":
+                addMaterial38();
+                break;
+            default:
+                addDummyMaterial();
         }
 
-        //Hvis kunden har valgt redskabsskur
+        //Hvis kunden har valgt redskabsskur tilføjes materialer via ShedCalculator klassen
         if (shedLength != 0 && shedWidth != 0) {
             ShedCalculator shedCalc = new ShedCalculator();
             shedCalc.shedBomCalculator(height, shedLength, shedWidth);
-
         }
 
         return bom;
     }
-
-    /*
-    //TODO: Find ud af om vi skal bruge denne:
-    public Material getMaterialFromDatabase (int MaterialId) {
-        Material mat = null;
-        try {
-            mat = LogicFacade.showMaterial(materialId);
-        } catch (LoginSampleException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        return mat;
-    }
-     */
 
     //Dummy materiale til at vise at materiale ikke blev tilføjet:
     public void addDummyMaterial () throws LoginSampleException, ClassNotFoundException {
@@ -142,7 +119,7 @@ public class Calculator {
         bom.add(mat);
     }
 
-    //Materiale med ID nr. 1 bliver tilføjet.
+    //Materiale med ID nr. 1 bliver tilføjet:
     public void addMaterial1 () throws LoginSampleException, ClassNotFoundException {
         materialId = 1;
 
@@ -236,7 +213,7 @@ public class Calculator {
         bom.add(mat);
     }
 
-    //Materiale med ID nr. 11 bliver tilføjet: TODO: I denne metoder er der lidt problemer med Double kontra Int. Se om det kan løses mere elegant end med casting.
+    //Materiale med ID nr. 11 bliver tilføjet:
     public void addMaterial11 () throws LoginSampleException, ClassNotFoundException {
         materialId = 11;
         fixedQuantity = 2;
@@ -341,11 +318,11 @@ public class Calculator {
         materialId = 18;
         multiplier = 15;
         minimumQuantity = 1;
-        int pcsPerPack = 200;
+        unitsPerPack = 200;
 
         mat = LogicFacade.showMaterial(materialId);
 
-        calculatedQuantity = (carportLength*carportWidth)/convertMM2ToM2*multiplier/pcsPerPack;
+        calculatedQuantity = (carportLength*carportWidth)/convertMM2ToM2*multiplier/ unitsPerPack;
 
         if (minimumQuantity > calculatedQuantity) {
             mat.setQuantity(minimumQuantity);
@@ -402,11 +379,11 @@ public class Calculator {
         materialId = 22;
         divider = 25;
         minimumQuantity = 1;
-        int metersPerPack = 10;
+        unitsPerPack = 10;
 
         mat = LogicFacade.showMaterial(materialId);
 
-        calculatedQuantity = (carportLength*carportWidth)/convertMM2ToM2/divider/metersPerPack;
+        calculatedQuantity = (carportLength*carportWidth)/convertMM2ToM2/divider/unitsPerPack;
 
         if (minimumQuantity > calculatedQuantity) {
             mat.setQuantity(minimumQuantity);
@@ -494,12 +471,11 @@ public class Calculator {
     public void addMaterial28 () throws LoginSampleException, ClassNotFoundException {
         materialId = 28;
         multiplier = 25;
-        minimumQuantity = 1;
-        int pcsPerPack = 200;
+        unitsPerPack = 200;
 
         mat = LogicFacade.showMaterial(materialId);
 
-        calculatedQuantity = (carportLength*carportWidth)/convertMM2ToM2*multiplier/pcsPerPack;
+        calculatedQuantity = (carportLength*carportWidth)/convertMM2ToM2*multiplier/unitsPerPack;
 
         if (minimumQuantity > calculatedQuantity) {
             mat.setQuantity(minimumQuantity);

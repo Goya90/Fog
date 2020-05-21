@@ -1,69 +1,77 @@
+
 package FunctionLayer;
 
 import java.util.ArrayList;
-import static FunctionLayer.Calculator.bom;
 
-/**
- * Formålet med denne klasse er at kunne tilføje materialer til skur til materialelisten hvis dette er valgt.
- */
+import static FunctionLayer.Calculator.bom;
 
 public class ShedCalculator {
 
+    //Instantiering af variable der skal bruges i addMaterial() metoder:
     int widthShed;
     int lengthShed;
-    int convertToM2 = 1000000;
     int carportHeight;
+    int convertMM2ToM2 = 1000000;
+    int materialId;
+    int minimumQuantity = 1;
+    int sizeOfEach;
+    int unitsPerPack;
+    int calculatedQuantity;
 
     public ArrayList<Material> shedBomCalculator (int height, int shedWidth, int shedLength) throws LoginSampleException, ClassNotFoundException {
 
+        //Erklærer variable til addMaterial metoderne:
         carportHeight = height;
         widthShed = shedWidth;
         lengthShed = shedLength;
 
+        //Tilføjer materialer til skur:
         addMaterial4();
         addMaterial31();
         addMaterial32();
         addMaterial33();
+
         return bom;
     }
 
+    //Materiale med ID nr. 4 bliver tilføjet:
     public void addMaterial4 () throws LoginSampleException, ClassNotFoundException {
-        int materialId = 4;
-        int fixedQuantity = 2;
-        int fixedNum = 60;
-        int fixedNum2 = 200;
+        materialId = 4;
+        int noOfSides = 2;
+        sizeOfEach = 60;
+        int fixedNum = 200;
 
         Material mat = LogicFacade.showMaterial(materialId);
 
-        mat.setLength(carportHeight-fixedNum2);
-        mat.setQuantity(((lengthShed/fixedNum)*fixedQuantity) + ((widthShed/fixedNum)*fixedQuantity));
+        mat.setLength(carportHeight-fixedNum);
+        mat.setQuantity(((lengthShed/sizeOfEach)*noOfSides) + ((widthShed/sizeOfEach)*noOfSides));
         bom.add(mat);
     }
 
-
+    //Materiale med ID nr. 31 bliver tilføjet:
     public void addMaterial31 () throws LoginSampleException, ClassNotFoundException {
-        int materialId = 31;
-        int fixedNum = 4;
+        materialId = 31;
+        minimumQuantity = 4;
 
         Material mat = LogicFacade.showMaterial(materialId);
 
-        mat.setQuantity(((lengthShed*widthShed)/convertToM2)+fixedNum);
+        mat.setQuantity(((lengthShed*widthShed)/convertMM2ToM2)+minimumQuantity);
 
         bom.add(mat);
     }
 
     public void addMaterial32 () throws LoginSampleException, ClassNotFoundException {
-        int materialId = 32;
-        int fixedNum = 60;
-        int fixedNum2 = 2;
-        int numberPerPack = 400;
-        int calculatedQuantity;
-        int minimumQuantity = 1;
+        materialId = 32;
+        sizeOfEach = 60;
+        int fixedNum = 2;
+        unitsPerPack = 400;
+        minimumQuantity = 1;
 
         Material mat = LogicFacade.showMaterial(materialId);
 
-        calculatedQuantity = (((lengthShed/fixedNum)*fixedNum2) + ((widthShed/fixedNum)/fixedNum2))/numberPerPack;
+        calculatedQuantity = (((lengthShed/sizeOfEach)*fixedNum) + ((widthShed/sizeOfEach)/fixedNum))/unitsPerPack;
 
+        //Sikrer et minumum antal af enheden:
         if (calculatedQuantity > minimumQuantity) {
             mat.setQuantity(calculatedQuantity);
         } else {
@@ -74,17 +82,16 @@ public class ShedCalculator {
     }
 
     public void addMaterial33 () throws LoginSampleException, ClassNotFoundException {
-        int materialId = 33;
-        int fixedNum = 60;
-        int fixedNum2 = 2;
-        int numberPerPack = 300;
-        int calculatedQuantity;
-        int minimumQuantity = 1;
+        materialId = 33;
+        int sizeOfEach = 60;
+        int fixedNum = 2;
+        unitsPerPack = 300;
 
         Material mat = LogicFacade.showMaterial(materialId);
 
-        calculatedQuantity = ((((lengthShed/fixedNum)*fixedNum2) + (((widthShed/fixedNum)*fixedNum2))/fixedNum2)*fixedNum2)/numberPerPack;
+        calculatedQuantity = ((((lengthShed/sizeOfEach)*fixedNum) + (((widthShed/sizeOfEach)*fixedNum))/fixedNum)*fixedNum)/unitsPerPack;
 
+        //Sikrer et minumum antal af enheden:
         if (calculatedQuantity > minimumQuantity) {
             mat.setQuantity(calculatedQuantity);
         } else {
