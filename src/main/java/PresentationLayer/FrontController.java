@@ -13,8 +13,8 @@ import java.io.IOException;
 public class FrontController extends HttpServlet {
 
     /**
-     Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     methods.
+     Behandler requests for både HTTP <code>GET</code> and <code>POST</code>
+     metoder.
 
      @param request servlet request
      @param response servlet response
@@ -27,14 +27,14 @@ public class FrontController extends HttpServlet {
             Command action = Command.from( request );
             String view = action.execute( request, response );
             if (view.equals("index") || view.equals("confirmation") || view.equals("slantedRoof")|| view.equals("login")) {
-                request.getRequestDispatcher(view + ".jsp").forward(request,response);
+                request.getRequestDispatcher(view + ".jsp").forward(request,response); //Sider der IKKE kræver login
             } else {
-                request.getRequestDispatcher("/WEB-INF/" + view + ".jsp").forward(request, response);
+                request.getRequestDispatcher("/WEB-INF/" + view + ".jsp").forward(request, response); //Sider der kræver login
                 //request.getRequestDispatcher(view + ".jsp").forward(request,response); //Bruges når WEB-INF ikke er i brug
 
             }
         } catch (LoginSampleException | ClassNotFoundException ex ) {
-            request.setAttribute( "error", ex.getMessage() );
+            request.setAttribute( "error", ex.getMessage() ); //Sætter fejlmeddelelse på attributten "error"
             request.getRequestDispatcher( "login.jsp" ).forward( request, response );
         }
     }

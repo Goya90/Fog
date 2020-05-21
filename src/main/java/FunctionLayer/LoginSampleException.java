@@ -2,7 +2,7 @@ package FunctionLayer;
 
 /**
  * Formålet med denne klasse er at
- * @author kasper
+ *
  */
 public class LoginSampleException extends Exception {
 

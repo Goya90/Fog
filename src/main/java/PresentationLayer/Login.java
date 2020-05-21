@@ -8,12 +8,18 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- The purpose of Login is to...
-
- @author kasper
+ * Formålet med denne klasse er at validere et login i databasen og sætte bruger objektets værdier som session attributter
+ * ved log in. Ved succesfuldt login føres brugeren til admin web siden.
  */
 public class Login extends Command {
 
+    /**
+     *
+     * @param request det indtastede id samt password, fra websiden
+     * @param response
+     * @return admin websiden
+     * @throws LoginSampleException ved SQL fejl
+     */
     @Override
     String execute( HttpServletRequest request, HttpServletResponse response ) throws LoginSampleException {
         String email = request.getParameter( "email" );
@@ -23,7 +29,7 @@ public class Login extends Command {
         HttpSession session = request.getSession();
 
         session.setAttribute( "user", user );
-        session.setAttribute("email", email);  // ellers skal man skrive  user.email på jsp siderne og det er sgu lidt mærkeligt at man har adgang til private felter. Men måske er det meget fedt , jeg ved det ikke
+        session.setAttribute("email", email);
         session.setAttribute("userID", user.getId());
 
         return "adminpage";

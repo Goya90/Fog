@@ -1,9 +1,11 @@
-
 package FunctionLayer;
 
 import java.util.ArrayList;
-
 import static FunctionLayer.Calculator.bom;
+
+/**
+ * Formålet med denne klasse er at kunne tilføje materialer til skur til materialelisten hvis dette er valgt.
+ */
 
 public class ShedCalculator {
 

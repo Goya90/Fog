@@ -17,7 +17,10 @@ public class Initializer {
     private static List <Integer> shedWidthsList = null;
     private static List <Integer> shedLengthsList = null;
 
-    //Returnerer liste med værdier for carport bredde fra db via LogicFacade og DimensionMapper
+    /**Returnerer liste med værdier for carport bredde fra db via LogicFacade og DimensionMapper
+     *
+     * @return værdier for bredde
+     */
     public static List<Integer> getWidthsList() {
         if (widthsList == null) {
             try {
@@ -28,7 +31,11 @@ public class Initializer {
         }
         return widthsList;
     }
-    //Returnerer liste med værdier for carport længde fra db via LogicFacade og DimensionMapper
+
+    /**Returnerer liste med værdier for carport længde fra db via LogicFacade og DimensionMapper
+     *
+     * @return værdier for længde
+     */
     public static List<Integer> getLengthsList() {
         if (lengthsList == null) {
             try {
@@ -39,7 +46,11 @@ public class Initializer {
         }
         return lengthsList;
     }
-    //Returnerer liste med værdier for carport højde fra db via LogicFacade og DimensionMapper
+
+    /**Returnerer liste med værdier for carport højde fra db via LogicFacade og DimensionMapper
+     *
+     * @return liste med værdier for højde
+     */
     public static List<Integer> getHeightsList() {
         if (heightsList == null) {
             try {
@@ -50,7 +61,11 @@ public class Initializer {
         }
         return heightsList;
     }
-    //Returnerer liste med værdier for skur bredde fra db via LogicFacade og DimensionMapper
+
+    /**Returnerer liste med værdier for skur bredde fra db via LogicFacade og DimensionMapper
+     *
+     * @return liste med værdier for skur bredde
+     */
     public static List<Integer> getShedWidthsList() {
         if (shedWidthsList == null) {
             try {
@@ -61,7 +76,11 @@ public class Initializer {
         }
         return shedWidthsList;
     }
-    //Returnerer liste med værdier for skur længde fra db via LogicFacade og DimensionMapper
+
+    /**Returnerer liste med værdier for skur længde fra db via LogicFacade og DimensionMapper
+     *
+     * @return liste med værdier for skur længde
+     */
     public static List<Integer> getShedLengthsList() {
         if (shedLengthsList == null) {
             try {

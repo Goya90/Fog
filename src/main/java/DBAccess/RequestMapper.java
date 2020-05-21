@@ -15,8 +15,8 @@ public class RequestMapper {
 
     /**Indsætter attributterne fra et nyt request objekt i db tabellen cust_request
      *
-     * @param request
-     * @throws LoginSampleException
+     * @param request objekt med navn, tlf.nr, email,kommentarer,bredde,længde,højde,tagtype,tagmateriale, skur længde og bredde
+     * @throws LoginSampleException ved sql fejl
      */
     public static void createRequest(CustomerRequest request) throws LoginSampleException {
         try {
@@ -48,9 +48,9 @@ public class RequestMapper {
 
     /**Henter attributter på requests der endnu ikke er behandlet af medarbejder og returnerer dem i en arrayliste af requestobjekter
      *
-     * @param processed
+     * @param processed behandlet eller ej
      * @return ArrayListe med ubehandlede forspørgsler
-     * @throws LoginSampleException
+     * @throws LoginSampleException ved sql fejl
      */
     public static ArrayList<CustomerRequest> showNewRequests(boolean processed) throws LoginSampleException {
         ArrayList<CustomerRequest> newRequestsList = new ArrayList<>();
@@ -86,9 +86,9 @@ public class RequestMapper {
 
     /**Henter requestattributter med et givet id i tabellen cust_request og skaber et request objekt som returneres
      *
-     * @param id
-     * @return Customerrequest objekt
-     * @throws LoginSampleException
+     * @param id forespørgsel nr
+     * @return Customerrequest objekt med bredde,længde,højde,tagtype,tagmateriale,skur længde og bredde
+     * @throws LoginSampleException ved sql fejl
      */
     public static CustomerRequest getRequestFromID(int id) throws LoginSampleException {
         CustomerRequest req = null;
@@ -119,9 +119,9 @@ public class RequestMapper {
 
     /**Opdaterer et givet request id med en ny pris i tabellen cust_request
      *
-     * @param price
-     * @param id
-     * @throws LoginSampleException
+     * @param price pris i kr
+     * @param id forespørgsels nummer
+     * @throws LoginSampleException ved sql fejl
      */
     public static void processRequest(double price, int id) throws LoginSampleException {
         try {

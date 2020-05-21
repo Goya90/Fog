@@ -4,6 +4,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.*;
 
+/**
+ * Formålet med denne klasse er at lagre fejl i en log fil.
+ * Der er 3 niveauer for fejltype: finest, info og severe.
+ * Nye loggings bliver tilføjet til den eksisterende fil.
+ */
+
 public class Log {
 
     private static final String FILENAME = "log.log";
@@ -15,45 +21,56 @@ public class Log {
     private Log() {
     }
 
+    /**
+     *
+     * @param lvl fejlens niveau
+     * @param decription fejlens tekst
+     * @throws Exception
+     */
     private static void log(Level lvl, String decription) throws Exception {
 
-        Logger logger = Logger.getLogger(Log.class.getName());   // alle operationer på logger er thread safe
+        Logger logger = Logger.getLogger(Log.class.getName());   //Alle operationer på logger er thread safe
 
-        FileHandler fh = new FileHandler(PATH, true);
+        FileHandler fh = new FileHandler(PATH, true); //Sti samt tilføjer log til eksisterende fil
         fh.setFormatter(new VerySimpleFormatter());
         logger.addHandler(fh);
 
-        logger.setLevel(Level.FINEST);   // her sætter vi niveauet for logningen.
+        logger.setLevel(Level.FINEST);   //Her sættes niveauet for logningen.
 
-        logger.log(lvl ,  decription  );
+        logger.log(lvl, decription);
 
         fh.close();
 
     }
 
-    public static void severe(String description ) {
+    public static void severe(String description) {
 
         try {
-            log(Level.SEVERE,description );
+            log(Level.SEVERE, description);
         } catch (Exception e) {
         }
     }
-    public static void info(String description ) {
+
+    public static void info(String description) {
 
         try {
-            log(Level.INFO,description );
+            log(Level.INFO, description);
         } catch (Exception e) {
         }
     }
-    public static void finest(String description ) {
+
+    public static void finest(String description) {
 
         try {
-            log(Level.FINEST,description );
+            log(Level.FINEST, description);
         } catch (Exception e) {
         }
     }
 }
 
+/**
+ * Metode der tilføjer tidsstempel til en logning
+ */
 class VerySimpleFormatter extends Formatter {
 
     private static final String PATTERN = "yyyy-MM-dd'T'HH:mm:ss.SSSXXX";

@@ -20,8 +20,8 @@ public class UserMapper {
 
     /**Indsætter en nyoprettet bruger (user objekt) i tabellen users, attributten id hentes i MySQL via getGeneratedKeys
      * af brugeren (auto-increment)
-     * @param user
-     * @throws LoginSampleException
+     * @param user objekt med parametre: email og password
+     * @throws LoginSampleException ved sql fejl
      */
 
 
@@ -49,8 +49,8 @@ public class UserMapper {
      * til db ikke findes, returneres en fejlmeddelelse. I begge tilfælde logges fejlen.
      * @param email
      * @param password
-     * @return User objekt
-     * @throws LoginSampleException
+     * @return User objekt med userID
+     * @throws LoginSampleException ved sql fejl
      */
 
     public static User login( String email, String password ) throws LoginSampleException {

@@ -1,10 +1,15 @@
 package PresentationLayer;
 
-import FunctionLayer.LogicFacade;
 import FunctionLayer.LoginSampleException;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Formålet med denne klasse er at opdatere en valgt kundeforespørgsel med en ny pris.
+ * Når medarbejderen har indsat den nye pris, sendes denne videre til en webside med bekræftelse.
+ * Der checkes først om der er indtastet en ny pris og derefter om denne kan parses til en double
+ * dvs, om den er gyldig. Hvis ingen ny pris er indtastet, bruges den eksisterende.
+ */
 
 public class ProcessRequest extends Command {
 
@@ -22,7 +27,7 @@ public class ProcessRequest extends Command {
         }
         //Double instantieres til brug i db opdatering
         double finalPrice;
-        //Checker at den indtastede pris kan parses fra String til double, kaster fejl hvis ikke og sender retur til samme side
+        //Checker at den indtastede pris kan parses fra String til double, kaster fejl hvis ikke og sender retur til side med materialeliste
         try {
             finalPrice = Double.parseDouble(price);
         } catch (NumberFormatException e) {

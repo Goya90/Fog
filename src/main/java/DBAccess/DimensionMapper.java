@@ -18,7 +18,7 @@ public class DimensionMapper {
      *
      * @return Liste med værdier for carport bredde
      * @throws ClassNotFoundException
-     * @throws LoginSampleException
+     * @throws LoginSampleException ved sql fejl
      */
 
     public static ArrayList<Integer> getWidthList() throws ClassNotFoundException, LoginSampleException {
@@ -46,7 +46,7 @@ public class DimensionMapper {
      *
      * @return Liste med værdier for carport bredde
      * @throws ClassNotFoundException
-     * @throws LoginSampleException
+     * @throws LoginSampleException ved sql fejl
      */
     public static ArrayList<Integer> getLengthList() throws ClassNotFoundException, LoginSampleException {
         String sql = "SELECT * FROM fog.length;";
@@ -72,7 +72,7 @@ public class DimensionMapper {
      *
      * @return Liste med værdier for højde af carport
      * @throws ClassNotFoundException
-     * @throws LoginSampleException
+     * @throws LoginSampleException ved sql fejl
      */
     public static ArrayList<Integer> getHeightList() throws ClassNotFoundException, LoginSampleException {
         String sql = "SELECT * FROM fog.height;";
@@ -98,7 +98,7 @@ public class DimensionMapper {
      *
      * @return ArralyListe med skur længde værdier
      * @throws ClassNotFoundException
-     * @throws LoginSampleException
+     * @throws LoginSampleException ved sql fejl
      */
     public static ArrayList<Integer> getShedLengthList() throws ClassNotFoundException, LoginSampleException {
         String sql = "SELECT * FROM fog.shedlength;";
@@ -124,7 +124,7 @@ public class DimensionMapper {
      *
      * @return ArrayListe med værdier for skur bredde
      * @throws ClassNotFoundException
-     * @throws LoginSampleException
+     * @throws LoginSampleException ved sql fejl
      */
     public static ArrayList<Integer> getShedWidthList() throws ClassNotFoundException, LoginSampleException {
         String sql = "SELECT * FROM fog.shedwidth;";

@@ -22,17 +22,17 @@ public class CustomerRequest {
 
     /**
      * Constructor, CustomerRequest objekt
-     * @param name
-     * @param telno
-     * @param email
-     * @param comments
-     * @param width
-     * @param length
-     * @param height
-     * @param flatRoof
-     * @param roofMat
-     * @param shedl
-     * @param shedw
+     * @param name kunde navn
+     * @param telno kunde telefon nr
+     * @param email kunde email
+     * @param comments kunde kommentarer
+     * @param width carport bredde
+     * @param length carport længde
+     * @param height carport højde
+     * @param flatRoof carport tagtype
+     * @param roofMat carport tagmateriale
+     * @param shedl skur længde
+     * @param shedw skur bredde
      */
     public CustomerRequest(String name, int telno, String email, String comments, int width, int length, int height,
                            boolean flatRoof, String roofMat, int shedl, int shedw) {
@@ -51,18 +51,18 @@ public class CustomerRequest {
 
     /**
      * Constructor, CustomerRequest objekt uden reqId.
-     * @param reqId
-     * @param name
-     * @param telno
-     * @param email
-     * @param comments
-     * @param width
-     * @param length
-     * @param height
-     * @param flatRoof
-     * @param roofMat
-     * @param shedl
-     * @param shedw
+     * @param reqId kundeforespørgsels nr
+     * @param name kunde navn
+     * @param telno kunde telefon nr
+     * @param email kunde email
+     * @param comments kunde kommentarer
+     * @param width carport bredde
+     * @param length carport længde
+     * @param height carport højde
+     * @param flatRoof carport tagtype
+     * @param roofMat carport tagmateriale
+     * @param shedl skur længde
+     * @param shedw skur bredde
      */
     public CustomerRequest(int reqId, String name, int telno, String email, String comments, int width, int length,
                            int height, boolean flatRoof, String roofMat, int shedl, int shedw) {
@@ -82,13 +82,13 @@ public class CustomerRequest {
 
     /**
      * Constructor, CustomerRequest objekt
-     * @param width
-     * @param length
-     * @param height
-     * @param flatRoof
-     * @param roofMat
-     * @param shedl
-     * @param shedw
+     * @param width carport bredde
+     * @param length carport længde
+     * @param height carport højde
+     * @param flatRoof carport tagtype
+     * @param roofMat carport tagmateriale
+     * @param shedl skurlængde
+     * @param shedw skurbredde
      */
     public CustomerRequest(int width, int length, int height, boolean flatRoof, String roofMat, int shedl, int shedw) {
         this.width = width;

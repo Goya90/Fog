@@ -1,6 +1,9 @@
 package FunctionLayer;
 
-import com.sun.javafx.binding.StringFormatter;
+/**
+ * Formålet med denne klasse er at skabe en SVG tegning ud fra valgte carportdimensioner.
+ * SVG tegningen sendes som en String til html siden og vises på websiden.
+ */
 
 public class Svg {
 
@@ -24,17 +27,6 @@ public class Svg {
         this.viewbox = viewbox;
         this.x = x;
         this.y = y;
-        svg.append(String.format(headerTemplate, height, width, viewbox));
-    }
-
-    public Svg(int width, int height, String viewbox, int x, int y, int x2, int y2) {
-        this.width = width;
-        this.height = height;
-        this.viewbox = viewbox;
-        this.x = x;
-        this.y = y;
-        this.x2 = x2;
-        this.y2 = y2;
         svg.append(String.format(headerTemplate, height, width, viewbox));
     }
 

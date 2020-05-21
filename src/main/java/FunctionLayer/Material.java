@@ -1,5 +1,10 @@
 package FunctionLayer;
 
+/**
+ * Formålet med denne klasse er at kunne skabe de enkelte materialer til materialelisten.
+ *
+ */
+
 public class Material {
     private int id;
     private String category;

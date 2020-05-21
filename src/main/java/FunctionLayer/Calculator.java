@@ -7,15 +7,24 @@ package FunctionLayer;
 
 import java.util.ArrayList;
 
+/**
+ * Denne klasse indeholder metoder der kan udregne materialelisten til en carport
+ * ud fra de valgte værdier på index samt slantedRoof siderne.
+ */
+
 
 public class Calculator {
 
-    //Instantiering af variable for carport dimensioner:
+    /**Instantiering af variable for carport dimensioner:
+     *
+     */
     int carportWidth;
     int carportLength;
     int carportHeight;
 
-    //Instantiering af variable der skal bruges i alle eller flere addMaterial() metoder:
+    /**Instantiering af variable der skal bruges i alle eller flere addMaterial() metoder:
+     *
+     */
     int materialId;
     int minimumQuantity = 1;
     int minimumLength;
@@ -28,10 +37,14 @@ public class Calculator {
     int distanceBetweenEach;
     int calculatedQuantity;
 
-    //Instantiering af ArrayList som addMaterial() metoderne tilføjer til:
+    /**Instantiering af ArrayList som addMaterial() metoderne tilføjer til (materialelisten).
+     *
+     */
     public static ArrayList<Material> bom = new ArrayList<>();
 
-    //Instantiering af et Material objekt som addMaterialer() metoderne bruger:
+    /**Instantiering af et Material objekt som addMaterialer() metoderne bruger:
+     *
+     */
     Material mat = null;
 
     public ArrayList<Material> bomCalculator (int width, int length, int height, boolean flatRoof, String roofMaterial, int shedLength, int shedWidth) throws LoginSampleException, ClassNotFoundException {
