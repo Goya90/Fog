@@ -18,32 +18,6 @@ import java.sql.Statement;
  */
 public class UserMapper {
 
-    /**Indsætter en nyoprettet bruger (user objekt) i tabellen users, attributten id hentes i MySQL via getGeneratedKeys
-     * af brugeren (auto-increment)
-     * @param user objekt med parametre: email og password
-     * @throws LoginSampleException ved sql fejl
-     */
-
-
-    public static void createUser( User user ) throws LoginSampleException {
-        try {
-            Connection con = Connector.connection();
-            String SQL = "INSERT INTO Users (email, password) VALUES (?, ?)";
-            PreparedStatement ps = con.prepareStatement( SQL, Statement.RETURN_GENERATED_KEYS );
-            ps.setString( 1, user.getEmail() );
-            ps.setString( 2, user.getPassword() );
-            ps.executeUpdate();
-            int id;
-            try (ResultSet ids = ps.getGeneratedKeys()) {
-                ids.next();
-                id = ids.getInt(1);
-            }
-            user.setId( id );
-        } catch ( SQLException | ClassNotFoundException ex ) {
-            throw new LoginSampleException( ex.getMessage() );
-        }
-    }
-
     /**Returnerer et user objekt ud fra parametrene email og password, hvis disse findes i tabellen users.
      * Hvis brugeren med de givne credentials ikke findes, returneres en fejlmeddelelse. Hvis forbindelse
      * til db ikke findes, returneres en fejlmeddelelse. I begge tilfælde logges fejlen.
