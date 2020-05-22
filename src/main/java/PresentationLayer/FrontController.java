@@ -18,8 +18,8 @@ public class FrontController extends HttpServlet {
 
      @param request servlet request
      @param response servlet response
-     @throws ServletException if a servlet-specific error occurs
-     @throws IOException if an I/O error occurs
+     @throws ServletException hvis der opstår en servlet fejl
+     @throws IOException hvis der opstår en I/O fejl
      */
     protected void processRequest( HttpServletRequest request, HttpServletResponse response )
             throws ServletException, IOException {
@@ -30,11 +30,10 @@ public class FrontController extends HttpServlet {
                 request.getRequestDispatcher(view + ".jsp").forward(request,response); //Sider der IKKE kræver login
             } else {
                 request.getRequestDispatcher("/WEB-INF/" + view + ".jsp").forward(request, response); //Sider der kræver login
-                //request.getRequestDispatcher(view + ".jsp").forward(request,response); //Bruges når WEB-INF ikke er i brug
 
             }
         } catch (LoginSampleException | ClassNotFoundException ex ) {
-            request.setAttribute( "error", ex.getMessage() ); //Sætter fejlmeddelelse på attributten "error"
+            request.setAttribute( "error", ex.getMessage() ); //Sætter fejlmeddelelse på servlet attributten "error"
             request.getRequestDispatcher( "login.jsp" ).forward( request, response );
         }
     }

@@ -1,5 +1,6 @@
 package PresentationLayer;
 
+import FunctionLayer.LogicFacade;
 import FunctionLayer.LoginSampleException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -34,6 +35,7 @@ public class ProcessRequest extends Command {
             request.setAttribute( "error", "Fejl: Den nye pris skal være et positivt tal, prøv igen." );
             return "billofmaterials";
         }
+        LogicFacade.updateRequest(finalPrice,id);
         //Sætter den nye totalpris så den kan vises på requestConfirmation.jsp
         request.getServletContext().setAttribute("total", finalPrice);
         //Sender videre til bekræftelse af opdatering

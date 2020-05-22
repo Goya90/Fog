@@ -84,7 +84,8 @@ public class Svg {
 
     public int getX1() { return x2; }
 
-    public void setX1(int x1) { this.x2 = x2; }
+    public void setX1(int x1) {
+    }
 
     public int getY2() {
         return y2;

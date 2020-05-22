@@ -2,9 +2,9 @@ package FunctionLayer;
 
 /**
  * Formålet med denne klasse er at skabe et user objekt og sætte attributter på dette. Enten ved login eller
- * oprettelse af en ny bruger. Metoder til oprettelse/log in ligger i UserMapper klassen. Attributten id
+ * oprettelse af en ny bruger. Metoder til oprettelse/log-in ligger i UserMapper klassen. Attributten id
  * sættes auto genereret i databasen.
- * @author kasper
+ * @author claes
  */
 public class User {
 

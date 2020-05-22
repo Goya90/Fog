@@ -1,9 +1,11 @@
-
 package FunctionLayer;
 
 import java.util.ArrayList;
-
 import static FunctionLayer.Calculator.bom;
+
+/**
+ * Denne klasse tilføjer et skur til materalelisten hvis kunden har valgt værdier for skur (ikke nul)
+ */
 
 public class ShedCalculator {
 

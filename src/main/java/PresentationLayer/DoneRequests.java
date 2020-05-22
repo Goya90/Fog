@@ -3,11 +3,14 @@ package PresentationLayer;
 import FunctionLayer.CustomerRequest;
 import FunctionLayer.LogicFacade;
 import FunctionLayer.LoginSampleException;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+
+/**
+ * Denne servlet
+ */
 
 public class DoneRequests extends Command {
 
@@ -16,16 +19,16 @@ public class DoneRequests extends Command {
 
         HttpSession session = request.getSession();
 
-        ArrayList<CustomerRequest> reqList = null; //creates a list of CustomerRequests to be shown on the jsp
+        ArrayList<CustomerRequest> reqList = null; //Initialiserer arrayliste hvis indhold skal vises på websiden
         try {
-            reqList = LogicFacade.showRequests(true); //Enters the handled (doneRequest-method) requests selected from db into the list.
+            reqList = LogicFacade.showRequests(true); //Henter indhold fra db via logicFacade og Requestmapper samt indsætter det i liste
         } catch (LoginSampleException e) {
             e.printStackTrace();
         }
 
-        request.setAttribute("reqlist", reqList);//Sets the attribute "reqlist" on jsp to the list created above
+        request.setAttribute("reqlist", reqList); //Sætter jsp attributten "reqlist" = den nye liste
 
-        //Sends the user to the jsp showing done requests
+        //Sender brugeren videre til websiden der viser nye kundeforespørgsler
         return "doneRequests";
 
     }

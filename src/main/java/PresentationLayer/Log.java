@@ -1,5 +1,6 @@
 package PresentationLayer;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.*;
@@ -25,13 +26,13 @@ public class Log {
      *
      * @param lvl fejlens niveau
      * @param decription fejlens tekst
-     * @throws Exception
+     * @throws IOException fejl i fil, forbindelse, læs/skriv
      */
-    private static void log(Level lvl, String decription) throws Exception {
+    private static void log(Level lvl, String decription) throws IOException {
 
         Logger logger = Logger.getLogger(Log.class.getName());   //Alle operationer på logger er thread safe
 
-        FileHandler fh = new FileHandler(PATH, true); //Sti samt tilføjer log til eksisterende fil
+        FileHandler fh = new FileHandler(PATH, true); //Sti til fil samt tilføjer log til filen (append)
         fh.setFormatter(new VerySimpleFormatter());
         logger.addHandler(fh);
 
