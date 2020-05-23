@@ -117,7 +117,8 @@ public class RequestMapper {
         return req;
     }
 
-    /**Opdaterer et givet request id med en ny pris i tabellen cust_request
+    /**Opdaterer et givet request id med en ny pris i tabellen cust_request og ændrer parametren
+     * processed til true.
      *
      * @param price pris i kr
      * @param id forespørgsels nummer
@@ -128,7 +129,27 @@ public class RequestMapper {
             Connection con = Connector.connection();
             String SQL = "UPDATE cust_request SET processed = true, price = ? where reqId = ?;";
             PreparedStatement ps = con.prepareStatement( SQL );
-            //ps.setInt(1,id);
+            ps.setDouble(1,price);
+            ps.setInt(2,id);
+            ps.executeUpdate();
+
+        } catch ( SQLException | ClassNotFoundException ex ) {
+            throw new LoginSampleException( ex.getMessage() );
+        }
+
+
+    }
+    /**Opdaterer et givet request id med en ny pris i tabellen cust_request.
+     *
+     * @param price pris i kr
+     * @param id forespørgsels nummer
+     * @throws LoginSampleException ved sql fejl
+     */
+    public static void setPrice(double price, int id) throws LoginSampleException {
+        try {
+            Connection con = Connector.connection();
+            String SQL = "UPDATE cust_request SET price = ? where reqId = ?;";
+            PreparedStatement ps = con.prepareStatement( SQL );
             ps.setDouble(1,price);
             ps.setInt(2,id);
             ps.executeUpdate();
