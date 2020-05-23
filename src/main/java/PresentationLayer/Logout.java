@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Denne klasse bruges til at afslutte en brugers session. Brugerens session lukkes ogaAttributter sættes til null.
+ * Denne klasse bruges til at afslutte en brugers session. Brugerens session lukkes og attributter sættes til null.
  * Derefter føres brugeren tilbage til forsiden (index).
  */
 

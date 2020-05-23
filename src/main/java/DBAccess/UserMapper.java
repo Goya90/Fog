@@ -11,8 +11,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
- Formålet med denne klasse er at oprette nye brugere i db tabellen users samt validere eksisterende brugere
- ved login i samme tabel. Ved fejl i userid/password eller forbindelse til database, returneres en fejlmeddelelse og
+ Formålet med denne klasse er at validere eksisterende brugere i tabellen users
+ ved login. Ved fejl i userid/password eller forbindelse til database, returneres en fejlmeddelelse og
  fejlen logges.
  @author claes
  */

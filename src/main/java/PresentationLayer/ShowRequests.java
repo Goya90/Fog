@@ -11,7 +11,7 @@ import java.util.ArrayList;
 /**
  * Denne klasse viser ikke-behandlede kundeforespørgsler på websiden "showRequests".
  * Data bliver hentet som liste fra tabellen cust_request via LogicFacade/RequestMapper og derefter
- * sættes attributten "reqlist" = listen som vises på websiden ved brug af et loop.
+ * sættes attributten "reqlist" = listen, denne vises på websiden ved brug af et loop.
  */
 
 public class ShowRequests extends Command {

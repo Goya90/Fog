@@ -9,15 +9,15 @@ import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 
 /**
- * Denne servlet
+ * Denne klasse bruges til at vise en liste med kundeforespørgsler der er behandlede på en webside.
+ * Attributten "reqlist" får listen som værdi. Listens indhold hentes i db via LogicFacade/RequestMapper.
+ *
  */
 
 public class DoneRequests extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, ClassNotFoundException {
-
-        HttpSession session = request.getSession();
 
         ArrayList<CustomerRequest> reqList = null; //Initialiserer arrayliste hvis indhold skal vises på websiden
         try {

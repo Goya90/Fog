@@ -2,7 +2,8 @@ package FunctionLayer;
 
 /**
  * Formålet med denne klasse er at sende en besked til brugeren
- * hvis der er de indtastede credentials ikke stemmer med db tabellen users
+ * hvis de indtastede credentials ikke stemmer med db tabellen users
+ * (brugeren ikke findes).
  *
  */
 public class LoginSampleException extends Exception {

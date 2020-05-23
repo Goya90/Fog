@@ -51,6 +51,7 @@
     <a href="FrontController?target=redirect&destination=index">Til forsiden</a>
 </div>
 
+
 </body>
 
 <%@include file="includes/footer.inc"%>

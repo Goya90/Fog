@@ -4,7 +4,6 @@ import DBAccess.DimensionMapper;
 import DBAccess.MaterialMapper;
 import DBAccess.RequestMapper;
 import DBAccess.UserMapper;
-
 import java.util.ArrayList;
 
 /**
@@ -124,7 +123,8 @@ public class LogicFacade {
         return RequestMapper.getRequestFromID(id);
     }
 
-    /**Opdaterer prisen på en kundeforespørgsel i tabellen cust_request med et ID som parameter, via RequestMapper
+    /**Opdaterer prisen på en kundeforespørgsel i tabellen cust_request med et ID som parameter og
+     * sætter processed=true  via RequestMapper.
      *
      * @param price request pris
      * @param id request id
@@ -133,7 +133,7 @@ public class LogicFacade {
     public static void updateRequest(double price, int id) throws LoginSampleException {
         RequestMapper.processRequest(price,id);
     }
-    /**Opdaterer prisen på en kundeforespørgsel i tabellen cust_request med et ID som parameter, via RequestMapper
+    /**Opdaterer prisen på en kundeforespørgsel i tabellen cust_request med et ID som parameter, via RequestMapper.
      *
      * @param price request pris
      * @param id request id

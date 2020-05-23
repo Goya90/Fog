@@ -9,6 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Denne servlet tager navnet på en klasse i Command mønstret fra et request objekt, skaber en instans af klassen og
+ * eksekverer denne. Såfremt navnet på klassen er identisk med en jsp side, sendes brugeren videre til denne.
+ *
+ */
+
 @WebServlet( name = "FrontController", urlPatterns = { "/FrontController" } )
 public class FrontController extends HttpServlet {
 

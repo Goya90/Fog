@@ -129,6 +129,7 @@
 </div>
 <br>
 <a href="FrontController?target=redirect&destination=login">Til medarbejderlogin</a>
+
 </body>
 <%@include file="includes/footer.inc"%>
 

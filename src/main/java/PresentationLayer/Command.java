@@ -5,6 +5,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 
+/**
+ * Denne klasse er parent klassen i Command mønstret. Child klasser arver execute metoden fra denne klasse.
+ * Modtagerne er gemt i et hashmap og bliver kaldt via execute metoden (@Override, arvet fra Command).
+ *
+ */
+
 abstract class Command {
 
     private static HashMap<String, Command> commands;
@@ -25,14 +31,30 @@ abstract class Command {
 
     }
 
+    /**
+     * Denne metode kalder den Command child klasse jsp siden "peger" på, via parametren "target".
+     * HashMap commands initialiseres hvis det er tomt. Hvis targetName findes i commands bruges dette, ellers er UknownCommand
+     * default.
+     * @param request navnet på den Command child klasse der kaldes
+     * @return navnet på den klasse der kaldes
+     */
     static Command from( HttpServletRequest request ) {
         String targetName = request.getParameter( "target" );
         if ( commands == null ) {
             initCommands();
         }
-        return commands.getOrDefault(targetName, new UnknownCommand() );   // unknowncommand er default.
+        return commands.getOrDefault(targetName, new UnknownCommand() );   //targetName hvis det findes, ellers default
+
     }
 
+    /**
+     *
+     * @param request
+     * @param response
+     * @return
+     * @throws LoginSampleException fejl i login detaljer
+     * @throws ClassNotFoundException
+     */
     abstract String execute( HttpServletRequest request, HttpServletResponse response )
             throws LoginSampleException, ClassNotFoundException;
 
