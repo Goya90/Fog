@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Denne servlet henter værdierne for den valgte carport og opretter variable med disse værdier.
+ * Denne klasse henter værdierne for den valgte carport og opretter variable med disse værdier.
  * Disse variable bruges som parametre for en SVG tegning. SVG tegningen sendes som en String til websiden
  * som brugeren derefter sendes til.
  */

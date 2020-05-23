@@ -24,19 +24,6 @@ public class LogicFacade {
         return UserMapper.login( email, password );
     }
 
-    /**Opretter en ny bruger via UserMapper med credentials fra webside
-     *
-     * @param email brugerens email
-     * @param password brugerens pssword
-     * @return User objekt
-     * @throws LoginSampleException fejl i login credentials
-     */
-    public static User createUser( String email, String password ) throws LoginSampleException {
-        User user = new User(email, password);
-        UserMapper.createUser( user );
-        return user;
-    }
-
     /**Læser indholdet af tabellen widths i db og returnerer disse i en liste via MaterialMapper
      *
      * @return ArrayListe med carport bredder

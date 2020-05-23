@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
-Formålet med denne servlet er at give en fejlbesked til brugeren hvis den valgte webside ikke findes.
+Formålet med denne klasse er at give en fejlbesked til brugeren hvis den valgte webside ikke findes.
  */
 public class UnknownCommand extends Command {
 
