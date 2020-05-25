@@ -22,7 +22,7 @@ public class MaterialMapper {
      * @throws LoginSampleException ved sql fejl
      */
     public static Material getMaterial(int materialId) throws ClassNotFoundException, LoginSampleException {
-        String sql = "SELECT * FROM fog.materials WHERE materialId = ?;";
+        String sql = "SELECT * FROM materials WHERE materialId = ?;";
         Material material = new Material();
         try {
             Connection con = Connector.connection();
@@ -58,7 +58,7 @@ public class MaterialMapper {
 
         try {
             Connection con = Connector.connection();
-            String sql = "SELECT * FROM fog.roofmaterial WHERE flatRoof = ?;";
+            String sql = "SELECT * FROM roofmaterial WHERE flatRoof = ?;";
             PreparedStatement pstmt = con.prepareStatement(sql);
             pstmt.setBoolean(1,roof);
             ResultSet res = pstmt.executeQuery();
