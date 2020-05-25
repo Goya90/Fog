@@ -21,8 +21,8 @@ public class UserMapper {
     /**Returnerer et user objekt ud fra parametrene email og password, hvis disse findes i tabellen users.
      * Hvis brugeren med de givne credentials ikke findes, returneres en fejlmeddelelse. Hvis forbindelse
      * til db ikke findes, returneres en fejlmeddelelse. I begge tilfælde logges fejlen.
-     * @param email
-     * @param password
+     * @param email brugers email
+     * @param password brugers password
      * @return User objekt med userID
      * @throws LoginSampleException ved sql fejl
      */
