@@ -16,6 +16,7 @@ abstract class Command {
     private static HashMap<String, Command> commands;
 
     private static void initCommands() {
+        //HashMap befolkes med String som key og klasse/objekt som value
         commands = new HashMap<>();
         commands.put( "login", new Login() );
         commands.put( "redirect", new Redirect());
@@ -36,10 +37,10 @@ abstract class Command {
      * HashMap commands initialiseres hvis det er tomt. Hvis targetName findes i commands bruges dette, ellers er UknownCommand
      * default.
      * @param request navnet på den Command child klasse der kaldes
-     * @return navnet på den klasse der kaldes
+     * @return navnet på den klasse der sendes tilbage
      */
     static Command from( HttpServletRequest request ) {
-        String targetName = request.getParameter( "target" );
+        String targetName = request.getParameter( "target" );//Henter parametren target på webside = String i Command HashMap
         if ( commands == null ) {
             initCommands();
         }
@@ -48,12 +49,9 @@ abstract class Command {
     }
 
     /**
-     *
-     * @param request
-     * @param response
-     * @return
+     *  Denne klasse arves af subklasserne og kaldes ved hj af "submit" på websider
      * @throws LoginSampleException fejl i login detaljer
-     * @throws ClassNotFoundException
+     * @throws ClassNotFoundException klassen findes ikke
      */
     abstract String execute( HttpServletRequest request, HttpServletResponse response )
             throws LoginSampleException, ClassNotFoundException;

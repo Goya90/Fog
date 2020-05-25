@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Formålet med denne klasse er at hente de værdier kunden har valgt samt indtastet på websiden, skabe et CustomerRequest
- * objekt af disse og gemme CustomerRequest data i db tabellen cust_request.
+ * objekt af disse og gemme CustomerRequest objektets data i db tabellen cust_request.
  */
 
 public class Request extends Command {

@@ -145,12 +145,10 @@ public class Drawing extends Command {
             svg.addRect(xPole6, yPole6, poleThickness, poleThickness);
 
             int yPole7 = length - shedLength;
-            int xPole7 = shedWidth;
-            svg.addRect(xPole7, yPole7, poleThickness, poleThickness);
+            svg.addRect(shedWidth, yPole7, poleThickness, poleThickness);
 
             int yPole8 = length - 10;
-            int xPole8 = shedWidth;
-            svg.addRect(xPole8, yPole8, poleThickness, poleThickness);
+            svg.addRect(shedWidth, yPole8, poleThickness, poleThickness);
 
         }
 

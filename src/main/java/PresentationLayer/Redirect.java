@@ -4,6 +4,11 @@ import FunctionLayer.LoginSampleException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * Denne klasse bruges til at sende links på web sider via FrontController.
+ * Parametren destination bestemmer hvilken side man sendes til.
+ */
+
 public class Redirect extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, ClassNotFoundException {

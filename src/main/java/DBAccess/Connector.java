@@ -22,11 +22,11 @@ public class Connector {
     }
 
     /**Opretter en forbindelse til MySQL databasen hvis ikke denne er oprettet.
-     * Singleton, den samme databaseforbindelse bruges alle steder i applikationen
+     * Singleton, den samme databaseforbindelse bruges alle steder i applikationen.
      *
      * @return Connection
-     * @throws ClassNotFoundException
-     * @throws SQLException
+     * @throws ClassNotFoundException klassen findes ikke
+     * @throws SQLException fejl i db forbindelse/login
      */
     public static Connection connection() throws ClassNotFoundException, SQLException {
         if ((singleton == null) || singleton.isClosed()) {
@@ -38,7 +38,7 @@ public class Connector {
     }
 
 
-    /**Hvis ENV fil ikke er tom, hentes credentials til denne og der oprettes forbindelse.
+    /**Hvis ENV fil ikke er tom, hentes credentials fra denne og der oprettes forbindelse.
      * Hvis deployed = null, oprettes forbindelse via localhost.
      *
      */

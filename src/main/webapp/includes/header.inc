@@ -2,6 +2,8 @@
 
 <!doctype html>
 <html lang="da">
+<meta name="Language" content="dk" />
+<meta http-equiv="Content-Language" content="dk" />
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -13,10 +15,10 @@
 
     <title>Fog carporte</title>
 </head>
-<body>
+
 <body style="background-color:whitesmoke;">
 
 <div class="container">
 
-    <img src="images/FogBanner.png" style="width:100%; height:180px"/>
+    <img src="images/FogBanner.png" style="width:100%; height:180px" alt=""/>
 
