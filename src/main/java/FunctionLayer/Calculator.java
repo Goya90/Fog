@@ -56,20 +56,20 @@ public class Calculator {
         addMaterial28();
 
         //Hvis taget er fladt tilføjes disse materialer:
-        if (flatRoof = true) {
+        if (flatRoof) {
             addMaterial2();
             addMaterial7();
             addMaterial18();
             addMaterial22();
             addMaterial25();
         }
+
         //Hvis taget har rejsning tilføjes disse materialer:
         else {
             addMaterial10();
             addMaterial11();
             addMaterial12();
             addMaterial13();
-            addMaterial15();
             addMaterial16();
             addMaterial17();
             addMaterial19();
@@ -133,7 +133,6 @@ public class Calculator {
         mat.setPrice(mat.getQuantity()*mat.getPrice());
 
         bom.add(mat);
-
     }
 
     //Materiale med ID nr. 2 bliver tilføjet:
@@ -158,7 +157,7 @@ public class Calculator {
         mat = LogicFacade.showMaterial(materialId);
 
         if (shedLength != 0 && shedWidth != 0) {
-            fixedQuantity = 10;
+            fixedQuantity = 8;
         } else if (carportLength < 4800) {
             fixedQuantity = 4;
         } else {
@@ -290,7 +289,7 @@ public class Calculator {
     //Materiale med ID nr. 16 bliver tilføjet:
     public void addMaterial16 () throws LoginSampleException, ClassNotFoundException {
         materialId = 16;
-        divider = 14;
+        divider = 400;
 
         mat = LogicFacade.showMaterial(materialId);
 
@@ -303,7 +302,7 @@ public class Calculator {
     //Materiale med ID nr. 17 bliver tilføjet:
     public void addMaterial17 () throws LoginSampleException, ClassNotFoundException {
         materialId = 17;
-        divider = 14;
+        divider = 400;
 
         mat = LogicFacade.showMaterial(materialId);
 
@@ -318,11 +317,10 @@ public class Calculator {
         materialId = 18;
         multiplier = 15;
         minimumQuantity = 1;
-        unitsPerPack = 200;
 
         mat = LogicFacade.showMaterial(materialId);
 
-        calculatedQuantity = (carportLength*carportWidth)/convertMM2ToM2*multiplier/ unitsPerPack;
+        calculatedQuantity = (carportLength*carportWidth)/convertMM2ToM2*multiplier;
 
         if (minimumQuantity > calculatedQuantity) {
             mat.setQuantity(minimumQuantity);
@@ -355,7 +353,14 @@ public class Calculator {
 
         mat = LogicFacade.showMaterial(materialId);
 
-        mat.setQuantity((carportLength*carportWidth/convertMM2ToM2)*divider);
+        calculatedQuantity = (carportLength*carportWidth/convertMM2ToM2)/divider;
+
+        if (minimumQuantity > calculatedQuantity) {
+            mat.setQuantity(minimumQuantity);
+        } else {
+            mat.setQuantity(calculatedQuantity);
+        }
+
         mat.setPrice(mat.getQuantity()*mat.getPrice());
 
         bom.add(mat);
@@ -368,7 +373,14 @@ public class Calculator {
 
         mat = LogicFacade.showMaterial(materialId);
 
-        mat.setQuantity((carportLength*carportWidth/convertMM2ToM2)/divider);
+        calculatedQuantity = (carportLength*carportWidth/convertMM2ToM2)/divider;
+
+        if (minimumQuantity > calculatedQuantity) {
+            mat.setQuantity(minimumQuantity);
+        } else {
+            mat.setQuantity(calculatedQuantity);
+        }
+
         mat.setPrice(mat.getQuantity()*mat.getPrice());
 
         bom.add(mat);
@@ -470,12 +482,11 @@ public class Calculator {
     //Materiale med ID nr. 28 bliver tilføjet:
     public void addMaterial28 () throws LoginSampleException, ClassNotFoundException {
         materialId = 28;
-        multiplier = 25;
-        unitsPerPack = 200;
+        divider = 25;
 
         mat = LogicFacade.showMaterial(materialId);
 
-        calculatedQuantity = (carportLength*carportWidth)/convertMM2ToM2*multiplier/unitsPerPack;
+        calculatedQuantity = (carportLength*carportWidth)/convertMM2ToM2/divider;
 
         if (minimumQuantity > calculatedQuantity) {
             mat.setQuantity(minimumQuantity);
