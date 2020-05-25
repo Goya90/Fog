@@ -4,6 +4,7 @@
 <%@page import="java.text.DecimalFormat" %>
 <%@ page import="FunctionLayer.Material" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <head>
     <title>Materialeliste</title>
 </head>
@@ -38,7 +39,7 @@
                     <td>${material.description}</td>
                     <td>${material.quantity}</td>
                     <td>${material.length}</td>
-                    <td>${material.price}</td>
+                    <td><fmt:formatNumber type="number" minFractionDigits="2" value="${material.price}"/></td>
                 </c:if>
                 </tr>
             </c:forEach>
@@ -66,7 +67,7 @@
                     <td>${material.name}</td>
                     <td>${material.description}</td>
                     <td>${material.quantity}</td>
-                    <td>${material.price}</td>
+                    <td><fmt:formatNumber type="number" minFractionDigits="2" value="${material.price}"/></td>
                 </c:if>
                 </tr>
             </c:forEach>
@@ -95,7 +96,7 @@
                     <td>${material.name}</td>
                     <td>${material.description}</td>
                     <td>${material.quantity}</td>
-                    <td>${material.price}</td>
+                    <td><fmt:formatNumber type="number" minFractionDigits="2" value="${material.price}"/></td>
                 </c:if>
                 </tr>
             </c:forEach>
@@ -104,10 +105,10 @@
     </div>
 </div>
 
-<h5 class="text-right">Listepris: ${applicationScope.total} kr inkl. moms
+<h5 class="text-right">Listepris: <fmt:formatNumber type="number" minFractionDigits="2" value="${applicationScope.total}"/> kr inkl. moms
 
     <c:if test="${applicationScope.finalPrice != NULL}">
-    <h5 class="text-right">Opdateret pris: ${applicationScope.finalPrice} kr inkl. moms
+    <h5 class="text-right">Opdateret pris: <fmt:formatNumber type="number" minFractionDigits="2" value="${applicationScope.finalPrice}"/> kr inkl. moms
     </c:if>
 
     <br>
