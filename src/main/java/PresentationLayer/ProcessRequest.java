@@ -37,7 +37,7 @@ public class ProcessRequest extends Command {
         }
         LogicFacade.updatePrice(finalPrice,id);
         //Sætter den nye totalpris så den kan vises på requestConfirmation.jsp
-        request.getServletContext().setAttribute("total", finalPrice);
+        request.getServletContext().setAttribute("finalPrice", finalPrice);
         //Sender videre til bekræftelse af opdatering
         return "requestConfirmation";
     }

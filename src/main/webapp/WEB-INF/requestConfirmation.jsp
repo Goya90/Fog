@@ -10,7 +10,7 @@
 <body>
 <h1>Hej ${sessionScope.email} </h1>
 <br>
-<h2>Kundeforespørgsel nr: ${applicationScope.reqID} er opdateret med pris: ${applicationScope.total}</h2>
+<h2>Kundeforespørgsel nr: ${applicationScope.reqID} er opdateret med pris: ${applicationScope.finalPrice}</h2>
 <br>
 <br>
 <a href="FrontController?target=redirect&destination=adminpage">Til adminsiden</a>

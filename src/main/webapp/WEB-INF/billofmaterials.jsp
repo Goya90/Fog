@@ -104,7 +104,12 @@
     </div>
 </div>
 
-<h5 class="text-right">Samlet pris: ${applicationScope.total} kr inkl. moms
+<h5 class="text-right">Listepris: ${applicationScope.total} kr inkl. moms
+
+    <c:if test="${applicationScope.finalPrice != NULL}">
+    <h5 class="text-right">Opdateret pris: ${applicationScope.finalPrice} kr inkl. moms
+    </c:if>
+
     <br>
     <br>
     <form action="FrontController" method="POST">
