@@ -1,0 +1,75 @@
+@startuml
+
+[*] --> Frontpage
+
+state Frontpage {
+  index.jsp --> slantedRoof.jsp : Change roof type
+  slantedRoof.jsp --> index.jsp
+}
+
+Frontpage --> Confirmation : Submit request
+Confirmation --> Frontpage : Return
+
+state Confirmation {
+  confirmation.jsp : SERVLET USED: \nRequest
+}
+
+Frontpage --> Login : Link to login
+Login --> Frontpage : Return
+
+state Login {
+  login.jsp : SERVLET USED: \nLogin
+}
+
+Login --> Adminpage : Correct credentials
+Login --> Login : Incorrect credentials
+Adminpage --> Login : Log off
+
+state Adminpage {
+  adminpage.jsp :
+}
+
+Adminpage --> DoneRequests : Show processed requests
+DoneRequests --> Adminpage : Return
+
+state DoneRequests {
+  doneRequests.jsp : SERVLET USED: \nDoneRequests
+}
+
+Adminpage --> NewRequests : Show new requests
+NewRequests --> Adminpage : Return
+
+state NewRequests {
+  showRequests.jsp : SERVLET USED: \nShowRequests
+}
+
+NewRequests --> BillOfMaterials : Show material list
+BillOfMaterials --> NewRequests : Return
+
+state BillOfMaterials {
+  billofmaterials.jsp : SERVLET USED: \nBillOfMaterials
+}
+
+BillOfMaterials --> UpdatePrice : Update price
+UpdatePrice --> BillOfMaterials : Return
+
+state UpdatePrice {
+  requestConfirmation.jsp : SERVLET USED: \nProcessRequest
+}
+
+BillOfMaterials --> ShowDrawing : Show drawing
+ShowDrawing --> BillOfMaterials : Return
+
+state ShowDrawing {
+  drawing.jsp : SERVLET USED: \nDrawing
+}
+
+BillOfMaterials --> MarkAsDone : Process order
+MarkAsDone --> Adminpage : Order processed
+
+state MarkAsDone {
+  NONE : SERVLET USED: \nMarkAsDone
+}
+
+}
+@enduml
