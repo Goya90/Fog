@@ -15,11 +15,8 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-<<<<<<< HEAD
       <module name="Fog" options="-endorseddirs C:\Datamatiker\2.semester\Fog\target/endorsed" />
-=======
       <module name="projektskabelon" options="-endorseddirs &quot;C:\Users\Bruger\Desktop\2 SEM eksamen\Fog\target/endorsed&quot;" />
->>>>>>> 849a1184c7330183184687609f9dbad9f546fd48
     </option>
   </component>
 </project>
