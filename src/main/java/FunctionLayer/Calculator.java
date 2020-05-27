@@ -1,15 +1,14 @@
+
+/*
+ ** Forklaring til alle beregninger kan findes i filen Materialeliste beregninger.xlsx
+ */
+
 package FunctionLayer;
 
 import java.util.ArrayList;
 
-/**
- * Denne klasse indeholder metoder til beregning af nødvendige materialer til en carport ud fra valgte
- * dimensioner.
- */
-
 
 public class Calculator {
-
 
     //Instantiering af variable for carport dimensioner:
     int carportWidth;
@@ -34,30 +33,22 @@ public class Calculator {
 
     //Instantiering af et Material objekt som addMaterialer() metoderne bruger:
     Material mat = null;
-    /**
-     * Metoden bomCalculator returnerer en liste med material objekter.
-     * Forklaring til alle beregninger kan findes i filen Materialeliste beregninger.xlsx.
-     * @return ArrayList Material
-     */
-    public ArrayList<Material> bomCalculator (int width, int length, int height, boolean flatRoof, String roofMaterial, int shedLength, int shedWidth) throws LoginSampleException, ClassNotFoundException {
 
-        //Fejlmeddelelse hvis metoden modtager nul-værdier for carport bredde, længde eller højde:
-        if (width == 0 || length == 0 || height == 0) {
-            //TODO: returner fejlbesked
-        }
+    public ArrayList<Material> bomCalculator (int width, int length, int height, boolean flatRoof, String roofMaterial, int shedLength, int shedWidth) throws LoginSampleException, ClassNotFoundException {
 
         //Metoden sætter variabler der skal bruges i addMaterial() metoderne:
         carportWidth = width;
         carportLength = length;
         carportHeight = height;
 
-        //Grundlæggende materialer til simpel carport tilføjes:
+        //Obligatoriske materialer til simpel carport tilføjes:
         addMaterial1();
         addMaterial3(shedLength, shedWidth);
         addMaterial6();
         addMaterial23();
         addMaterial24();
-        addMaterial27();
+        addMaterial26(shedLength, shedWidth);
+        addMaterial27(shedLength, shedWidth);
         addMaterial28();
 
         //Hvis taget er fladt tilføjes disse materialer:
@@ -320,12 +311,13 @@ public class Calculator {
     //Materiale med ID nr. 18 bliver tilføjet:
     public void addMaterial18 () throws LoginSampleException, ClassNotFoundException {
         materialId = 18;
-        multiplier = 15;
+        divider = 15;
+        unitsPerPack = 200;
         minimumQuantity = 1;
 
         mat = LogicFacade.showMaterial(materialId);
 
-        calculatedQuantity = (carportLength*carportWidth)/convertMM2ToM2*multiplier;
+        calculatedQuantity = (carportLength*carportWidth)/convertMM2ToM2/divider/unitsPerPack;
 
         if (minimumQuantity > calculatedQuantity) {
             mat.setQuantity(minimumQuantity);
@@ -465,11 +457,13 @@ public class Calculator {
         bom.add(mat);
     }
 
-    //Materiale med ID nr. 27 bliver tilføjet:
-    public void addMaterial27 () throws LoginSampleException, ClassNotFoundException {
-        materialId = 27;
+    //Materiale med ID nr. 26 bliver tilføjet:
+    public void addMaterial26 (int shedLength, int shedWidth) throws LoginSampleException, ClassNotFoundException {
+        materialId = 26;
 
-        if (carportLength < 4800) {
+        if(shedLength != 0 && shedWidth != 0) {
+            fixedQuantity = 16;
+        } else if  (carportLength < 4800) {
             fixedQuantity = 8;
         } else {
             fixedQuantity = 12;
@@ -477,7 +471,26 @@ public class Calculator {
 
         Material mat = LogicFacade.showMaterial(materialId);
 
-        mat.setLength(0); //TODO: skal length sættes?
+        mat.setQuantity(fixedQuantity);
+        mat.setPrice(mat.getQuantity()*mat.getPrice());
+
+        bom.add(mat);
+    }
+
+    //Materiale med ID nr. 27 bliver tilføjet:
+    public void addMaterial27 (int shedLength, int shedWidth) throws LoginSampleException, ClassNotFoundException {
+        materialId = 27;
+
+        if(shedLength != 0 && shedWidth != 0) {
+            fixedQuantity = 16;
+        } else if  (carportLength < 4800) {
+            fixedQuantity = 8;
+        } else {
+            fixedQuantity = 12;
+        }
+
+        Material mat = LogicFacade.showMaterial(materialId);
+
         mat.setQuantity(fixedQuantity);
         mat.setPrice(mat.getQuantity()*mat.getPrice());
 

@@ -19,7 +19,7 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th scope="col">KundeID</th>
+                <th scope="col">Ordre nr</th>
                 <th scope="col">Navn</th>
                 <th scope="col">Telefonnr</th>
                 <th scope="col">Mail</th>

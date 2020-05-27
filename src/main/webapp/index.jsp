@@ -5,8 +5,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="includes/header.inc"%>
 <%
-    boolean roof = true;
-
     if (request.getServletContext().getAttribute("width") == null) {
         request.getServletContext().setAttribute("width", Initializer.getWidthsList());
     }
@@ -24,7 +22,7 @@
     }
     request.getServletContext().setAttribute("flatRoof", true);
     try {
-        request.getServletContext().setAttribute("roofMaterial", LogicFacade.showRoofMaterialList(roof));
+        request.getServletContext().setAttribute("roofMaterial", LogicFacade.showRoofMaterialList(true));
     } catch (LoginSampleException | ClassNotFoundException e) {
         e.printStackTrace();
     }
@@ -43,6 +41,7 @@
             <div class="form-group">
                 <form action="FrontController" method="POST">
                     <input type="hidden" name="target" value="request">
+                    <input type="hidden" class="form-control" name="flatRoof" value="true">
                     <label for="width">Vælg bredde:</label>
                     <select class="form-control" name="width" id="width" style="width: 350px">
                         <c:forEach var="width" items="${applicationScope.width}">
