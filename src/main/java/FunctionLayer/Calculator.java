@@ -36,11 +36,6 @@ public class Calculator {
 
     public ArrayList<Material> bomCalculator (int width, int length, int height, boolean flatRoof, String roofMaterial, int shedLength, int shedWidth) throws LoginSampleException, ClassNotFoundException {
 
-        //Fejlmeddelelse hvis metoden modtager nul-værdier for carport bredde, længde eller højde:
-        if (width == 0 || length == 0 || height == 0) {
-            //TODO: returner fejlbesked
-        }
-
         //Metoden sætter variabler der skal bruges i addMaterial() metoderne:
         carportWidth = width;
         carportLength = length;
@@ -316,12 +311,13 @@ public class Calculator {
     //Materiale med ID nr. 18 bliver tilføjet:
     public void addMaterial18 () throws LoginSampleException, ClassNotFoundException {
         materialId = 18;
-        multiplier = 15;
+        divider = 15;
+        unitsPerPack = 200;
         minimumQuantity = 1;
 
         mat = LogicFacade.showMaterial(materialId);
 
-        calculatedQuantity = (carportLength*carportWidth)/convertMM2ToM2*multiplier;
+        calculatedQuantity = (carportLength*carportWidth)/convertMM2ToM2/divider/unitsPerPack;
 
         if (minimumQuantity > calculatedQuantity) {
             mat.setQuantity(minimumQuantity);

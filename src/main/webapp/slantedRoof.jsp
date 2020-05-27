@@ -5,8 +5,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="includes/header.inc"%>
 <%
-    boolean roof = false;
-
     if (request.getServletContext().getAttribute("width") == null) {
         request.getServletContext().setAttribute("width", Initializer.getWidthsList());
     }
@@ -24,7 +22,7 @@
     }
     request.getServletContext().setAttribute("flatRoof", false);
     try {
-        request.getServletContext().setAttribute("roofMaterial", LogicFacade.showRoofMaterialList(roof));
+        request.getServletContext().setAttribute("roofMaterial", LogicFacade.showRoofMaterialList(false));
     } catch (LoginSampleException | ClassNotFoundException e) {
         e.printStackTrace();
     }

@@ -18,7 +18,7 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th scope="col">KundeID</th>
+                <th scope="col">Ordre nr</th>
                 <th scope="col">Navn</th>
                 <th scope="col">Telefonnr</th>
                 <th scope="col">Mail</th>
@@ -55,10 +55,6 @@
             </tbody>
         </table>
         <br>
-
-
-
-
 
         <div class="text-center">
             <a href="FrontController?target=redirect&destination=adminpage">Tilbage</a>
