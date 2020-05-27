@@ -110,7 +110,7 @@ public class MaterialMapperTest {
     public void getMaterial6() throws LoginSampleException, ClassNotFoundException {
         Material mat = MaterialMapper.getMaterial(6);
         assertEquals("Træ", mat.getCategory());
-        assertEquals("45x195 mm. spærtræ ubeh.", mat.getName());
+        assertEquals("45x95 mm reglar ubh.", mat.getName());
     }
 
 
