@@ -14,7 +14,6 @@ public class Connector {
     private static String URL;
     private static String USERNAME;
     private static String PASSWORD;
-
     private static Connection singleton;
 
     public static void setConnection( Connection con ) {
@@ -53,7 +52,7 @@ public class Connector {
             // Localhost
             URL = "jdbc:mysql://localhost:3306/fog?serverTimezone=CET&useSSL=false";
             USERNAME = "root";
-            PASSWORD = "Uifr279!";
+            PASSWORD = "Rufbtr11@";
         }
     }
 }

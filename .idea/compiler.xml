@@ -6,16 +6,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="projektskabelon" />
+        <module name="Fog" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="projektskabelon" target="8" />
+      <module name="Fog" target="8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="projektskabelon" options="-endorseddirs C:\Users\45222\OneDrive\Skrivebord\fog0525\Fog\target/endorsed" />
+      <module name="Fog" options="-endorseddirs C:\Datamatiker\2.semester\Fog\target/endorsed" />
     </option>
   </component>
 </project>

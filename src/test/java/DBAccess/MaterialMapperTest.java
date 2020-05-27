@@ -116,8 +116,8 @@ public class MaterialMapperTest {
 
     /**
      * Tester antal og indhold til listen med tagmaterialer
-     * @throws LoginSampleException
-     * @throws ClassNotFoundException
+     * @throws LoginSampleException user
+     * @throws ClassNotFoundException klasse
      */
     @Test
     public void roofMaterialTest() throws LoginSampleException, ClassNotFoundException {

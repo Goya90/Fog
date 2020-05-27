@@ -142,4 +142,8 @@
     </div>
 
 </form>
+        <br>
+        <div class="text-center">
+            <a href="FrontController?target=redirect&destination=adminpage">Tilbage</a>
+        </div>
 <%@include file="../includes/footer.inc"%>
