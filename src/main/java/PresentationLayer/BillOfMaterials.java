@@ -44,22 +44,23 @@ public class BillOfMaterials extends Command {
             return "adminpage";
         }
         //Samlet pris initialiseres
-        Double total = 0.0;
+        Double listprice = 0.0;
         //samlet pris beregnes
         for (Material mat : bom) {
-            total += mat.getPrice();
+            listprice += mat.getPrice();
         }
         //jsp attributter sættes fra custreq objekt med gettere
         request.getServletContext().setAttribute("width", custreq.getWidth());
         request.getServletContext().setAttribute("height", custreq.getHeight());
         request.getServletContext().setAttribute("length", custreq.getLength());
         request.getServletContext().setAttribute("reqID", reqID);
-        request.getServletContext().setAttribute("total", total);
+        request.getServletContext().setAttribute("listprice", listprice);
         request.getServletContext().setAttribute("shedLength", custreq.getShedl());
         request.getServletContext().setAttribute("shedWidth", custreq.getShedw());
         request.getServletContext().setAttribute("roofMaterial", custreq.getRoofMat());
+        request.setAttribute("pricedb", custreq.getPrice());
         //jsp attribut materiallist sættes med værdier fra bom liste
-        session.setAttribute("materialList", bom);
+        request.setAttribute("materialList", bom);
         //brugeren sendes til websiden billofmaterials
         return "billofmaterials";
     }

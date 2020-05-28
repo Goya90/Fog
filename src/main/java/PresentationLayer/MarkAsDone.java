@@ -1,5 +1,6 @@
 package PresentationLayer;
 
+import FunctionLayer.CustomerRequest;
 import FunctionLayer.LogicFacade;
 import FunctionLayer.LoginSampleException;
 
@@ -16,10 +17,19 @@ public class MarkAsDone extends Command {
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, ClassNotFoundException {
         //Henter værdien fra webside attribut
         int id = (int) request.getServletContext().getAttribute("reqID");
-        //Henter den udregnede pris fra websiden
-        double price = (double) request.getServletContext().getAttribute("total");
+        //Laver en CustomerRequest instans fra id
+        CustomerRequest cust = LogicFacade.showRequest(id);
+        //Henter pris på request med en getter
+        double dbpris = cust.getPrice();
+        //Checker at der eksisterer en pris i db inden request sættes til processed=true
+        if (dbpris > 0) {
+            LogicFacade.updateRequest(id);
+        } else {                            //Skriver fejlmedd på webside hvis ingen pris
+            request.setAttribute( "error", "Fejl: Der er ikke sat en pris på forespørgslen" );
+            return "adminpage";
+        }
         //Opdaterer pris for det valgte id i tabellen cust_request via LogicFacade/RequestMapper
-        LogicFacade.updateRequest(price,id);
+
         //Sender brugeren retur til admin siden
         return "adminpage";
     }

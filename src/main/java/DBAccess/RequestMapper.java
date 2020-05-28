@@ -94,7 +94,7 @@ public class RequestMapper {
         CustomerRequest req = null;
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT width,length,height,flatRoof,roofMaterial,shed_length,shed_width FROM cust_request where reqId = ?;";
+            String SQL = "SELECT width,length,height,flatRoof,roofMaterial,shed_length,shed_width, price FROM cust_request where reqId = ?;";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setString(1, "" + id);
             ResultSet rs = ps.executeQuery();
@@ -106,7 +106,8 @@ public class RequestMapper {
                 String material = rs.getString("roofMaterial");
                 int shedlength = rs.getInt("shed_length");
                 int shedwidth = rs.getInt("shed_width");
-                req = new CustomerRequest(width,length,height,flatRoof,material,shedlength,shedwidth);
+                double price = rs.getDouble("price");
+                req = new CustomerRequest(width,length,height,flatRoof,material,shedlength,shedwidth, price);
 
             }
 
@@ -124,13 +125,12 @@ public class RequestMapper {
      * @param id forespørgsels nummer
      * @throws LoginSampleException ved sql fejl
      */
-    public static void processRequest(double price, int id) throws LoginSampleException {
+    public static void processRequest(int id) throws LoginSampleException {
         try {
             Connection con = Connector.connection();
-            String SQL = "UPDATE cust_request SET processed = true, price = ? where reqId = ?;";
+            String SQL = "UPDATE cust_request SET processed = true where reqId = ?;";
             PreparedStatement ps = con.prepareStatement( SQL );
-            ps.setDouble(1,price);
-            ps.setInt(2,id);
+            ps.setInt(1,id);
             ps.executeUpdate();
 
         } catch ( SQLException | ClassNotFoundException ex ) {

@@ -19,6 +19,7 @@ public class CustomerRequest {
     String roofMat;
     int shedl;
     int shedw;
+    double price;
 
     /**
      * Constructor, CustomerRequest objekt
@@ -90,7 +91,7 @@ public class CustomerRequest {
      * @param shedl skurlængde
      * @param shedw skurbredde
      */
-    public CustomerRequest(int width, int length, int height, boolean flatRoof, String roofMat, int shedl, int shedw) {
+    public CustomerRequest(int width, int length, int height, boolean flatRoof, String roofMat, int shedl, int shedw, double price) {
         this.width = width;
         this.length = length;
         this.height = height;
@@ -98,6 +99,7 @@ public class CustomerRequest {
         this.roofMat = roofMat;
         this.shedl = shedl;
         this.shedw = shedw;
+        this.price = price;
     }
     //settere og gettere
     public void setReqId(int reqId) {
@@ -152,6 +154,14 @@ public class CustomerRequest {
         return shedw;
     }
 
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
     @Override
     public String toString() {
         return "CustomerRequest{" +
@@ -167,6 +177,7 @@ public class CustomerRequest {
                 ", roofMat='" + roofMat + '\'' +
                 ", shedl=" + shedl +
                 ", shedw=" + shedw +
+                ", price=" + price +
                 '}';
     }
 }

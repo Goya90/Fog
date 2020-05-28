@@ -32,7 +32,7 @@
             </thead>
             <tbody>
             <tr>
-            <c:forEach var="material" items="${sessionScope.materialList}">
+                <c:forEach var="material" items="${requestScope.materialList}">
                 <c:if test="${material.category=='Træ'}">
                     <td>${material.category}</td>
                     <td>${material.name}</td>
@@ -41,7 +41,7 @@
                     <td>${material.length}</td>
                     <td><fmt:formatNumber type="number" minFractionDigits="2" value="${material.price}"/></td>
                 </c:if>
-                </tr>
+            </tr>
             </c:forEach>
             </tbody>
         </table>
@@ -61,7 +61,7 @@
             </thead>
             <tbody>
             <tr>
-            <c:forEach var="material" items="${sessionScope.materialList}">
+                <c:forEach var="material" items="${requestScope.materialList}">
                 <c:if test="${material.category=='Beslag & skruer'}">
                     <td>${material.category}</td>
                     <td>${material.name}</td>
@@ -69,7 +69,7 @@
                     <td>${material.quantity}</td>
                     <td><fmt:formatNumber type="number" minFractionDigits="2" value="${material.price}"/></td>
                 </c:if>
-                </tr>
+            </tr>
             </c:forEach>
             </tbody>
         </table>
@@ -90,7 +90,7 @@
             </thead>
             <tbody>
             <tr>
-            <c:forEach var="material" items="${sessionScope.materialList}">
+                <c:forEach var="material" items="${requestScope.materialList}">
                 <c:if test="${material.category=='Tagpakken'}">
                     <td>${material.category}</td>
                     <td>${material.name}</td>
@@ -98,50 +98,49 @@
                     <td>${material.quantity}</td>
                     <td><fmt:formatNumber type="number" minFractionDigits="2" value="${material.price}"/></td>
                 </c:if>
-                </tr>
+            </tr>
             </c:forEach>
             </tbody>
         </table>
     </div>
 </div>
 
-<h5 class="text-right">Listepris: <fmt:formatNumber type="number" minFractionDigits="2" value="${applicationScope.total}"/> kr inkl. moms
+<h5 class="text-right">Listepris: <fmt:formatNumber type="number" minFractionDigits="2" value="${applicationScope.listprice}"/> kr inkl. moms
+    <c:if test="${requestScope.pricedb != '0'}">
+    <h5 class="text-right">Opdateret pris: <fmt:formatNumber type="number" minFractionDigits="2" value="${requestScope.pricedb}"/> kr inkl. moms
+        </c:if>
 
-    <c:if test="${applicationScope.finalPrice != NULL}">
-    <h5 class="text-right">Opdateret pris: <fmt:formatNumber type="number" minFractionDigits="2" value="${applicationScope.finalPrice}"/> kr inkl. moms
-    </c:if>
+        <br>
+        <br>
+        <form action="FrontController" method="POST">
+            <input type="hidden" name="target" value="processrequest">
+            <div class="text-left">
+                <label for="newprice">Ny pris:</label>
+                <input id="newprice" type="text" name="newprice" value="">
+                <button type="submit" class="btn btn-primary">Opdater pris</button>
+                <h3>   ${requestScope.error} </h3>
+            </div>
+        </form>
+        <br>
+        <br>
 
-    <br>
-    <br>
-    <form action="FrontController" method="POST">
-        <input type="hidden" name="target" value="processrequest">
-        <div class="text-left">
-            <label for="newprice">Ny pris:</label>
-            <input id="newprice" type="text" name="newprice" value="">
-            <button type="submit" class="btn btn-primary">Opdater pris</button>
-            <h3>   ${requestScope.error} </h3>
-        </div>
-    </form>
-    <br>
-    <br>
-
-    <form action="FrontController" method="POST">
-        <input type="hidden" name="target" value="markasdone">
-        <div class="text-left">
-            <button type="submit" class="btn btn-primary">Marker ordre som færdigbehandlet</button>
-        </div>
-    </form>
-    <br>
-    <br>
+        <form action="FrontController" method="POST">
+            <input type="hidden" name="target" value="markasdone">
+            <div class="text-left">
+                <button type="submit" class="btn btn-primary">Marker ordre som færdigbehandlet</button>
+            </div>
+        </form>
+        <br>
+        <br>
 
 
-    <form action="FrontController" method="POST">
-    <input type="hidden" name="target" value="drawing">
-    <div class="text-center">
-        <button type="submit" class="btn btn-primary">Vis tegning</button>
-    </div>
+        <form action="FrontController" method="POST">
+            <input type="hidden" name="target" value="drawing">
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Vis tegning</button>
+            </div>
 
-</form>
+        </form>
         <br>
         <div class="text-center">
             <a href="FrontController?target=redirect&destination=adminpage">Tilbage</a>

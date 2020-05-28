@@ -130,8 +130,8 @@ public class LogicFacade {
      * @param id request id
      * @throws LoginSampleException fejl i login credentials
      */
-    public static void updateRequest(double price, int id) throws LoginSampleException {
-        RequestMapper.processRequest(price,id);
+    public static void updateRequest(int id) throws LoginSampleException {
+        RequestMapper.processRequest(id);
     }
     /**Opdaterer prisen på en kundeforespørgsel i tabellen cust_request med et ID som parameter, via RequestMapper.
      *
